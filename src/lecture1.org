@@ -1,0 +1,158 @@
+#+TITLE: Probability and Statistics in Civil Engineering
+#+AUTHOR: Kostas Andreadis
+#+DATE: Lecture #1 - 4 Sep 2018
+#+OPTIONS: toc:nil reveal_mathjax:t author:nil timestamp:nil num:nil
+#+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/
+#+REVEAL_THEME: night
+#+REVEAL_EXTRA_CSS: custom.css
+#+STARTUP: noinlineimages
+#+MACRO: empty
+
+* Who am I?
+* Course Logistics
+- Office Hours
+
+  *Wed 9:30-12*, 18C Marston Hall
+
+  (or by arrangement, [[mailto:kandread@umass.edu][kandread@umass.edu]])
+- Textbook
+
+  [[http://umass.amazon.com/dp/047172064X/ref=umass_coursecatalog][Probability Concepts in Engineering: Emphasis on Applications to Civil and Environmental Engineering]]
+** {{{empty}}}
+- Homework
+
+  Problems will be assigned but do *not* need to be turned in
+- Moodle
+  - Lectures and Notes
+  - Homework problems
+  - Quiz and Exam solutions
+** {{{empty}}}
+- Disability Statement
+
+  [[http://www.umass.edu/disability/]]
+- Academic Honesty Policy Statement
+
+  [[http://umass.edu/dean_students/codeofconduct/acadhonesty/]]
+* Grading
+| Midterms (20% each) |  40% |
+| Quizzes             |  30% |
+| Final Exam          |  30% |
+|---------------------+------|
+|                     | 100% |
+
+#+ATTR_REVEAL: :frag roll-in
+- Best 8/10 of quizzes will be considered
+- Final will cover material from entire semester
+* Course Objectives
+
+#+ATTR_REVEAL: :frag (roll-in)
+ - Understand fundamental concepts of probability.
+ - Identify, apply and evaluate the proper probability model.
+ - Use statistical methods to make inferences from data.
+ - Perform regression analysis, hypothesis testing, confidence interval calculations.
+ - Develop computational methods to quantify uncertainty.
+ - Acquire basic understanding of Sampling Statistics and Bayesian Inference.
+* Topics
+#+ATTR_REVEAL: :frag (appear)
+ - Week 1: Introduction, Uncertainty in Engineering Design
+ - Week 2: Fundamentals of Probability Models
+ - Week 3: Probability Distributions
+ - Week 4: Functions of Random Variables
+ - Week 5: Simulation Methods in Probability
+ - Week 6: @@html:<font color="orange">@@ Midterm #1 @@html:</font>@@
+ - Week 7: Statistical Inference
+ - Week 8: Fitting Probability Models
+** {{{empty}}}
+#+ATTR_REVEAL: :frag (appear)
+- Week 9: Regression and Correlation Analyses
+- Week 10: Regression and its Applications
+- Week 11: @@html:<font color="orange">@@ Midterm #2 @@html:</font>@@
+- Week 12: @@html:<font color="dodgerblue">@@ Thanksgiving Break @@html:</font>@@
+- Week 13: Bayesian Inference
+- Week 14: Quality Assurance and Acceptance Sampling
+- Week 15: Q&A, Finals Prep
+- Week 16: @@html:<font color="orange">@@ Finals @@html:</font>@@
+* Why are we learning this?
+** {{{empty}}}
+:PROPERTIES:
+:reveal_background: https://media.coindesk.com/uploads/2014/09/rsz_shutterstock_145623826.jpg
+:reveal_background_trans: slide
+:END:
+** Uncertainty in Engineering
+Would we get identical answers if...
+#+ATTR_REVEAL: :frag (roll-in)
+- each of us measured the height of the classroom's wall?
+- we measured the classroom's air temperature?
+- we had to calculate the width of a room knowing the height and that the room
+  measures 8' x 6' x 3'?
+** Uncertainty in Engineering
+[[file:images/precision1.jpeg]]
+#+ATTR_REVEAL: :frag appear
+[[file:images/precision2.jpeg]]
+** {{{empty}}}
+/*Uncertainties are unavoidable, but as engineers we need to account for them!*/
+#+ATTR_REVEAL: :frag (appear)
+- Uncertainty affects both design and operations.
+- Probability and Statistics provide the tools for its modeling and analysis.
+- Directly translatable to risk.
+** Types of Uncertainty
+#+BEGIN_SRC dot :file images/uncertainty.png :exports none
+digraph uncertainty_class {
+rankdir=LR;
+node[fontsize=24, color = white, shape = circle] ;
+unc[color=dodgerblue, label="Uncertainty"];
+alea[color=violet, label="Aleatory"];
+epis[color=violet, label="Epistemic"];
+unc -> alea;
+unc -> epis;
+}
+#+END_SRC
+#+REVEAL_HTML: <div class="column" style="float:left; width: 50%">
+[[file:images/uncertainty.png]]
+#+REVEAL_HTML: </div>
+#+REVEAL_HTML: <div class="column" style="float:right; width: 50%">
+#+ATTR_REVEAL: :frag (appear)
+- Aleatory ::
+     - Randomness
+     - Temporal and spatial variability
+     - *Irreducible*
+- Epistemic ::
+     - Imperfect knowledge and models
+     - *Reducible*
+#+REVEAL_HTML: </div>
+** {{{empty}}}
+:PROPERTIES:
+:reveal_background: http://stayorswitch.com/blog/wp-content/uploads/2014/06/473246.jpg
+:reveal_background_trans: slide
+:END:
+#+REVEAL_HTML: <div class="column" style="float:right; width: 60%">
+*What type of uncertainty do we have when we roll a die?*
+#+REVEAL_HTML: </div>
+** {{{empty}}}
+:PROPERTIES:
+:reveal_background: http://stayorswitch.com/blog/wp-content/uploads/2014/06/473246.jpg
+:reveal_background_trans: slide
+:END:
+#+REVEAL_HTML: <div class="column" style="float:right; width: 60%">
+*Assume that four previous rolls were /2/, /3/, /3/, /4/*
+- How many sides do you think the die has?
+#+ATTR_REVEAL: :frag (roll-in)
+- Would a 5- or 6-sided die better describe the "system"?
+#+REVEAL_HTML: </div>
+** {{{empty}}}
+:PROPERTIES:
+:reveal_background: http://stayorswitch.com/blog/wp-content/uploads/2014/06/473246.jpg
+:reveal_background_trans: slide
+:END:
+#+REVEAL_HTML: <div class="column" style="float:right; width: 60%">
+*Assume we rolled the die a large number of times*
+#+ATTR_REVEAL: :frag (roll-in)
+- What happens to the uncertainties?
+#+REVEAL_HTML: </div>
+* Exercise
+*What types of uncertainty do you expect in the following?*
+1. Elasticity of construction lumber
+2. Mean annual rainfall over a watershed
+3. Predicted deflection of a beam under a certain load
+4. Impact speed of passenger car accidents
+* {{{empty}}}
