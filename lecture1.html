@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Probability and Statistics in Civil Engineering</title>
+<meta name="author" content="(Kostas Andreadis)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Probability and Statistics in Civil Engineering</h1><h2 class="date">Lecture #1 - 4 Sep 2018</h2>
+</section>
+
+<section>
+<section id="slide-org1a50a07">
+<h2 id="org1a50a07">Who am I?</h2>
+</section>
+</section>
+<section>
+<section id="slide-org3d360ca">
+<h2 id="org3d360ca">Course Logistics</h2>
+<ul>
+<li><p>
+Office Hours
+</p>
+
+<p>
+<b>Wed 9:30-12</b>, 18C Marston Hall
+</p>
+
+<p>
+(or by arrangement, <a href="mailto:kandread@umass.edu">kandread@umass.edu</a>)
+</p></li>
+<li><p>
+Textbook
+</p>
+
+<p>
+<a href="http://umass.amazon.com/dp/047172064X/ref=umass_coursecatalog">Probability Concepts in Engineering: Emphasis on Applications to Civil and Environmental Engineering</a>
+</p></li>
+
+</ul>
+</section>
+<section id="slide-orgeef5a0c">
+<h3 id="orgeef5a0c"></h3>
+<ul>
+<li><p>
+Homework
+</p>
+
+<p>
+Problems will be assigned but do <b>not</b> need to be turned in
+</p></li>
+<li>Moodle
+<ul>
+<li>Lectures and Notes</li>
+<li>Homework problems</li>
+<li>Quiz and Exam solutions</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org0e8dfff">
+<h3 id="org0e8dfff"></h3>
+<ul>
+<li><p>
+Disability Statement
+</p>
+
+<p>
+<a href="http://www.umass.edu/disability/">http://www.umass.edu/disability/</a>
+</p></li>
+<li><p>
+Academic Honesty Policy Statement
+</p>
+
+<p>
+<a href="http://umass.edu/dean_students/codeofconduct/acadhonesty/">http://umass.edu/dean_students/codeofconduct/acadhonesty/</a>
+</p></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org5262307">
+<h2 id="org5262307">Grading</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Midterms (20% each)</th>
+<th scope="col" class="org-right">40%</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">Quizzes</th>
+<th scope="col" class="org-right">30%</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">Final Exam</th>
+<th scope="col" class="org-right">30%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">100%</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="fragment roll-in">
+<li>Best 8/10 of quizzes will be considered</li>
+<li>Final will cover material from entire semester</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org69f8779">
+<h2 id="org69f8779">Course Objectives</h2>
+<ul>
+<li class="fragment roll-in">Understand fundamental concepts of probability.</li>
+<li class="fragment roll-in">Identify, apply and evaluate the proper probability model.</li>
+<li class="fragment roll-in">Use statistical methods to make inferences from data.</li>
+<li class="fragment roll-in">Perform regression analysis, hypothesis testing, confidence interval calculations.</li>
+<li class="fragment roll-in">Develop computational methods to quantify uncertainty.</li>
+<li class="fragment roll-in">Acquire basic understanding of Sampling Statistics and Bayesian Inference.</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org148a269">
+<h2 id="org148a269">Topics</h2>
+<ul>
+<li class="fragment appear">Week 1: Introduction, Uncertainty in Engineering Design</li>
+<li class="fragment appear">Week 2: Fundamentals of Probability Models</li>
+<li class="fragment appear">Week 3: Probability Distributions</li>
+<li class="fragment appear">Week 4: Functions of Random Variables</li>
+<li class="fragment appear">Week 5: Simulation Methods in Probability</li>
+<li class="fragment appear">Week 6: <font color="orange"> Midterm #1 </font></li>
+<li class="fragment appear">Week 7: Statistical Inference</li>
+<li class="fragment appear">Week 8: Fitting Probability Models</li>
+
+</ul>
+</section>
+<section id="slide-org2a4b8e5">
+<h3 id="org2a4b8e5"></h3>
+<ul>
+<li class="fragment appear">Week 9: Regression and Correlation Analyses</li>
+<li class="fragment appear">Week 10: Regression and its Applications</li>
+<li class="fragment appear">Week 11: <font color="orange"> Midterm #2 </font></li>
+<li class="fragment appear">Week 12: <font color="dodgerblue"> Thanksgiving Break </font></li>
+<li class="fragment appear">Week 13: Bayesian Inference</li>
+<li class="fragment appear">Week 14: Quality Assurance and Acceptance Sampling</li>
+<li class="fragment appear">Week 15: Q&amp;A, Finals Prep</li>
+<li class="fragment appear">Week 16: <font color="orange"> Finals </font></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org8eab9a5">
+<h2 id="org8eab9a5">Why are we learning this?</h2>
+<div class="outline-text-2" id="text-org8eab9a5">
+</div>
+</section>
+<section id="slide-orgfb2b1dc" data-background="https://media.coindesk.com/uploads/2014/09/rsz_shutterstock_145623826.jpg" data-background-transition="slide">
+<h3 id="orgfb2b1dc"></h3>
+</section>
+<section id="slide-org8574a7c">
+<h3 id="org8574a7c">Uncertainty in Engineering</h3>
+<p>
+Would we get identical answers if&#x2026;
+</p>
+<ul>
+<li class="fragment roll-in">each of us measured the height of the classroom's wall?</li>
+<li class="fragment roll-in">we measured the classroom's air temperature?</li>
+<li class="fragment roll-in">we had to calculate the width of a room knowing the height and that the room
+measures 8' x 6' x 3'?</li>
+
+</ul>
+</section>
+<section id="slide-orgde3e269">
+<h3 id="orgde3e269">Uncertainty in Engineering</h3>
+
+<div class="figure">
+<p><img src="images/precision1.jpeg" alt="precision1.jpeg" />
+</p>
+</div>
+
+<div class="figure">
+<p><img src="images/precision2.jpeg" alt="precision2.jpeg" class="fragment appear" />
+</p>
+</div>
+</section>
+<section id="slide-org6409bdf">
+<h3 id="org6409bdf"></h3>
+<p>
+<i><b>Uncertainties are unavoidable, but as engineers we need to account for them!</b></i>
+</p>
+<ul>
+<li class="fragment appear">Uncertainty affects both design and operations.</li>
+<li class="fragment appear">Probability and Statistics provide the tools for its modeling and analysis.</li>
+<li class="fragment appear">Directly translatable to risk.</li>
+
+</ul>
+</section>
+<section id="slide-org9eb650f">
+<h3 id="org9eb650f">Types of Uncertainty</h3>
+<div class="column" style="float:left; width: 50%">
+
+<div class="figure">
+<p><img src="images/uncertainty.png" alt="uncertainty.png" />
+</p>
+</div>
+</div>
+<div class="column" style="float:right; width: 50%">
+<dl>
+<dt class="fragment appear">Aleatory</dt><dd class="fragment appear"><ul>
+<li>Randomness</li>
+<li>Temporal and spatial variability</li>
+<li><b>Irreducible</b></li>
+
+</ul></dd>
+<dt class="fragment appear">Epistemic</dt><dd class="fragment appear"><ul>
+<li>Imperfect knowledge and models</li>
+<li><b>Reducible</b></li>
+
+</ul></dd>
+
+</dl>
+</div>
+</section>
+<section id="slide-orgb403967" data-background="http://stayorswitch.com/blog/wp-content/uploads/2014/06/473246.jpg" data-background-transition="slide">
+<h3 id="orgb403967"></h3>
+<div class="column" style="float:right; width: 60%">
+<p>
+<b>What type of uncertainty do we have when we roll a die?</b>
+</p>
+</div>
+</section>
+<section id="slide-org5e5d19c" data-background="http://stayorswitch.com/blog/wp-content/uploads/2014/06/473246.jpg" data-background-transition="slide">
+<h3 id="org5e5d19c"></h3>
+<div class="column" style="float:right; width: 60%">
+<p>
+<b>Assume that four previous rolls were <i>2</i>, <i>3</i>, <i>3</i>, <i>4</i></b>
+</p>
+<ul>
+<li>How many sides do you think the die has?</li>
+
+</ul>
+<ul>
+<li class="fragment roll-in">Would a 5- or 6-sided die better describe the "system"?</li>
+
+</ul>
+</div>
+</section>
+<section id="slide-org08ebf6a" data-background="http://stayorswitch.com/blog/wp-content/uploads/2014/06/473246.jpg" data-background-transition="slide">
+<h3 id="org08ebf6a"></h3>
+<div class="column" style="float:right; width: 60%">
+<p>
+<b>Assume we rolled the die a large number of times</b>
+</p>
+<ul>
+<li class="fragment roll-in">What happens to the uncertainties?</li>
+
+</ul>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgd3a3f7c">
+<h2 id="orgd3a3f7c">Exercise</h2>
+<p>
+<b>What types of uncertainty do you expect in the following?</b>
+</p>
+<ol>
+<li>Elasticity of construction lumber</li>
+<li>Mean annual rainfall over a watershed</li>
+<li>Predicted deflection of a beam under a certain load</li>
+<li>Impact speed of passenger car accidents</li>
+
+</ol>
+</section>
+</section>
+<section>
+<section id="slide-org9e9c537">
+<h2 id="org9e9c537"></h2>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
