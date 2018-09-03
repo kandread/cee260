@@ -1,4 +1,4 @@
-# ce260
+# CE-ENGIN 260
 Probability and Statistics in Civil Engineering
 
 ## Lectures
