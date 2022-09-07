@@ -1,4 +1,4 @@
-# CE-ENGIN 260
+# CEE 260/ MIE 273
 Probability and Statistics in Civil Engineering
 
 ## Lectures
