@@ -1,0 +1,13 @@
+#+description: Setup file for reveal.js presentations
+#+options: author:nil timestamp:nil toc:nil num:nil reveal_width:1280 reveal_height:720
+#+reveal_theme: night
+#+reveal_root: ./reveal.js
+#+reveal_extra_css: custom.css
+#+reveal_plugins: (highlight zoom notes math)
+#+reveal_add_plugin: chalkboard RevealChalkboard plugin/chalkboard/plugin.js
+#+reveal_add_plugin: menu RevealMenu plugin/menu/menu.js
+#+reveal_head_preamble: <link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css">
+#+reveal_head_preamble: <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+#+startup: latexpreview
+#+macro: empty
+#+macro: color @@html:<font color="$1">$2</font>@@
