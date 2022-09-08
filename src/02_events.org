@@ -119,7 +119,7 @@
   #+attr_html: :width 80%
   [[file:images/venn8.png]]
   #+reveal_html: </div><div>
-  $$(A \cap B) \cup (B \cap C)$$
+  $$(A \cap C) \cup (B \cap C)$$
   #+attr_html: :width 80%  
   [[file:images/venn8.png]]
   #+reveal_html: </div>
