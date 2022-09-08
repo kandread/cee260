@@ -52,3 +52,12 @@
 /* .reveal .date { */
 /*     color: white; */
 /* } */
+
+.reveal .block {
+  border: 5px solid var(--custom-emph);
+  border-radius: 10px;
+  background-color: cornflowerblue;
+  padding: 0.25em;
+  text-align: center;
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
+}
