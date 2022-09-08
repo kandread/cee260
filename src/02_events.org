@@ -1,0 +1,196 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 8 Sep
+#+setupfile: ./reveal.org
+* {{{empty}}}
+  :PROPERTIES:
+  :reveal_background: https://cdn2.psychologytoday.com/assets/styles/manual_crop_1_91_1_1528x800/public/field_blog_entry_teaser_image/2020-08/cube-689618_1920.jpg
+  :reveal_background_trans: slide
+  :END:
+* Random experiments
+  #+attr_reveal: :frag (roll-in)
+  - Repeat measurements of current in copper wire
+  - What are some factors that can cause variations in measurements?
+    - Ambient temperature
+    - Small impurities in the wire
+    - Current source drifts
+  - *Random component in the experiment*
+** Random experiment
+   #+reveal_html: <div class="block">
+   An experiment that can result in different outcomes, even though it is repeated in the same manner every time
+   #+reveal_html: </div>
+** {{{empty}}}
+   Noise variables affect transformation of inputs to outputs
+   #+attr_html: :width 80%
+   [[file:images/fig2_1.png]]
+** {{{empty}}}
+   #+reveal_html: <div class="twocolumn"><div>
+   [[file:images/fig2_2.png]]
+   #+reveal_html: </div><div>
+   [[file:images/fig2_3.png]]
+   #+reveal_html: </div>
+* Example
+  A contractor needs to acquire bulldozers for a new project and from prior experience knows that there is a 50% chance that each bulldozer will remain operational for at least 6 months. If they purchased 3 bulldozers, what is the probability that there will be only 1 bulldozer that is operational after 6 months?
+* Sample space
+  #+reveal_html: <div class="block">
+  The set of all possible outcomes of a random experiment is called the *sample space* of the experiment, denoted as $S$
+  #+reveal_html: </div>
+** depends on our objective
+   Consider measurements of the recycle time of a flash for a camera:
+   #+attr_reveal: :frag (appear)
+   - Time is positive $S$={/x > 0/}
+   - If recycle times are between 1.5 and 5 secs $S$={/1.5 < x < 5/}
+   - If objective is whether time is low, medium, or high $S$={/low, medium, high/}
+   - If objective is whether camera meets a specification threshold $S$={/yes,no/}
+* Discrete vs continuous sample spaces
+  #+attr_reveal: :frag (appear)
+  - When sample points are discrete entities and countable: *discrete space*
+  - When sample space consists of a continuum of sample points: *continuous space*
+  - Locations of possible traffic accidents on a bridge?
+  - Number of flaws in a given length of welding?
+  - Bearing capacity of clay soil deposit that is between 1.5 and 4.0 tons/ft^2?
+* Events
+  #+reveal_html: <div class="block">
+  An *event* is a subset of the sample space of a random experiment
+  #+reveal_html: </div>
+  #+reveal_html: <span class="fragment">
+  #+attr_html: :width 70%
+  [[file:images/fig2_4.png]]
+  $10 \leq R_A \leq 20\,\mathrm{kg}$
+  #+reveal_html: </span>
+* Combination of events
+  #+attr_reveal: :frag (appear)
+  - *union* of two events is the event that consists of all outcomes contained in either of two events
+  - *intersection* of two events is the event that consists of all outcomes contained in both events
+  - *complement* of an event is the set of outcomes that are not in the event
+* Venn diagrams
+  #+attr_html: :width 60%
+  [[file:images/venn1.png]]
+* Event $A$
+  #+attr_html: :width 60%
+  [[file:images/venn2.png]]
+* Union $A \cup B$
+  #+attr_html: :width 60%
+  [[file:images/venn4.png]]
+* Intersection $A \cap B$
+  #+attr_html: :width 60%
+  [[file:images/venn3.png]]
+* Complement $A'$
+  #+attr_html: :width 60%
+  [[file:images/venn5.png]]
+* Complement $(A \cap B)'$
+  #+attr_html: :width 60%
+  [[file:images/venn6.png]]
+* Complement relations
+  #+reveal_html: <span class="fragment">
+  $$(E')' = E$$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  $$E \cup E' = S$$
+  #+reveal_html: </span>
+* Mutually exclusive events
+  #+attr_html: :width 60%
+  [[file:images/venn7.png]]
+** Empty set
+  Mutually exclusive intersection
+  $$A \cap B = \emptyset$$
+  #+reveal_html: <span class="fragment">
+
+  $$E \cap E' = \emptyset$$
+  #+reveal_html: </span>
+* Mathematical operations
+  #+reveal_html: <span class="fragment">
+  $$A \cup A = A$$
+  $$A \cap A = A$$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  $$A \cup S = S$$
+  $$A \cap S = A$$
+  #+reveal_html: </span>
+* Commutative rule
+  $$A \cup B = B \cup A$$
+  $$A \cap B = B \cap A$$
+* Associative rule
+  $$(A \cup B) \cup C = A \cup (B \cup C)$$
+  $$(A \cap B) \cap C = A \cap (B \cap C)$$
+* Distributive rule
+  #+reveal_html: <div class="twocolumn"><div>
+  $$(A \cup B) \cap C$$
+  #+attr_html: :width 80%
+  [[file:images/venn8.png]]
+  #+reveal_html: </div><div>
+  $$(A \cap B) \cup (B \cap C)$$
+  #+attr_html: :width 80%  
+  [[file:images/venn8.png]]
+  #+reveal_html: </div>
+** Distributive rule
+   $$(A \cup B) \cap C = (A \cap C) \cup (B \cap C)$$
+   $$(A \cap B) \cup C = (A \cup C) \cap (B \cup C)$$
+* DeMorgan's law
+  For two sets (or events) $E_1$ and $E_2$
+  #+reveal_html: <div class="block">
+  $$(E_1 \cup E_2)' = E_1' \cap E_2'$$
+  #+reveal_html: </div>
+** {{{empty}}}
+   #+reveal_html: <div class="twocolumn"><div>
+   $$(E_1 \cup E_2)'$$
+   #+attr_html: :width 80%
+   [[file:images/venn1.png]]
+   #+reveal_html: </div><div>
+   $$E_1' \cap E_2'$$
+   #+attr_html: :width 80%
+   [[file:images/venn1.png]]
+   #+reveal_html: </div>
+** General DeMorgan's law
+   $$(E_1 \cup E_2 \cup ... \cup E_n)' = E_1' \cap E_2' \cap ... \cap E_n'$$
+   #+reveal_html: <span class="fragment">
+   $$(E_1' \cup E_2' \cup ... \cup E_n')' = E_1 \cap E_2 \cap ... \cap E_n$$
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$(E_1 \cap E_2 \cap ... \cap E_n)' = E_1' \cup E_2' \cup ... \cup E_n'$$
+   #+reveal_html: </span>
+* Problem 2.1
+  The direction of wind at a site is between due East ($\theta=0^{\mathrm{\circ}}$) and due North ($\theta=90^{\mathrm{\circ}}$). The wind speed $V$ can be any positive value.
+
+  - Sketch the sample space for wind speed and direction.
+  - Denote the events
+     $$E_1=(V > 35 \,\mathrm{kph})$$
+     $$E_2=(15\,\mathrm{kph} < V \leq 45\,\mathrm{kph})$$
+     $$E_3 = (\theta \leq 30^{\mathrm{\circ}})$$
+     Identify the events $E_1$, $E_2$, $E_3$, and $E_1'$.
+  #+reveal: split
+  - Identify the events $A=E_1 \cap E_3$, $B=E_1 \cup E_2$, and $C=E_1 \cap E_2 \cap E_3$. Are events $A$ and $B$ mutually exclusive? How about events $A$ and $C$?
+* Counting techniques
+  #+reveal_html: <span class="fragment">
+  Message delay example
+  #+attr_html: :width 70%
+  [[file:images/fig2_5.png]]
+  #+reveal_html: </span>
+** Multiplication rule
+   #+reveal_html: <div class="theorem" name="">
+   Total number of events for a set of discrete steps $k$, each with $n$ number of events, can be calculated as $$n_1 \times n_2 \times ... \times n_k$$
+   #+reveal_html: </div>
+** Permutations
+   The number of ordered sequences of the elements of a set
+   #+reveal_html: <span class="fragment">
+   $S$ = {/a, b, c/} will have $abc$, $acb$, $bac$, $bca$, $cab$, and $cba$
+   #+reveal_html: </span>
+   #+reveal_html: <div class="block fragment">
+   The number of permutations of $n$ different elements is $n!$
+   $$n! = n \times (n-1) \times (n-2) \times ... \times 2 \times 1$$
+   #+reveal_html: </div>
+** Permutations of subsets
+   Number of arrangements of only some elements of the set
+   #+reveal_html: <div class="block fragment">
+   The number of permutations of subsets of $r$ elements selected from a set of $n$ elements
+   $$P_r^n  = n \times (n-1) \times (n-2) \times ... \times (n-r+1) = \dfrac{n!}{(n-r)!}$$
+   #+reveal_html: </div>
+** Combinations
+   The number of subsets of $r$ elements from a set of $n$ elements *when order is not important*
+   #+reveal_html: <div class="block fragment">
+   $$C_r^n = \binom n r = \dfrac{n!}{r!(n-r)!}$$
+   #+reveal_html: </div>
+* Readings
+  - Section 2.1
+  - Section 2.2 (skip Permutation of similar objects)
+
