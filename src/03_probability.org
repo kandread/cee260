@@ -140,7 +140,7 @@
   - $A$: casting of concrete can be performed
   - $B$: casting of concrete cannot be performed
 ** {{{empty}}}
-   Determine the probability of even $B$.
+   Determine the probability of event $B$.
 ** {{{empty}}}
    If production of concrete material at the job site is not feasible, what is the probability that casting can still be performed on a given day?
 * Statistical independence
