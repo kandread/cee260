@@ -66,7 +66,7 @@
 * Problem 3.1
   Can you prove that $P(A')=1-P(A)$?
 * Problem 3.2
-  Airline industry is subject to labor strikes by pilots ($A$), mechanics ($B$), and flight attendants ($C$). Assuming probabilities $P(A)=0.03$, $P(B)=0.05$, $P(C)=0.05$ and that strikes are statistically independent, that is $P(A \cup B)=P(A)P(B)$ etc., what is the probability of a labor strike in the next 3 years?
+  Airline industry is subject to labor strikes by pilots ($A$), mechanics ($B$), and flight attendants ($C$). Assuming probabilities $P(A)=0.03$, $P(B)=0.05$, $P(C)=0.05$ and that strikes are statistically independent, that is $P(A \cap B)=P(A)P(B)$ etc., what is the probability of a labor strike in the next 3 years?
 * Conditional probability
   #+reveal_html: <div class="twocolumn"><div>
   #+begin_export html
