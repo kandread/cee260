@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Probability &amp; Statistics in Engineering</title>
+<meta name="author" content="Kostas Andreadis"/>
+<meta name="description" content="Setup file for reveal.js presentations"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="./reveal.js/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 13 Sep</h2>
+</section>
+<section>
+<section id="slide-org0e90eea">
+<h2 id="org0e90eea">Events</h2>
+<ul>
+<li class="fragment appear">Sample space \(S\)</li>
+<li class="fragment appear">Events and their combinations:</li>
+<li class="fragment appear">\(A \cup B\), \(A \cap B\), \(A'\)</li>
+<li class="fragment appear">DeMorgan's law: \((A \cup B)' = A' \cap B'\)</li>
+<li class="fragment appear">Venn diagrams</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgaee0d78">
+<h2 id="orgaee0d78">Probability</h2>
+<p>
+Quantifies the likelihood that an outcome of a random experiment will occur
+</p>
+<span class="fragment">
+<p>
+\[P(A) = \dfrac{n}{N} = \dfrac{\text{# outcomes in A}}{\text{# outcomes in sample space}}\]
+</p>
+</span>
+</section>
+<section id="slide-org61508a2">
+<h3 id="org61508a2">It's a limiting value</h3>
+
+<figure id="orgc44aca8">
+<img src="images/fig3_1.png" alt="fig3_1.png">
+
+</figure>
+
+<p>
+<i>Relative frequency</i> interpretation
+</p>
+</section>
+<section id="slide-org86602bf">
+<h3 id="org86602bf">Equally likely outcomes</h3>
+<div class="block">
+<p>
+Whenever a sample space consists of \(N\) possible outcomes that are equally likely, the probability of each outcome is \(1/N\)
+</p>
+</div>
+</section>
+<section id="slide-org75996f1">
+<h3 id="org75996f1">Example</h3>
+<p>
+Sample space: \(\{a, b, c, d\}\)
+</p>
+<span class="fragment">
+<p>
+\[a=0.1, b=0.3, c=0.5, d=0.1\]
+</p>
+</span>
+<ul>
+<li class="fragment appear">A={a,b}; B={b,c,d}; C={d}</li>
+<li class="fragment appear">\(P(A)=0.1+0.3=0.4\)</li>
+<li class="fragment appear">\(P(B)=0.3+0.5+0.1\)</li>
+<li class="fragment appear">\(P(C') = 1.0 - 0.1=0.9\)</li>
+<li class="fragment appear">\(P(A \cup B) = 0.1+0.3+0.5+0.1 = 1\)</li>
+<li class="fragment appear">\(P(A \cap C) = 0\)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org97558c6">
+<h2 id="org97558c6">Axioms of probability</h2>
+<div class="theorem" name="">
+<p>
+\[P(S)=1\]
+\[0 \leq P(A) \leq 1\]
+\[P(A') = 1 - P(A)\]
+\[A \cap B = \emptyset \Rightarrow P(A \cup B) = P(A) + P(B)\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org90a6902">
+<h2 id="org90a6902">Probability of a union</h2>
+<p>
+Wafers in semiconductor manufacturing
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Contamination</th>
+<th scope="col" class="org-right">Center</th>
+<th scope="col" class="org-right">Edge</th>
+<th scope="col" class="org-right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Low</td>
+<td class="org-right">514</td>
+<td class="org-right">68</td>
+<td class="org-right">582</td>
+</tr>
+
+<tr>
+<td class="org-left">High</td>
+<td class="org-right">112</td>
+<td class="org-right">246</td>
+<td class="org-right">358</td>
+</tr>
+
+<tr>
+<td class="org-left">Total</td>
+<td class="org-right">626</td>
+<td class="org-right">314</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+<p>
+\(H\): high contamination, \(C\): center of sputtering tool
+</p>
+
+<span class="fragment">
+<p>
+\(P(H \cap C)\) and \(P(H \cup C)\)?
+</p>
+</span>
+</section>
+<section id="slide-org4368a28">
+<h3 id="org4368a28"></h3>
+<div class="theorem" name="Addition rule">
+<p>
+\[P(A \cup B) = P(A) + P(B) - P(A \cap B)\]
+</p>
+</div>
+<div class="theorem" name="Mutually exclusive">
+<p>
+\[P(A \cup B) = P(A) + P(B)\]
+</p>
+</div>
+</section>
+<section id="slide-org9594681">
+<h3 id="org9594681"></h3>
+
+<figure id="orgd37674d">
+<img src="images/venn3.png" alt="venn3.png" width="60%">
+
+</figure>
+</section>
+</section>
+<section>
+<section id="slide-org0dd7a6e">
+<h2 id="org0dd7a6e">Problem 3.1</h2>
+<p>
+Can you prove that \(P(A')=1-P(A)\)?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgf9cd6e6">
+<h2 id="orgf9cd6e6">Problem 3.2</h2>
+<p>
+Airline industry is subject to labor strikes by pilots (\(A\)), mechanics (\(B\)), and flight attendants (\(C\)). Assuming probabilities \(P(A)=0.03\), \(P(B)=0.05\), \(P(C)=0.05\) and that strikes are statistically independent, that is \(P(A \cup B)=P(A)P(B)\) etc., what is the probability of a labor strike in the next 3 years?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgf404914">
+<h2 id="orgf404914">Conditional probability</h2>
+<div class="twocolumn"><div>
+<div id="observablehq-glyphs-8420fc7e"></div>
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@cjwallace/probability-workshop.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "glyphs") return new Inspector(document.querySelector("#observablehq-glyphs-8420fc7e"));
+});
+</script>
+<span class="fragment">
+<p>
+\[P(\text{square})=\dfrac{2}{10}=0.2\]
+</p>
+</span>
+</div><div>
+<span class="fragment">
+<div id="observablehq-redGlyphs-bf71d792"></div>
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@cjwallace/probability-workshop.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "redGlyphs") return new Inspector(document.querySelector("#observablehq-redGlyphs-bf71d792"));
+});
+</script>
+</span>
+<span class="fragment">
+<p>
+\[P(\text{square|red})=\dfrac{8}{24}=\dfrac{1}{3}\]
+</p>
+</span>
+</div>
+</section>
+<section id="slide-org452ce86">
+<h3 id="org452ce86">Surface flaws and defectives</h3>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Flaws (F)</th>
+<th scope="col" class="org-right">No Flaws</th>
+<th scope="col" class="org-right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Defective (D)</td>
+<td class="org-right">10</td>
+<td class="org-right">18</td>
+<td class="org-right">28</td>
+</tr>
+
+<tr>
+<td class="org-left">Not Defective</td>
+<td class="org-right">30</td>
+<td class="org-right">342</td>
+<td class="org-right">372</td>
+</tr>
+
+<tr>
+<td class="org-left">Total</td>
+<td class="org-right">40</td>
+<td class="org-right">360</td>
+<td class="org-right">400</td>
+</tr>
+</tbody>
+</table>
+<span class="fragment">
+<p>
+\[P(D|F)=10/40=0.25\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[P(D|F')=18/360=0.05\]
+</p>
+</span>
+</section>
+<section id="slide-orgf2e2b50">
+<h3 id="orgf2e2b50"></h3>
+<div class="theorem" name="Conditional probability">
+<p>
+\[P(B|A) = \dfrac{P(A \cap B)}{P(A)}\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgfed2ee9">
+<h2 id="orgfed2ee9">Problem 3.3</h2>
+
+<figure id="org2ef68cd">
+<img src="images/fig3_2.jpg" alt="fig3_2.jpg" width="50%">
+
+</figure>
+
+<p>
+\(E_1\): Route 1 is open, \(E_2\): Route 2 is open. During a snow storm, \(P(E_1)=0.75\), \(P(E_2)=0.50\), and \(P(E_1 \cap E_2)=0.40\).
+</p>
+</section>
+<section id="slide-org210bf5c">
+<h3 id="org210bf5c"></h3>
+<p>
+What is the probability that Route 1 is open if Route 2 is open?
+</p>
+</section>
+<section id="slide-org72036ac">
+<h3 id="org72036ac"></h3>
+<p>
+What is the probability that Route 1 is closed if Route 2 is closed?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org4f51b68">
+<h2 id="org4f51b68">Problem 3.4</h2>
+<p>
+Casting of concrete structural elements depends on the materials availability. The required material may be produced at the job site or delivered from a supplier. Sometimes sources of material are not available or rain precludes casting.
+</p>
+<ul>
+<li>\(E_1\): no rain</li>
+<li>\(E_2\): production at job site is feasible</li>
+<li>\(E_3\): supply of premixed concrete available</li>
+
+</ul>
+<p>
+with the following probabilities: \(P(E_1)=0.8\), \(P(E_2)=0.7\), \(P(E_3)=0.95\).
+</p>
+</section>
+<section id="slide-orgc9d6d12">
+<h3 id="orgc9d6d12"></h3>
+<p>
+\(P(\text{no rain})=P(E_1)=0.8\), \(P(\text{feasible@site})=P(E_2)=0.7\), \(P(\text{premix available})=P(E_3)=0.95\)
+</p>
+
+<p>
+Identify the events in terms of \(E_1\), \(E_2\), and \(E_3\):
+</p>
+<ul>
+<li>\(A\): casting of concrete can be performed</li>
+<li>\(B\): casting of concrete cannot be performed</li>
+
+</ul>
+</section>
+<section id="slide-orge100bbc">
+<h3 id="orge100bbc"></h3>
+<p>
+Determine the probability of even \(B\).
+</p>
+</section>
+<section id="slide-org961c560">
+<h3 id="org961c560"></h3>
+<p>
+If production of concrete material at the job site is not feasible, what is the probability that casting can still be performed on a given day?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgddf03ac">
+<h2 id="orgddf03ac">Statistical independence</h2>
+<p>
+If two events \(A\) and \(B\) are statistically independent then
+\[P(A|B) = P(A)\]
+\[P(B|A) = P(B)\]
+</p>
+<span class="fragment">
+<p>
+\[P(A \cap B) = P(A|B)P(B) = P(B|A)P(A)\]
+\[\Rightarrow P(A \cap B) = P(A) P(B)\]
+</p>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-org9030f15">
+<h2 id="org9030f15">Are complements statistically independent?</h2>
+<p>
+\[P(A' \cap B') = P(A') P(B')\]
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/math/math.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/customcontrols/plugin.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1280,
+height: 720,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+</script>
+</body>
+</html>

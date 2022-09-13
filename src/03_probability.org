@@ -1,0 +1,153 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 13 Sep
+#+setupfile: ./reveal.org
+* Events
+  #+attr_reveal: :frag (appear)
+  - Sample space $S$
+  - Events and their combinations:
+  - $A \cup B$, $A \cap B$, $A'$
+  - DeMorgan's law: $(A \cup B)' = A' \cap B'$
+  - Venn diagrams
+* Probability
+  Quantifies the likelihood that an outcome of a random experiment will occur
+  #+reveal_html: <span class="fragment">
+  $$P(A) = \dfrac{n}{N} = \dfrac{\text{# outcomes in A}}{\text{# outcomes in sample space}}$$
+  #+reveal_html: </span>
+** It's a limiting value
+   [[file:images/fig3_1.png]]
+   
+   /Relative frequency/ interpretation
+** Equally likely outcomes
+   #+reveal_html: <div class="block">
+   Whenever a sample space consists of $N$ possible outcomes that are equally likely, the probability of each outcome is $1/N$
+   #+reveal_html: </div>
+** Example
+   Sample space: $\{a, b, c, d\}$
+   #+reveal_html: <span class="fragment">
+   $$a=0.1, b=0.3, c=0.5, d=0.1$$
+   #+reveal_html: </span>
+   #+attr_reveal: :frag (appear)
+   - A={a,b}; B={b,c,d}; C={d}
+   - $P(A)=0.1+0.3=0.4$
+   - $P(B)=0.3+0.5+0.1$
+   - $P(C') = 1.0 - 0.1=0.9$
+   - $P(A \cup B) = 0.1+0.3+0.5+0.1 = 1$
+   - $P(A \cap C) = 0$
+* Axioms of probability
+  #+reveal_html: <div class="theorem" name="">
+  $$P(S)=1$$
+  $$0 \leq P(A) \leq 1$$
+  $$P(A') = 1 - P(A)$$
+  $$A \cap B = \emptyset \Rightarrow P(A \cup B) = P(A) + P(B)$$
+  #+reveal_html: </div>
+* Probability of a union
+  Wafers in semiconductor manufacturing
+  | Contamination | Center | Edge | Total |
+  |---------------+--------+------+-------|
+  | Low           |    514 |   68 |   582 |
+  | High          |    112 |  246 |   358 |
+  | Total         |    626 |  314 |       |
+  $H$: high contamination, $C$: center of sputtering tool
+
+  #+reveal_html: <span class="fragment">
+  $P(H \cap C)$ and $P(H \cup C)$?
+  #+reveal_html: </span>
+** {{{empty}}}
+   #+reveal_html: <div class="theorem" name="Addition rule">
+   $$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+   #+reveal_html: </div>
+   #+reveal_html: <div class="theorem" name="Mutually exclusive">
+   $$P(A \cup B) = P(A) + P(B)$$
+   #+reveal_html: </div>
+** {{{empty}}}
+   #+attr_html: :width 60%
+   [[file:images/venn3.png]]
+* Problem 3.1
+  Can you prove that $P(A')=1-P(A)$?
+* Problem 3.2
+  Airline industry is subject to labor strikes by pilots ($A$), mechanics ($B$), and flight attendants ($C$). Assuming probabilities $P(A)=0.03$, $P(B)=0.05$, $P(C)=0.05$ and that strikes are statistically independent, that is $P(A \cup B)=P(A)P(B)$ etc., what is the probability of a labor strike in the next 3 years?
+* Conditional probability
+  #+reveal_html: <div class="twocolumn"><div>
+  #+begin_export html
+  <div id="observablehq-glyphs-8420fc7e"></div>
+  <script type="module">
+  import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+  import define from "https://api.observablehq.com/@cjwallace/probability-workshop.js?v=3";
+  new Runtime().module(define, name => {
+    if (name === "glyphs") return new Inspector(document.querySelector("#observablehq-glyphs-8420fc7e"));
+  });
+  </script>
+  #+end_export
+  #+reveal_html: <span class="fragment">
+  $$P(\text{square})=\dfrac{2}{10}=0.2$$
+  #+reveal_html: </span>
+  #+reveal_html: </div><div>
+  #+reveal_html: <span class="fragment">
+  #+begin_export html
+  <div id="observablehq-redGlyphs-bf71d792"></div>
+  <script type="module">
+  import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+  import define from "https://api.observablehq.com/@cjwallace/probability-workshop.js?v=3";
+  new Runtime().module(define, name => {
+    if (name === "redGlyphs") return new Inspector(document.querySelector("#observablehq-redGlyphs-bf71d792"));
+  });
+  </script>
+  #+end_export
+  #+reveal_html: </span>
+    #+reveal_html: <span class="fragment">
+  $$P(\text{square|red})=\dfrac{8}{24}=\dfrac{1}{3}$$
+  #+reveal_html: </span>
+  #+reveal_html: </div>
+** Surface flaws and defectives
+   |               | Flaws (F) | No Flaws | Total |
+   |---------------+-----------+----------+-------|
+   | Defective (D) |        10 |       18 |    28 |
+   | Not Defective |        30 |      342 |   372 |
+   | Total         |        40 |      360 |   400 |
+   #+reveal_html: <span class="fragment">
+   $$P(D|F)=10/40=0.25$$
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$P(D|F')=18/360=0.05$$
+   #+reveal_html: </span>
+** {{{empty}}}
+   #+reveal_html: <div class="theorem" name="Conditional probability">
+   $$P(B|A) = \dfrac{P(A \cap B)}{P(A)}$$
+   #+reveal_html: </div>
+* Problem 3.3
+  #+attr_html: :width 50%
+  [[file:images/fig3_2.jpg]]
+
+  $E_1$: Route 1 is open, $E_2$: Route 2 is open. During a snow storm, $P(E_1)=0.75$, $P(E_2)=0.50$, and $P(E_1 \cap E_2)=0.40$.
+** {{{empty}}}
+   What is the probability that Route 1 is open if Route 2 is open?
+** {{{empty}}}
+   What is the probability that Route 1 is closed if Route 2 is closed?
+* Problem 3.4
+  Casting of concrete structural elements depends on the materials availability. The required material may be produced at the job site or delivered from a supplier. Sometimes sources of material are not available or rain precludes casting.
+  - $E_1$: no rain
+  - $E_2$: production at job site is feasible
+  - $E_3$: supply of premixed concrete available
+  with the following probabilities: $P(E_1)=0.8$, $P(E_2)=0.7$, $P(E_3)=0.95$.
+** {{{empty}}}
+  $P(\text{no rain})=P(E_1)=0.8$, $P(\text{feasible@site})=P(E_2)=0.7$, $P(\text{premix available})=P(E_3)=0.95$
+  
+  Identify the events in terms of $E_1$, $E_2$, and $E_3$:
+  - $A$: casting of concrete can be performed
+  - $B$: casting of concrete cannot be performed
+** {{{empty}}}
+   Determine the probability of even $B$.
+** {{{empty}}}
+   If production of concrete material at the job site is not feasible, what is the probability that casting can still be performed on a given day?
+* Statistical independence
+  If two events $A$ and $B$ are statistically independent then
+  $$P(A|B) = P(A)$$
+  $$P(B|A) = P(B)$$
+  #+reveal_html: <span class="fragment">
+  $$P(A \cap B) = P(A|B)P(B) = P(B|A)P(A)$$
+  $$\Rightarrow P(A \cap B) = P(A) P(B)$$
+  #+reveal_html: </span>
+* Are complements statistically independent?
+  $$P(A' \cap B') = P(A') P(B')$$
+
