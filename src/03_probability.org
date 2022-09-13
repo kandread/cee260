@@ -99,8 +99,9 @@
   $$P(\text{square|red})=\dfrac{8}{24}=\dfrac{1}{3}$$
   #+reveal_html: </span>
   #+reveal_html: </div>
-** {{{empty}}}
-   [[https://setosa.io/conditional/]]
+  #+reveal_html: <span class="fragment">
+  [[https://setosa.io/conditional/]]
+  #+reveal_html: </span>
 ** Surface flaws and defectives
    |               | Flaws (F) | No Flaws | Total |
    |---------------+-----------+----------+-------|
