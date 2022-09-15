@@ -48,8 +48,8 @@
    #+attr_reveal: :frag (appear)
    - Given that a civilian was shot, it was found that there is a higher chance of being white (0.64 vs 0.36)
    - What is wrong with $P \left( \text{civilian race} | \text{shot} \right)$?
-   - Imagine police encounter 90 white and 10 black civilians
-   - 5 black and 9 white civilians are shot
+   - Imagine police encounter civilians with 90 white and 10 POC  
+   - 5 POC and 9 white civilians are shot
    - $P\left( \text{shot} | \text{civilian race} \right)$
 ** {{{empty}}}
    [[file:images/paper2.png]]
