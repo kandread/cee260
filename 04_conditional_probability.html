@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Probability &amp; Statistics in Engineering</title>
+<meta name="author" content="Kostas Andreadis"/>
+<meta name="description" content="Setup file for reveal.js presentations"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="./reveal.js/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 15 Sep</h2>
+</section>
+<section>
+<section id="slide-org293cd93">
+<h2 id="org293cd93">Statistical independence</h2>
+<span class="fragment">
+<p>
+\[P(A \cap B) = P(A)P(B)\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[P(A \cup B) = P(A) + P(B) - P(A \cap B)\]
+\[\Rightarrow P(A \cup B) = P(A) + P(B) - P(A)P(B)\]
+</p>
+</span>
+</section>
+<section id="slide-org2d4e497">
+<h3 id="org2d4e497">Independence of multiple events</h3>
+<p>
+The events \(E_1\), \(E_2\),&#x2026;,\(E_n\) are <i>independent</i> if and only if for any 
+\[P(E_1 \cap E_2 \cap ... \cap E_n)=P(E_1) \times P(E_2) \times ... \times P(E_n)\]
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org014ddc8">
+<h2 id="org014ddc8">Conditional probability</h2>
+<div class="twocolumn"><div>
+
+<figure id="org4af6121">
+<img src="images/venn9.png" alt="venn9.png" width="70%">
+
+</figure>
+
+<p>
+\[P(A \cap B)\]
+</p>
+</div><div>
+<span class="fragment">
+
+<figure id="org43105c9">
+<img src="images/venn10.png" alt="venn10.png" width="70%">
+
+</figure>
+
+<p>
+\[P(B|A)=\dfrac{P(A \cap B)}{P(A)}\]
+</p>
+</span>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgb63d030">
+<h2 id="orgb63d030">Multiplication rule</h2>
+<div class="block">
+<p>
+\[P(A \cap B) = P(B|A)P(A)=P(A|B)P(B)\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgc89e85f">
+<h2 id="orgc89e85f">Rules for conditional probabilities</h2>
+<p>
+Addition and multiplication rules work the same way
+</p>
+<span class="fragment">
+<p>
+\[P(E_1 \cup E_2 | A) = P(E_1|A) + P(E_2|A) - P(E_1 \cap E_2 | A)\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[P(E_1 \cap E_2 | A) = P(E_1|E_2|A)P(E_2|A)\]
+</p>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-org9444cfb">
+<h2 id="org9444cfb"></h2>
+
+<figure id="org0a989c6">
+<img src="images/paper1.png" alt="paper1.png">
+
+</figure>
+<span class="fragment">
+<p>
+\[P \left( \text{civilian race} | \text{shot} \right)\]
+</p>
+</span>
+</section>
+<section id="slide-org6ca2886">
+<h3 id="org6ca2886"></h3>
+<ul>
+<li class="fragment appear">Given that a civilian was shot, it was found that there is a higher chance of being white (0.64 vs 0.36)</li>
+<li class="fragment appear">What is wrong with \(P \left( \text{civilian race} | \text{shot} \right)\)?</li>
+<li class="fragment appear">Imagine police encounter 90 white and 10 black civilians</li>
+<li class="fragment appear">5 black and 9 white civilians are shot</li>
+<li class="fragment appear">\(P\left( \text{shot} | \text{civilian race} \right)\)</li>
+
+</ul>
+</section>
+<section id="slide-orgf9e77ed">
+<h3 id="orgf9e77ed"></h3>
+
+<figure id="orgff3bceb">
+<img src="images/paper2.png" alt="paper2.png">
+
+</figure>
+</section>
+</section>
+<section>
+<section id="slide-org06b4918">
+<h2 id="org06b4918">Problem 4.1</h2>
+
+<figure id="org3fd0166">
+<img src="images/fig4_1.png" alt="fig4_1.png" width="80%">
+
+</figure>
+
+<p>
+if a link's fracture strength is less than 300 kg, it will fail. Probability of failure of either link is 0.05. What is the probability that the chain system fails?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org30d2e26">
+<h2 id="org30d2e26">Problem 4.2</h2>
+<p>
+There is a 1% chance of hazardous material leaking from site X. Either of towns A and B would get contaminated water if there is leakage and there exists a continuous seam of sand. Probability of seam to A and B is 2% and 3% respectively. If a seam exists between X and A, the probability of a seam between X and B increases to 20%. Assume that leakage and presence of seams of sand are independent.
+</p>
+</section>
+<section id="slide-orga0afc39">
+<h3 id="orga0afc39"></h3>
+
+<figure id="org316b370">
+<img src="images/fig4_2.png" alt="fig4_2.png" width="50%">
+
+</figure>
+
+<span class="fragment">
+<p>
+\(P(L)=0.01\), \(P(S_A)=0.02\), \(P(S_B)=0.03\), \(P(S_B|S_A)=0.2\)
+</p>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-orgecd5e98">
+<h2 id="orgecd5e98">Total probability rule</h2>
+<p>
+Sometimes we know the probability of an event given other conditions
+</p>
+<span class="fragment">
+<table>
+
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Failure</th>
+<th scope="col" class="org-left">Contamination</th>
+<th scope="col" class="org-right">Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0.1</td>
+<td class="org-left">High</td>
+<td class="org-right">0.2</td>
+</tr>
+
+<tr>
+<td class="org-right">0.005</td>
+<td class="org-left">Not high</td>
+<td class="org-right">0.8</td>
+</tr>
+</tbody>
+</table>
+</span>
+<span class="fragment">
+<p>
+\[P(F) = P(F \cap H) + P(F \cap H')\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[P(F) = P(F|H)P(H) + P(F|H')P(H')\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[P(F) = 0.10(0.20)+0.005(0.80)=0.024\]
+</p>
+</span>
+</section>
+<section id="slide-orgd7a38ed">
+<h3 id="orgd7a38ed">Total probability rule (multiple events)</h3>
+<p>
+Assume \(E_1\), \(E_2\),&#x2026;,\(E_k\) are mutually exclusive and exhaustive sets. Then
+</p>
+<div class="block">
+<p>
+\[P(B) = P(B \cap E_1) + P(B \cap E_2) + ... + P(B \cap E_k)\]
+\[P(B) = P(B|E_1)P(E_1)+P(B|E_2)P(E_2)+ ... + P(B|E_k)P(E_k)\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org551f4ef">
+<h2 id="org551f4ef">Problem 4.3</h2>
+<p>
+Successful completion (\(C\)) of a project depends on supply of materials, labor, and weather:
+</p>
+<ul>
+<li>Good weather (\(G\)) and at least labor (\(L\)) or material (\(M\)) available</li>
+<li>Bad weather but both labor and material available</li>
+
+</ul>
+<p>
+Suppose \(P(L)=0.7\), \(P(G)=0.6\), and \(L\) is independent of both \(M\) and \(G\).
+</p>
+<ul>
+<li>If the weather is good, adequate supply of materials is certain.</li>
+<li>If weather is bad, probability of materials is 50%.</li>
+
+</ul>
+</section>
+<section id="slide-orgae1e080">
+<h3 id="orgae1e080"></h3>
+<p>
+Describe the event of successful completion in terms of \(G\), \(L\), and \(M\)
+</p>
+</section>
+<section id="slide-org3656ecf">
+<h3 id="org3656ecf"></h3>
+<p>
+Determine the probability of successful completion
+</p>
+</section>
+<section id="slide-org1e451cf">
+<h3 id="org1e451cf"></h3>
+<p>
+If the project completes successfully, what is the probability that labor supply had been inadequate? 
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org58e9a89">
+<h2 id="org58e9a89">Readings</h2>
+<ul>
+<li>Section 2.6</li>
+<li>Section 2.7</li>
+
+</ul>
+
+<span class="fragment">
+<p>
+Homework #1 due 22 Sep!
+</p>
+</span>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/math/math.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/customcontrols/plugin.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1280,
+height: 720,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+</script>
+</body>
+</html>
