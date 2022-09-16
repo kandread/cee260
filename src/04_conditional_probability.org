@@ -68,7 +68,7 @@
    $P(L)=0.01$, $P(S_A)=0.02$, $P(S_B)=0.03$, $P(S_B|S_A)=0.2$
    #+reveal_html: </span>
 ** {{{empty}}}
-   What is the probability that water in town will be contaminated?
+   What is the probability that water in town A will be contaminated?
 ** {{{empty}}}
    What is the probability that at least one of the two towns' water will be contaminated?
 * Total probability rule
