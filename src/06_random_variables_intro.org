@@ -2,6 +2,17 @@
 #+author: Kostas Andreadis
 #+date: Fall 2022 - 22 Sep
 #+setupfile: ./reveal.org
+* Quiz #1
+  [[file:images/quiz1.png]]
+** {{{empty}}}  
+  - The probability of the union of two mutually exclusive events is equal to 1.
+  - The conditional probability of event A given event B is always smaller than their unconditional joint probability.
+  - Event A has probability 0.8, and event B is mutually exclusive with A. What is the probability of their union?
+  - It is possible for the probability of the intersection of two events to be equal to 1.
+  - Find the type of uncertainty for the following
+    - Measurements of air temperature
+    - Simulating flood hazard
+    - Temperature response to CO2 emissions
 * Random variables
   #+attr_reveal: :frag (appear)
   - Sample space and events for simple cases: outcomes
