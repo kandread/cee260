@@ -26,8 +26,8 @@
 <h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 20 Sep</h2>
 </section>
 <section>
-<section id="slide-org5cb9334" data-background="./images/hurricane.jpg" data-background-transition="slide">
-<h2 id="org5cb9334">Problem 5.1</h2>
+<section id="slide-orgd9465fd" data-background="./images/hurricane.jpg" data-background-transition="slide">
+<h2 id="orgd9465fd">Problem 5.1</h2>
 <ul>
 <li class="fragment appear">High-wind storms in the county occur once every other year</li>
 <li class="fragment appear">During such a storm probability of tornadoes is 0.25</li>
@@ -38,8 +38,8 @@
 
 </ul>
 </section>
-<section id="slide-org89a61c9">
-<h3 id="org89a61c9"></h3>
+<section id="slide-orgc63e51d">
+<h3 id="orgc63e51d"></h3>
 <p>
 \[F = \text{damage to houses}\]
 \[S = \text{occurrence of storm in county}\]
@@ -54,11 +54,11 @@
 </section>
 </section>
 <section>
-<section id="slide-orgbb2870e">
-<h2 id="orgbb2870e">Bayes theorem</h2>
+<section id="slide-org85d0e73">
+<h2 id="org85d0e73">Bayes theorem</h2>
 <div class="twocolumn"><div>
 
-<figure id="org7974aab">
+<figure id="org40785a6">
 <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Thomas_Bayes.gif" alt="Thomas_Bayes.gif">
 
 </figure>
@@ -73,8 +73,8 @@
 </ul>
 </div>
 </section>
-<section id="slide-org8bc7497">
-<h3 id="org8bc7497">But what is the equation?</h3>
+<section id="slide-orgd2b7edc">
+<h3 id="orgd2b7edc">But what is the equation?</h3>
 <div class="fragment block">
 <p>
 \[P(A|B) = \dfrac{P(B|A) \times P(A)}{P(B)}\]
@@ -86,10 +86,10 @@
 </p>
 </span>
 </section>
-<section id="slide-org2915693">
-<h3 id="org2915693">A classic example</h3>
+<section id="slide-orgcc479ec">
+<h3 id="orgcc479ec">A classic example</h3>
 <p>
-Top slider is the probability of having the disease, bottom slider is the accuracy of the test
+Bottom slider is the probability of having the disease, top slider is the accuracy of the test
 </p>
 <div id="observablehq-chart-42be8286"></div>
 <div id="observablehq-viewof-accuracy_of_test-42be8286"></div>
@@ -105,13 +105,13 @@ new Runtime().module(define, name => {
 });
 </script>
 
-<figure id="orgfa7b03d">
+<figure id="org0c76af3">
 <img src="images/fig_5_1.png" alt="fig_5_1.png" width="50%">
 
 </figure>
 </section>
-<section id="slide-org3ed10af">
-<h3 id="org3ed10af">Back to equations</h3>
+<section id="slide-org3369166">
+<h3 id="org3369166">Back to equations</h3>
 <p>
 \[P(A|B) = \dfrac{P(A \cap B)}{P(B)} \Rightarrow P(A \cap B) = P(A|B) P(B)\]
 </p>
@@ -128,40 +128,40 @@ new Runtime().module(define, name => {
 </section>
 </section>
 <section>
-<section id="slide-org29323b6">
-<h2 id="org29323b6">Problem 5.2</h2>
+<section id="slide-orga65d8fc">
+<h2 id="orga65d8fc">Problem 5.2</h2>
 <p>
 80% probability that mix from concrete plant is of good quality. Tests on site for compressive strength are performed, but test has 90% reliability: a good-quality mix (\(G\)) will pass test (\(T\)) with 0.9 probability and a poor-quality mix will pass with 0.1 probability. 
 </p>
 </section>
-<section id="slide-org74af157">
-<h3 id="org74af157"></h3>
+<section id="slide-orgb10c320">
+<h3 id="orgb10c320"></h3>
 <p>
 What is the probability that mix is of good quality if it passes the QC test?
 </p>
 </section>
-<section id="slide-org259b2e4">
-<h3 id="org259b2e4"></h3>
+<section id="slide-orgea36726">
+<h3 id="orgea36726"></h3>
 <p>
 Suppose a second sample is tested after the first, what is the probability that the mix is of good quality? 
 </p>
 </section>
-<section id="slide-orgcbb55a0">
-<h3 id="orgcbb55a0"></h3>
+<section id="slide-org7135709">
+<h3 id="org7135709"></h3>
 <p>
 Let's perform these two calculations in a single step.
 </p>
 </section>
-<section id="slide-orgc07f75f">
-<h3 id="orgc07f75f"></h3>
+<section id="slide-org52dbbb9">
+<h3 id="org52dbbb9"></h3>
 <p>
 What if either one of the tests was negative?
 </p>
 </section>
 </section>
 <section>
-<section id="slide-orgfadcc86">
-<h2 id="orgfadcc86">A more general equation</h2>
+<section id="slide-org943ada0">
+<h2 id="org943ada0">A more general equation</h2>
 <div class="fragment block">
 <p>
 If \(E_1,E_2,...,E_k\) are mutually exclusive and exhaustive events and \(B\) is any event with \(PB)>0\)
@@ -171,8 +171,8 @@ If \(E_1,E_2,...,E_k\) are mutually exclusive and exhaustive events and \(B\) is
 </section>
 </section>
 <section>
-<section id="slide-orgf3a7ad6">
-<h2 id="orgf3a7ad6">Problem 5.3</h2>
+<section id="slide-orgb0899f4">
+<h2 id="orgb0899f4">Problem 5.3</h2>
 <p>
 Amount of materials at a construction site is either 100 or 200 units with respective probabilities of 0.6 and 0.4. If the amount of material required in a day is 100, probability of shortage is 0.1, whereas if the requirement is 200 the probability of shortage is 0.3.
 </p>
@@ -184,8 +184,8 @@ Amount of materials at a construction site is either 100 or 200 units with respe
 </section>
 </section>
 <section>
-<section id="slide-orgebfbd55">
-<h2 id="orgebfbd55">Readings</h2>
+<section id="slide-org2979735">
+<h2 id="org2979735">Readings</h2>
 <ul>
 <li>Section 2.8</li>
 <li><a href="https://www.readthesequences.com/An-Intuitive-Explanation-Of-Bayess-Theorem">An intuitive explanation of Bayes' Theorem</a></li>

@@ -41,7 +41,7 @@
    $P(B): \textbf{evidence}$, $P(A|B): \textbf{posterior}$, $P(A): \textbf{prior}$, $P(B|A): \textbf{likelihood}$
    #+reveal_html: </span>
 ** A classic example
-   Top slider is the probability of having the disease, bottom slider is the accuracy of the test
+   Bottom slider is the probability of having the disease, top slider is the accuracy of the test
    #+begin_export html
    <div id="observablehq-chart-42be8286"></div>
    <div id="observablehq-viewof-accuracy_of_test-42be8286"></div>

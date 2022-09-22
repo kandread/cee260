@@ -1,0 +1,45 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 22 Sep
+#+setupfile: ./reveal.org
+* Random variables
+  #+attr_reveal: :frag (appear)
+  - Sample space and events for simple cases: outcomes
+  - Sometimes we need an analytical form to describe these
+  - Variable that associates outcomes with real numbers
+
+  #+reveal_html: <div class="fragment block">
+  A random variable is a function that assigns a real number to each outcome in the sample space of a random experiment
+  #+reveal_html: </div>
+** Notation
+   $$X: \text{random variable}$$
+   $$x: \text{value of random variable}$$
+
+   #+reveal_html: <span class="fragment">
+   Any event can be expressed as $X=a$, or $X \leq a$, or $a < X \leq b$
+   #+reveal_html: </span>
+** Mapping of events
+   #+attr_html: :width 65%
+   [[file:images/fig6_1.png]]
+* Discrete and Continuous random variables
+  #+attr_reveal: :frag (appear)
+  - Discrete and continuous sample space
+  - *Discrete random variable*
+    - random variable with a finite (or countably infinite) range
+  - *Continuous random variable*
+    - random variable with an interval (either finite or infinite) of real numbers for its range
+  - Sometimes a variable is discrete but it's more convenient to treat it as continuous
+** Examples of random variables
+   #+attr_reveal: :frag (appear)
+   - Electrical current
+   - Length
+   - Pressure
+   - Number of surface scratches
+   - Proportion of defective parts among 1000 tested
+* Readings
+  - Section 2.8
+  - Section 2.9
+
+  #+reveal_html: <span class="fragment">
+  {{{color(orangered, Homework #2 due 29 Sep!)}}}
+  #+reveal_html: </span>
