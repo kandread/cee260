@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Probability &amp; Statistics in Engineering</title>
+<meta name="author" content="Kostas Andreadis"/>
+<meta name="description" content="Setup file for reveal.js presentations"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="./reveal.js/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 20 Sep</h2>
+</section>
+<section>
+<section id="slide-orge1bf998">
+<h2 id="orge1bf998">Total probability rule</h2>
+<p>
+Sometimes we know the probability of an event given other conditions
+</p>
+<span class="fragment">
+<table>
+
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Failure</th>
+<th scope="col" class="org-left">Contamination</th>
+<th scope="col" class="org-right">Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0.1</td>
+<td class="org-left">High</td>
+<td class="org-right">0.2</td>
+</tr>
+
+<tr>
+<td class="org-right">0.005</td>
+<td class="org-left">Not high</td>
+<td class="org-right">0.8</td>
+</tr>
+</tbody>
+</table>
+</span>
+<span class="fragment">
+<p>
+\[P(F) = P(F \cap H) + P(F \cap H')\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[P(F) = P(F|H)P(H) + P(F|H')P(H')\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[P(F) = 0.10(0.20)+0.005(0.80)=0.024\]
+</p>
+</span>
+</section>
+<section id="slide-org2570d4c">
+<h3 id="org2570d4c">Total probability rule (multiple events)</h3>
+<p>
+Assume \(E_1\), \(E_2\),&#x2026;,\(E_k\) are mutually exclusive and exhaustive sets. Then
+</p>
+<div class="block">
+<p>
+\[P(B) = P(B \cap E_1) + P(B \cap E_2) + ... + P(B \cap E_k)\]
+\[P(B) = P(B|E_1)P(E_1)+P(B|E_2)P(E_2)+ ... + P(B|E_k)P(E_k)\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org63cfe90">
+<h2 id="org63cfe90">Problem 4.3</h2>
+<p>
+Successful completion (\(C\)) of a project depends on supply of materials, labor, and weather:
+</p>
+<ul>
+<li>Good weather (\(G\)) and at least labor (\(L\)) or material (\(M\)) available</li>
+<li>Bad weather but both labor and material available</li>
+
+</ul>
+<p>
+Suppose \(P(L)=0.7\), \(P(G)=0.6\), and \(L\) is independent of both \(M\) and \(G\).
+</p>
+<ul>
+<li>If the weather is good, adequate supply of materials is certain.</li>
+<li>If weather is bad, probability of materials is 50%.</li>
+
+</ul>
+</section>
+<section id="slide-orgc22dfef">
+<h3 id="orgc22dfef"></h3>
+<p>
+Describe the event of successful completion in terms of \(G\), \(L\), and \(M\)
+</p>
+</section>
+<section id="slide-org10ac7f3">
+<h3 id="org10ac7f3"></h3>
+<p>
+Determine the probability of successful completion
+</p>
+</section>
+<section id="slide-org9fc68e4">
+<h3 id="org9fc68e4"></h3>
+<p>
+If the project completes successfully, what is the probability that labor supply had been inadequate? 
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org9f3afa8" data-background="./images/hurricane.jpg" data-background-transition="slide">
+<h2 id="org9f3afa8">Problem 5.1</h2>
+<ul>
+<li class="fragment appear">High-wind storms in the county occur once every other year</li>
+<li class="fragment appear">During such a storm probability of tornadoes is 0.25</li>
+<li class="fragment appear">Probability of tornadoes in the county striking the town is 0.15</li>
+<li class="fragment appear">Probability of damages during wind storm with no tornadoes is 0.05</li>
+<li class="fragment appear">If tornadoes do not strike the town, probability of damages is 0.10</li>
+<li class="fragment appear">Damages are certain if tornadoes strike the town</li>
+
+</ul>
+</section>
+<section id="slide-orgb9f46a4">
+<h3 id="orgb9f46a4"></h3>
+<p>
+\[F = \text{damage to houses}\]
+\[S = \text{occurrence of storm in county}\]
+\[T = \text{occurrence of tornadoes in county}\]
+\[H = \text{tornado striking town}\]
+</p>
+<span class="fragment">
+<p>
+<font color="IndianRed">What is the annual probability of damage to houses in the town?</font>
+</p>
+</span>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/math/math.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/customcontrols/plugin.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1280,
+height: 720,
+
+transition: 'convex',
+    transitionSpeed: 'default',
+
+        	  chalkboard: { 
+	  src: "https://raw.githubusercontent.com/kandread/cee260/master/annot/05_total_probability.json",
+	  },
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+</script>
+</body>
+</html>
