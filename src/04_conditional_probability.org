@@ -71,46 +71,9 @@
    What is the probability that water in town A will be contaminated?
 ** {{{empty}}}
    What is the probability that at least one of the two towns' water will be contaminated?
-* Total probability rule
-  Sometimes we know the probability of an event given other conditions
-  #+reveal_html: <span class="fragment">
-  | Failure | Contamination | Probability |
-  |---------+---------------+-------------|
-  |     0.1 | High          |         0.2 |
-  |   0.005 | Not high      |         0.8 |
-  #+reveal_html: </span>
-  #+reveal_html: <span class="fragment">
-  $$P(F) = P(F \cap H) + P(F \cap H')$$
-  #+reveal_html: </span>
-  #+reveal_html: <span class="fragment">
-  $$P(F) = P(F|H)P(H) + P(F|H')P(H')$$
-  #+reveal_html: </span>
-  #+reveal_html: <span class="fragment">
-  $$P(F) = 0.10(0.20)+0.005(0.80)=0.024$$
-  #+reveal_html: </span>
-** Total probability rule (multiple events)
-   Assume $E_1$, $E_2$,...,$E_k$ are mutually exclusive and exhaustive sets. Then
-   #+reveal_html: <div class="block">
-   $$P(B) = P(B \cap E_1) + P(B \cap E_2) + ... + P(B \cap E_k)$$
-   $$P(B) = P(B|E_1)P(E_1)+P(B|E_2)P(E_2)+ ... + P(B|E_k)P(E_k)$$
-   #+reveal_html: </div>
-* Problem 4.3
-  Successful completion ($C$) of a project depends on supply of materials, labor, and weather:
-  - Good weather ($G$) and at least labor ($L$) or material ($M$) available
-  - Bad weather but both labor and material available
-  Suppose $P(L)=0.7$, $P(G)=0.6$, and $L$ is independent of both $M$ and $G$.
-  - If the weather is good, adequate supply of materials is certain.
-  - If weather is bad, probability of materials is 50%.
-** {{{empty}}}
-   Describe the event of successful completion in terms of $G$, $L$, and $M$
-** {{{empty}}}
-   Determine the probability of successful completion
-** {{{empty}}}
-   If the project completes successfully, what is the probability that labor supply had been inadequate? 
 * Readings
   - Section 2.6
   - Section 2.7
-
   #+reveal_html: <span class="fragment">
   Homework #1 due 22 Sep!
   #+reveal_html: </span>
