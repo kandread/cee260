@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Probability &amp; Statistics in Engineering</title>
+<meta name="author" content="Kostas Andreadis"/>
+<meta name="description" content="Setup file for reveal.js presentations"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="./reveal.js/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 22 Sep</h2>
+</section>
+<section>
+<section id="slide-org5a11a0d">
+<h2 id="org5a11a0d">Bayes theorem</h2>
+<div class="twocolumn"><div>
+
+<figure id="org4d83d31">
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Thomas_Bayes.gif" alt="Thomas_Bayes.gif">
+
+</figure>
+</div><div>
+<ul>
+<li class="fragment appear">Statistical inference</li>
+<li class="fragment appear">Frequentist vs Bayesian</li>
+<li class="fragment appear">Example of the color for 24 circles</li>
+<li class="fragment appear">"If you pick a random circle, 75% chance that it is blue although it could be 74% or 76%"</li>
+<li class="fragment appear">"I am 99% confident that there are 18 blue circles"</li>
+
+</ul>
+</div>
+</section>
+<section id="slide-org5fad6fe">
+<h3 id="org5fad6fe">But what is the equation?</h3>
+<div class="fragment block">
+<p>
+\[P(A|B) = \dfrac{P(B|A) \times P(A)}{P(B)}\]
+</p>
+</div>
+<span class="fragment">
+<p>
+\(P(B): \textbf{evidence}\), \(P(A|B): \textbf{posterior}\), \(P(A): \textbf{prior}\), \(P(B|A): \textbf{likelihood}\)
+</p>
+</span>
+</section>
+<section id="slide-org6ae0d52">
+<h3 id="org6ae0d52">A classic example</h3>
+<p>
+Bottom slider is the probability of having the disease, top slider is the accuracy of the test
+</p>
+<div id="observablehq-chart-42be8286"></div>
+<div id="observablehq-viewof-accuracy_of_test-42be8286"></div>
+<div id="observablehq-viewof-prob_infected-42be8286"></div>
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@cjwallace/bayes-theorem.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-42be8286"));
+  if (name === "viewof accuracy_of_test") return new Inspector(document.querySelector("#observablehq-viewof-accuracy_of_test-42be8286"));
+  if (name === "viewof prob_infected") return new Inspector(document.querySelector("#observablehq-viewof-prob_infected-42be8286"));
+  return ["circles"].includes(name);
+});
+</script>
+
+<figure id="org305beb2">
+<img src="images/fig_5_1.png" alt="fig_5_1.png" width="50%">
+
+</figure>
+</section>
+<section id="slide-org40c62a2">
+<h3 id="org40c62a2">Back to equations</h3>
+<p>
+\[P(A|B) = \dfrac{P(A \cap B)}{P(B)} \Rightarrow P(A \cap B) = P(A|B) P(B)\]
+</p>
+<span class="fragment">
+<p>
+\[P(B|A) = \dfrac{P(B \cap A)}{P(A)} \Rightarrow P(A \cap B) = P(B|A) P(A)\]   
+</p>
+</span>
+<span class="fragment">
+<p>
+\[P(A|B)P(B) = P(B|A)P(A) \Rightarrow P(A|B)=\dfrac{P(B|A)P(A)}{P(B)}\]
+</p>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-org62071fa">
+<h2 id="org62071fa">Problem 5.2</h2>
+<p>
+80% probability that mix from concrete plant is of good quality. Tests on site for compressive strength are performed, but test has 90% reliability: a good-quality mix (\(G\)) will pass test (\(T\)) with 0.9 probability and a poor-quality mix will pass with 0.1 probability. 
+</p>
+</section>
+<section id="slide-org0e51803">
+<h3 id="org0e51803"></h3>
+<p>
+What is the probability that mix is of good quality if it passes the QC test?
+</p>
+</section>
+<section id="slide-org1808ea5">
+<h3 id="org1808ea5"></h3>
+<p>
+Suppose a second sample is tested after the first, what is the probability that the mix is of good quality? 
+</p>
+</section>
+<section id="slide-org4085e6e">
+<h3 id="org4085e6e"></h3>
+<p>
+Let's perform these two calculations in a single step.
+</p>
+</section>
+<section id="slide-org286554e">
+<h3 id="org286554e"></h3>
+<p>
+What if either one of the tests was negative?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgfe0363e">
+<h2 id="orgfe0363e">A more general equation</h2>
+<div class="fragment block">
+<p>
+If \(E_1,E_2,...,E_k\) are mutually exclusive and exhaustive events and \(B\) is any event with \(PB)>0\)
+\[P(E_1|B) = \dfrac{P(B|E_1)P(E_1)}{P(B|E_1)P(E_1)+...+P(B|E_k)P(E_k)}\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org19d2bad">
+<h2 id="org19d2bad">Problem 5.3</h2>
+<p>
+Amount of materials at a construction site is either 100 or 200 units with respective probabilities of 0.6 and 0.4. If the amount of material required in a day is 100, probability of shortage is 0.1, whereas if the requirement is 200 the probability of shortage is 0.3.
+</p>
+<ul>
+<li class="fragment appear">What is the probability of shortage on a given day? (<font color="cornflowerblue">0.18</font>)</li>
+<li class="fragment appear">If there is a shortage, what is the probability of the requirement being 100 units? (<font color="cornflowerblue">1/3</font>)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgf994712">
+<h2 id="orgf994712">Readings</h2>
+<ul>
+<li>Section 2.8</li>
+<li><a href="https://www.readthesequences.com/An-Intuitive-Explanation-Of-Bayess-Theorem">An intuitive explanation of Bayes' Theorem</a></li>
+<li><a href="http://confidence.success-equation.com/">Do you know what you know?</a></li>
+<li><a href="https://youtu.be/rwtDBhD6Mq0">Bayes Billiards</a></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/math/math.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/customcontrols/plugin.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1280,
+height: 720,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+        	  chalkboard: { 
+	  src: "https://raw.githubusercontent.com/kandread/cee260/master/annot/06_bayes.json",
+		  },
+    
+// Plugins with reveal.js 4.x
+plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+</script>
+</body>
+</html>

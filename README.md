@@ -12,3 +12,5 @@ Probability and Statistics in Civil Engineering
 [Lecture #4 - 15 Sep 2022](https://kandread.github.io/cee260/04_conditional_probability.html)
 
 [Lecture #5 - 20 Sep 2022](https://kandread.github.io/cee260/05_total_probability.html)
+
+[Lecture #6 - 22 Sep 2022](https://kandread.github.io/cee260/06_bayes.html)

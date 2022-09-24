@@ -1,0 +1,74 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 22 Sep
+#+setupfile: ./reveal.org
+* Bayes theorem
+  #+reveal_html: <div class="twocolumn"><div>
+  [[https://upload.wikimedia.org/wikipedia/commons/d/d4/Thomas_Bayes.gif]]
+  #+reveal_html: </div><div>
+  #+attr_reveal: :frag (appear)
+  - Statistical inference
+  - Frequentist vs Bayesian
+  - Example of the color for 24 circles
+  - "If you pick a random circle, 75% chance that it is blue although it could be 74% or 76%"
+  - "I am 99% confident that there are 18 blue circles"
+  #+reveal_html: </div>
+** But what is the equation?
+   #+reveal_html: <div class="fragment block">
+   $$P(A|B) = \dfrac{P(B|A) \times P(A)}{P(B)}$$
+   #+reveal_html: </div>
+   #+reveal_html: <span class="fragment">
+   $P(B): \textbf{evidence}$, $P(A|B): \textbf{posterior}$, $P(A): \textbf{prior}$, $P(B|A): \textbf{likelihood}$
+   #+reveal_html: </span>
+** A classic example
+   Bottom slider is the probability of having the disease, top slider is the accuracy of the test
+   #+begin_export html
+   <div id="observablehq-chart-42be8286"></div>
+   <div id="observablehq-viewof-accuracy_of_test-42be8286"></div>
+   <div id="observablehq-viewof-prob_infected-42be8286"></div>
+   <script type="module">
+   import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+   import define from "https://api.observablehq.com/@cjwallace/bayes-theorem.js?v=3";
+   new Runtime().module(define, name => {
+     if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-42be8286"));
+     if (name === "viewof accuracy_of_test") return new Inspector(document.querySelector("#observablehq-viewof-accuracy_of_test-42be8286"));
+     if (name === "viewof prob_infected") return new Inspector(document.querySelector("#observablehq-viewof-prob_infected-42be8286"));
+     return ["circles"].includes(name);
+   });
+   </script>
+   #+end_export
+   #+attr_html: :width 50%
+   [[file:images/fig_5_1.png]]
+** Back to equations
+   $$P(A|B) = \dfrac{P(A \cap B)}{P(B)} \Rightarrow P(A \cap B) = P(A|B) P(B)$$
+   #+reveal_html: <span class="fragment">
+   $$P(B|A) = \dfrac{P(B \cap A)}{P(A)} \Rightarrow P(A \cap B) = P(B|A) P(A)$$   
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$P(A|B)P(B) = P(B|A)P(A) \Rightarrow P(A|B)=\dfrac{P(B|A)P(A)}{P(B)}$$
+   #+reveal_html: </span>
+* Problem 5.2
+  80% probability that mix from concrete plant is of good quality. Tests on site for compressive strength are performed, but test has 90% reliability: a good-quality mix ($G$) will pass test ($T$) with 0.9 probability and a poor-quality mix will pass with 0.1 probability. 
+** {{{empty}}}
+   What is the probability that mix is of good quality if it passes the QC test?
+** {{{empty}}}
+   Suppose a second sample is tested after the first, what is the probability that the mix is of good quality? 
+** {{{empty}}}
+   Let's perform these two calculations in a single step.
+** {{{empty}}}
+   What if either one of the tests was negative?
+* A more general equation
+  #+reveal_html: <div class="fragment block">
+  If $E_1,E_2,...,E_k$ are mutually exclusive and exhaustive events and $B$ is any event with $PB)>0$
+  $$P(E_1|B) = \dfrac{P(B|E_1)P(E_1)}{P(B|E_1)P(E_1)+...+P(B|E_k)P(E_k)}$$
+  #+reveal_html: </div>
+* Problem 5.3
+  Amount of materials at a construction site is either 100 or 200 units with respective probabilities of 0.6 and 0.4. If the amount of material required in a day is 100, probability of shortage is 0.1, whereas if the requirement is 200 the probability of shortage is 0.3.
+  #+attr_reveal: :frag (appear)
+  - What is the probability of shortage on a given day? ({{{color(cornflowerblue,0.18)}}})
+  - If there is a shortage, what is the probability of the requirement being 100 units? ({{{color(cornflowerblue,1/3)}}})
+* Readings
+  - Section 2.8
+  - [[https://www.readthesequences.com/An-Intuitive-Explanation-Of-Bayess-Theorem][An intuitive explanation of Bayes' Theorem]]
+  - [[http://confidence.success-equation.com/][Do you know what you know?]]
+  - [[https://youtu.be/rwtDBhD6Mq0][Bayes Billiards]]
