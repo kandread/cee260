@@ -1,0 +1,198 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 22 Sep
+#+setupfile: ./reveal.org
+* Random variables
+  #+attr_reveal: :frag (appear)
+  - Sample space and events for simple cases: outcomes
+  - Sometimes we need an analytical form to describe these
+  - Variable that associates outcomes with real numbers
+
+  #+reveal_html: <div class="fragment block">
+  A random variable is a function that assigns a real number to each outcome in the sample space of a random experiment
+  #+reveal_html: </div>
+** Notation
+   $$X: \text{random variable}$$
+   $$x: \text{value of random variable}$$
+
+   #+reveal_html: <span class="fragment">
+   Any event can be expressed as $X=a$, or $X \leq a$, or $a < X \leq b$
+   #+reveal_html: </span>
+** Mapping of events
+   #+attr_html: :width 65%
+   [[file:images/fig6_1.png]]
+* Discrete and Continuous random variables
+  #+attr_reveal: :frag (appear)
+  - Discrete and continuous sample space
+  - *Discrete random variable*
+    - random variable with a finite (or countably infinite) range
+  - *Continuous random variable*
+    - random variable with an interval (either finite or infinite) of real numbers for its range
+  - Sometimes a variable is discrete but it's more convenient to treat it as continuous
+** Examples of random variables
+   #+attr_reveal: :frag (appear)
+   - Electrical current
+   - Length
+   - Pressure
+   - Number of surface scratches
+   - Proportion of defective parts among 1000 tested
+* Probability distribution
+  A probability is associated with each value of a random variable
+  #+reveal_html: <div class="fragment block">
+  Probability distribution of a random variable is a description of the these probabilities:
+  - For discrete variables it can be a list of possible values and their probabilities
+  - For continuous variables, they are expressed in terms of a formula
+  #+reveal_html: </div>
+** Example
+   #+attr_reveal: :frag (appear)
+   - Flash recharge time specification met (probability = 0.8)
+   - Probability of tests with 3 cameras?
+
+   #+reveal_html: <span class="fragment">
+   $$P(ppf)=(0.8)(0.8)(0.2)=0.128$$
+   #+reveal_html: </span>
+   #+reveal: split
+   | Camera 1 | Camera 2 | Camera 3 |   $P$ | $X$ |
+   |----------+----------+----------+-------+-----|
+   | Pass     | Pass     | Pass     | 0.512 |   3 |
+   | Fail     | Pass     | Pass     | 0.128 |   2 |
+   | Pass     | Fail     | Pass     | 0.128 |   2 |
+   | Fail     | Fail     | Pass     | 0.032 |   1 |
+   | Pass     | Pass     | Fail     | 0.128 |   2 |
+   | Fail     | Pass     | Fail     | 0.032 |   1 |
+   | Pass     | Fail     | Fail     | 0.032 |   1 |
+   | Fail     | Fail     | Fail     | 0.008 |   0 |
+* Probability distribution for discrete variable
+  #+reveal_html: <div class="theorem" name="Probability Mass Function">
+  For a discrete random variable $X$ with possible values $x_1$, $x_2$, ..., $x_n$ a PMF is a function such that
+  $$f(x_i) \geq 0$$
+  $$\sum_{i=1}^n f(x_i) = 1$$
+  $$f(x_i)=P(X=x_i)$$
+  #+reveal_html: </div>
+** Example
+   - Bit transmitted through a digital transmission is received in error
+   - $X$ is the number of erroneous bits in the next four transmitted
+
+   #+reveal_html: <span class="fragment">
+   $P(X=0)=0.6561$, $P(X=1)=0.2916$, $P(X=2)=0.0486$, $P(X=3)=0.0036$, $P(X=4)=0.0001$
+   #+reveal_html: </span>
+   #+reveal: split
+   #+attr_html: :width 80%
+   [[file:images/fig7_1.png]]
+* Cumulative distribution functions
+  Alternate method for describing a random variable's probability distribution is with cumulative probabilities such as $P(X \leq x)$
+  #+reveal: split
+   $P(X=0)=0.6561$, $P(X=1)=0.2916$, $P(X=2)=0.0486$, $P(X=3)=0.0036$, $P(X=4)=0.0001$
+
+   #+reveal_html: <span class="fragment">
+   $${X \leq 3} = {X=0} \cup {X=1} \cup {X=3}$$
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$P(X \leq 3) = P(X=0)+P(X=1)+P(X=2)+P(X=3)$$
+   $$ = 0.6561+0.2916+0.0486+0.0036 = 0.9999$$
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   {{{color(indianred, What is the probability $P(X=3)$ using CDFs?)}}}
+   #+reveal_html: </span>
+   #+reveal: split
+   #+reveal_html: <div class="theorem" name="Cumulative Distribution Function">
+   The CDF of a discrete random variable $X$, $F(x)$, is
+   $$F(x)=P(X \leq x) = \sum_{x_i \leq x} f(x_i)$$
+   #+reveal_html: </div>
+   #+reveal: split
+   #+reveal_html: <div class="block">
+   For a discrete random variable $X$, $F(x)$ satisfies
+   $$F(x)=P(X \leq x)=\sum_{x_i \leq x} f(x_i)$$
+   $$0 \leq F(x) \leq 1$$
+   $$\text{If }x \leq y \text{, then } F(x)\leq F(y)$$
+   #+reveal_html: </div>
+   #+reveal: split
+   #+attr_html: :width 50%
+   [[file:images/fig7_2.png]]
+** Example
+   Operating bulldozers after 6 months (out of 3)
+   #+attr_reveal: :frag (appear)
+   - $X$: number of operating bulldozers
+   - $X=0$: NNN
+   - $X=1$: ONN, NON, NNO
+   - $X=2$: OON, NOO, ONO
+   - $X=3$, OOO
+   #+reveal_html: <span class="fragment">
+   {{{color(OrangeRed, Draw the PMF and CDF)}}}
+   #+reveal_html: </span>
+* Descriptors of random variables
+  #+attr_reveal: :frag (appear)
+  - Numbers used to *summarize* a probability distribution for a random variable $X$
+  - Many times we don't know the exact form of a probability distribution
+  - Can estimate parameters for distribution
+  - Central values (*Mean*, *Median*)
+  - Dispersion measures (*Standard deviation*, *Variance*)
+** Mean
+   - Also known as *Expected value*!
+   - Weighted average of the possible values of $X$
+   #+reveal_html: <div class="fragment block">
+   $$\mu = E(X) = \sum_{x_i} x_i f(x_i)$$
+   #+reveal_html: </div>
+   #+reveal: split
+   Notion of expected value can be generalized for any function of $X$
+   #+reveal_html: <span class="fragment">
+   $$E\left[ g(X) \right] = \sum_{x_i} g(x_i) f(x_i)$$  
+   #+reveal_html: </span>
+** Median
+   $x_m$ is the value for which larger and smaller values are equally probable
+   #+reveal_html: <span class="fragment">
+   $$F(x_m)=P(X \leq x_m)=0.5$$
+   #+reveal_html: </span>
+** Variance
+   - Measure of the dispersion or scatter of the possible values of $X$
+   - Function of the deviations from the central value
+   #+reveal_html: <div class="fragment block">
+   $$\sigma^2 = V(X)=E(X - \mu)^2 = \sum_{x_i} (x_i - \mu)^2 f(x_i)$$
+   $$\sigma^2 = = \sum_{x_i} x_i^2 f(x_i) - \mu^2$$
+   #+reveal_html: </div>
+   #+reveal: split
+   Let's prove the second equation!
+** Standard deviation
+   #+reveal_html: <div class="block">
+   $$\sigma = \sqrt{\sigma^2}$$
+   #+reveal_html: </div>
+** Identical mean and variance
+   #+attr_html: :width 90%
+   [[file:images/fig7_3.png]]
+* Problem 7.1
+  The profit of a construction project is described by the following PDF
+  #+attr_html: :width 80%
+  [[file:images/fig7_4.png]]
+  #+reveal: split
+  What is the probability that the contractor will lose money on the project?
+  #+reveal: split
+  Suppose the contractor declares that they made money on this project. What is the probability that their profit was more than $40K?
+* Example
+  #+reveal_html: <span class="fragment">
+  What if we calculate the expected value of the square of the number of bits?
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  |    $X$ | $P(X=x)$ | $x f(x)$ | $x^2 f(x)$ |
+  |--------+----------+----------+------------|
+  |      0 |   0.6561 |       0. |         0. |
+  |      1 |   0.2916 |   0.2916 |     0.2916 |
+  |      2 |   0.0486 |   0.0972 |     0.1944 |
+  |      3 |   0.0036 |   0.0108 |     0.0324 |
+  |      4 |   0.0001 |     4e-4 |     1.6e-3 |
+  | $\sum$ |       1. |      0.4 |       0.52 |
+  #+TBLFM: $3=$2*$1
+  #+TBLFM: $4=$1*$1*$2
+  #+TBLFM: @7$2=vsum(@2..6)
+  #+TBLFM: @7$3=vsum(@2..6)
+  #+TBLFM: @7$4=vsum(@2..6)
+  #+reveal_html: </span>
+** $E[g(X)] \neq g[E(X)]$
+   #+reveal_html: <span class="fragment">
+   What about the special case $g(X)=aX+b$?
+   #+reveal_html: </span>
+   #+reveal_html: <div class="fragment block">
+   $$E(aX+b)=aE(X)+b$$
+   $$V(aX+b)=a^2V(X)$$
+   #+reveal: split
+   Let's prove that!
+   #+reveal_html: </div>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Probability &amp; Statistics in Engineering</title>
+<meta name="author" content="Kostas Andreadis"/>
+<meta name="description" content="Setup file for reveal.js presentations"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="./reveal.js/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 22 Sep</h2>
+</section>
+<section>
+<section id="slide-orge7bd690">
+<h2 id="orge7bd690">Random variables</h2>
+<ul>
+<li class="fragment appear">Sample space and events for simple cases: outcomes</li>
+<li class="fragment appear">Sometimes we need an analytical form to describe these</li>
+<li class="fragment appear">Variable that associates outcomes with real numbers</li>
+
+</ul>
+
+<div class="fragment block">
+<p>
+A random variable is a function that assigns a real number to each outcome in the sample space of a random experiment
+</p>
+</div>
+</section>
+<section id="slide-org0854422">
+<h3 id="org0854422">Notation</h3>
+<p>
+\[X: \text{random variable}\]
+\[x: \text{value of random variable}\]
+</p>
+
+<span class="fragment">
+<p>
+Any event can be expressed as \(X=a\), or \(X \leq a\), or \(a < X \leq b\)
+</p>
+</span>
+</section>
+<section id="slide-org95cf778">
+<h3 id="org95cf778">Mapping of events</h3>
+
+<figure id="org129b3be">
+<img src="images/fig6_1.png" alt="fig6_1.png" width="65%">
+
+</figure>
+</section>
+</section>
+<section>
+<section id="slide-orgd561137">
+<h2 id="orgd561137">Discrete and Continuous random variables</h2>
+<ul>
+<li class="fragment appear">Discrete and continuous sample space</li>
+<li class="fragment appear"><b>Discrete random variable</b>
+<ul>
+<li>random variable with a finite (or countably infinite) range</li>
+
+</ul></li>
+<li class="fragment appear"><b>Continuous random variable</b>
+<ul>
+<li>random variable with an interval (either finite or infinite) of real numbers for its range</li>
+
+</ul></li>
+<li class="fragment appear">Sometimes a variable is discrete but it's more convenient to treat it as continuous</li>
+
+</ul>
+</section>
+<section id="slide-org522969a">
+<h3 id="org522969a">Examples of random variables</h3>
+<ul>
+<li class="fragment appear">Electrical current</li>
+<li class="fragment appear">Length</li>
+<li class="fragment appear">Pressure</li>
+<li class="fragment appear">Number of surface scratches</li>
+<li class="fragment appear">Proportion of defective parts among 1000 tested</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgf2d9329">
+<h2 id="orgf2d9329">Probability distribution</h2>
+<p>
+A probability is associated with each value of a random variable
+</p>
+<div class="fragment block">
+<p>
+Probability distribution of a random variable is a description of the these probabilities:
+</p>
+<ul>
+<li>For discrete variables it can be a list of possible values and their probabilities</li>
+<li>For continuous variables, they are expressed in terms of a formula</li>
+
+</ul>
+</div>
+</section>
+<section id="slide-org463d2e8">
+<h3 id="org463d2e8">Example</h3>
+<ul>
+<li class="fragment appear">Flash recharge time specification met (probability = 0.8)</li>
+<li class="fragment appear">Probability of tests with 3 cameras?</li>
+
+</ul>
+
+<span class="fragment">
+<p>
+\[P(ppf)=(0.8)(0.8)(0.2)=0.128\]
+</p>
+</span>
+</section>
+<section>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Camera 1</th>
+<th scope="col" class="org-left">Camera 2</th>
+<th scope="col" class="org-left">Camera 3</th>
+<th scope="col" class="org-right">\(P\)</th>
+<th scope="col" class="org-right">\(X\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Pass</td>
+<td class="org-left">Pass</td>
+<td class="org-left">Pass</td>
+<td class="org-right">0.512</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">Fail</td>
+<td class="org-left">Pass</td>
+<td class="org-left">Pass</td>
+<td class="org-right">0.128</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">Pass</td>
+<td class="org-left">Fail</td>
+<td class="org-left">Pass</td>
+<td class="org-right">0.128</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">Fail</td>
+<td class="org-left">Fail</td>
+<td class="org-left">Pass</td>
+<td class="org-right">0.032</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">Pass</td>
+<td class="org-left">Pass</td>
+<td class="org-left">Fail</td>
+<td class="org-right">0.128</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">Fail</td>
+<td class="org-left">Pass</td>
+<td class="org-left">Fail</td>
+<td class="org-right">0.032</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">Pass</td>
+<td class="org-left">Fail</td>
+<td class="org-left">Fail</td>
+<td class="org-right">0.032</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">Fail</td>
+<td class="org-left">Fail</td>
+<td class="org-left">Fail</td>
+<td class="org-right">0.008</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section>
+<section id="slide-org6f21d43">
+<h2 id="org6f21d43">Probability distribution for discrete variable</h2>
+<div class="theorem" name="Probability Mass Function">
+<p>
+For a discrete random variable \(X\) with possible values \(x_1\), \(x_2\), &#x2026;, \(x_n\) a PMF is a function such that
+\[f(x_i) \geq 0\]
+\[\sum_{i=1}^n f(x_i) = 1\]
+\[f(x_i)=P(X=x_i)\]
+</p>
+</div>
+</section>
+<section id="slide-org306106f">
+<h3 id="org306106f">Example</h3>
+<ul>
+<li>Bit transmitted through a digital transmission is received in error</li>
+<li>\(X\) is the number of erroneous bits in the next four transmitted</li>
+
+</ul>
+
+<span class="fragment">
+<p>
+\(P(X=0)=0.6561\), \(P(X=1)=0.2916\), \(P(X=2)=0.0486\), \(P(X=3)=0.0036\), \(P(X=4)=0.0001\)
+</p>
+</span>
+</section>
+<section>
+
+<figure id="org907fac4">
+<img src="images/fig7_1.png" alt="fig7_1.png" width="80%">
+
+</figure>
+</section>
+</section>
+<section>
+<section id="slide-org098635a">
+<h2 id="org098635a">Cumulative distribution functions</h2>
+<p>
+Alternate method for describing a random variable's probability distribution is with cumulative probabilities such as \(P(X \leq x)\)
+</p>
+</section>
+<section>
+<p>
+\(P(X=0)=0.6561\), \(P(X=1)=0.2916\), \(P(X=2)=0.0486\), \(P(X=3)=0.0036\), \(P(X=4)=0.0001\)
+</p>
+
+<span class="fragment">
+<p>
+\[{X \leq 3} = {X=0} \cup {X=1} \cup {X=3}\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[P(X \leq 3) = P(X=0)+P(X=1)+P(X=2)+P(X=3)\]
+\[ = 0.6561+0.2916+0.0486+0.0036 = 0.9999\]
+</p>
+</span>
+<span class="fragment">
+<p>
+<font color="indianred"> What is the probability $P(X=3)$ using CDFs?</font>
+</p>
+</span>
+</section>
+<section>
+<div class="theorem" name="Cumulative Distribution Function">
+<p>
+The CDF of a discrete random variable \(X\), \(F(x)\), is
+\[F(x)=P(X \leq x) = \sum_{x_i \leq x} f(x_i)\]
+</p>
+</div>
+</section>
+<section>
+<div class="block">
+<p>
+For a discrete random variable \(X\), \(F(x)\) satisfies
+\[F(x)=P(X \leq x)=\sum_{x_i \leq x} f(x_i)\]
+\[0 \leq F(x) \leq 1\]
+\[\text{If }x \leq y \text{, then } F(x)\leq F(y)\]
+</p>
+</div>
+</section>
+<section>
+
+<figure id="org14c91be">
+<img src="images/fig7_2.png" alt="fig7_2.png" width="50%">
+
+</figure>
+</section>
+<section id="slide-org8ef975b">
+<h3 id="org8ef975b">Example</h3>
+<p>
+Operating bulldozers after 6 months (out of 3)
+</p>
+<ul>
+<li class="fragment appear">\(X\): number of operating bulldozers</li>
+<li class="fragment appear">\(X=0\): NNN</li>
+<li class="fragment appear">\(X=1\): ONN, NON, NNO</li>
+<li class="fragment appear">\(X=2\): OON, NOO, ONO</li>
+<li class="fragment appear">\(X=3\), OOO</li>
+
+</ul>
+<span class="fragment">
+<p>
+<font color="OrangeRed"> Draw the PMF and CDF</font>
+</p>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-org1dc401f">
+<h2 id="org1dc401f">Descriptors of random variables</h2>
+<ul>
+<li class="fragment appear">Numbers used to <b>summarize</b> a probability distribution for a random variable \(X\)</li>
+<li class="fragment appear">Many times we don't know the exact form of a probability distribution</li>
+<li class="fragment appear">Can estimate parameters for distribution</li>
+<li class="fragment appear">Central values (<b>Mean</b>, <b>Median</b>)</li>
+<li class="fragment appear">Dispersion measures (<b>Standard deviation</b>, <b>Variance</b>)</li>
+
+</ul>
+</section>
+<section id="slide-orgf7797e6">
+<h3 id="orgf7797e6">Mean</h3>
+<ul>
+<li>Also known as <b>Expected value</b>!</li>
+<li>Weighted average of the possible values of \(X\)</li>
+
+</ul>
+<div class="fragment block">
+<p>
+\[\mu = E(X) = \sum_{x_i} x_i f(x_i)\]
+</p>
+</div>
+</section>
+<section>
+<p>
+Notion of expected value can be generalized for any function of \(X\)
+</p>
+<span class="fragment">
+<p>
+\[E\left[ g(X) \right] = \sum_{x_i} g(x_i) f(x_i)\]  
+</p>
+</span>
+</section>
+<section id="slide-orgdd2b06a">
+<h3 id="orgdd2b06a">Median</h3>
+<p>
+\(x_m\) is the value for which larger and smaller values are equally probable
+</p>
+<span class="fragment">
+<p>
+\[F(x_m)=P(X \leq x_m)=0.5\]
+</p>
+</span>
+</section>
+<section id="slide-org272dc62">
+<h3 id="org272dc62">Variance</h3>
+<ul>
+<li>Measure of the dispersion or scatter of the possible values of \(X\)</li>
+<li>Function of the deviations from the central value</li>
+
+</ul>
+<div class="fragment block">
+<p>
+\[\sigma^2 = V(X)=E(X - \mu)^2 = \sum_{x_i} (x_i - \mu)^2 f(x_i)\]
+\[\sigma^2 = = \sum_{x_i} x_i^2 f(x_i) - \mu^2\]
+</p>
+</div>
+</section>
+<section>
+<p>
+Let's prove the second equation!
+</p>
+</section>
+<section id="slide-org1db0f3c">
+<h3 id="org1db0f3c">Standard deviation</h3>
+<div class="block">
+<p>
+\[\sigma = \sqrt{\sigma^2}\]
+</p>
+</div>
+</section>
+<section id="slide-orgd00fefe">
+<h3 id="orgd00fefe">Identical mean and variance</h3>
+
+<figure id="org8fceb99">
+<img src="images/fig7_3.png" alt="fig7_3.png" width="90%">
+
+</figure>
+</section>
+</section>
+<section>
+<section id="slide-orgab3913b">
+<h2 id="orgab3913b">Problem 7.1</h2>
+<p>
+The profit of a construction project is described by the following PDF
+</p>
+
+<figure id="orgd282722">
+<img src="images/fig7_4.png" alt="fig7_4.png" width="80%">
+
+</figure>
+</section>
+<section>
+<p>
+What is the probability that the contractor will lose money on the project?
+</p>
+</section>
+<section>
+<p>
+Suppose the contractor declares that they made money on this project. What is the probability that their profit was more than $40K?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgae9ec1e">
+<h2 id="orgae9ec1e">Example</h2>
+<span class="fragment">
+<p>
+What if we calculate the expected value of the square of the number of bits?
+</p>
+</span>
+<span class="fragment">
+<table>
+
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">\(X\)</th>
+<th scope="col" class="org-right">\(P(X=x)\)</th>
+<th scope="col" class="org-right">\(x f(x)\)</th>
+<th scope="col" class="org-right">\(x^2 f(x)\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0.6561</td>
+<td class="org-right">0.</td>
+<td class="org-right">0.</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0.2916</td>
+<td class="org-right">0.2916</td>
+<td class="org-right">0.2916</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">0.0486</td>
+<td class="org-right">0.0972</td>
+<td class="org-right">0.1944</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">0.0036</td>
+<td class="org-right">0.0108</td>
+<td class="org-right">0.0324</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">0.0001</td>
+<td class="org-right">4e-4</td>
+<td class="org-right">1.6e-3</td>
+</tr>
+
+<tr>
+<td class="org-right">\(\sum\)</td>
+<td class="org-right">1.</td>
+<td class="org-right">0.4</td>
+<td class="org-right">0.52</td>
+</tr>
+</tbody>
+</table>
+</span>
+</section>
+<section id="slide-org96805f1">
+<h3 id="org96805f1">\(E[g(X)] \neq g[E(X)]\)</h3>
+<span class="fragment">
+<p>
+What about the special case \(g(X)=aX+b\)?
+</p>
+</span>
+<div class="fragment block">
+<p>
+\[E(aX+b)=aE(X)+b\]
+\[V(aX+b)=a^2V(X)\]
+</p>
+</section>
+<section>
+<p>
+Let's prove that!
+</p>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/math/math.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/customcontrols/plugin.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1280,
+height: 720,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+</script>
+</body>
+</html>
