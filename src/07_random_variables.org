@@ -1,6 +1,6 @@
 #+title: Probability & Statistics in Engineering
 #+author: Kostas Andreadis
-#+date: Fall 2022 - 22 Sep
+#+date: Fall 2022 - 27 Sep
 #+setupfile: ./reveal.org
 * Random variables
   #+attr_reveal: :frag (appear)
