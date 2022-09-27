@@ -167,8 +167,6 @@
   [[file:images/fig7_4.png]]
   #+reveal: split
   What is the probability that the contractor will lose money on the project?
-  #+reveal: split
-  Suppose the contractor declares that they made money on this project. What is the probability that their profit was more than $40K?
 * Example
   #+reveal_html: <span class="fragment">
   What if we calculate the expected value of the square of the number of bits?
