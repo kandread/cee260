@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Probability &amp; Statistics in Engineering</title>
+<meta name="author" content="Kostas Andreadis"/>
+<meta name="description" content="Setup file for reveal.js presentations"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="./reveal.js/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 29 Sep</h2>
+</section>
+<section>
+<section id="slide-orgaa7ff27">
+<h2 id="orgaa7ff27">Probability distributions for discrete variables</h2>
+<ul>
+<li>Uniform</li>
+<li>Binomial</li>
+<li>Geometric</li>
+<li>Negative binomial</li>
+<li>Poisson</li>
+<li>Hypergeometric</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org6a3ccab">
+<h2 id="org6a3ccab">Uniform distribution</h2>
+<div class="block">
+<p>
+A random variable \(X\) has a <b>discrete uniform distribution</b> if each of the \(n\) values in its range, \(x_1\), \(x_2\), &#x2026;, \(x_n\) has equal probability
+\[f(x_i) = \dfrac{1}{n}\]
+</p>
+</div>
+</section>
+<section>
+<p>
+\(X\) with values in \(R=\{0,1,2,...,9\}\)
+</p>
+<span class="fragment">
+<p width="80%">
+<img src="images/fig8_1.png" alt="fig8_1.png" width="80%">
+\[f(x)=0.1\]
+</p>
+</span>
+</section>
+<section id="slide-org65e0622">
+<h3 id="org65e0622">Mean and variance</h3>
+<div class="block">
+<p>
+If \(X\) is a discrete uniform variable with integer values \(a\), \(a+1\), &#x2026;, \(b\) for \(a \leq b\), then
+\[\mu=E(X)=\dfrac{b+a}{2}\]
+\[\sigma^2=\dfrac{(b-a+1)^2-1}{12}\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgf32f1b6">
+<h2 id="orgf32f1b6">Bernoulli sequence</h2>
+<ul>
+<li class="fragment appear">When allocating fleet of construction equipment, their expected condition over the duration of the project would determine the required fleet size</li>
+<li class="fragment appear">When planning a flood control system, the annual maximum flow magnitude relative to a flood threshold would determine system sizing</li>
+<li class="fragment appear"><font color="lawngreen">Trials</font></li>
+
+</ul>
+</section>
+<section id="slide-org64d0980">
+<h3 id="org64d0980">Bernoulli sequence properties</h3>
+<ol>
+<li>In each trial, there are only two possibilities: <font color="skyblue">occurrence (success)</font> and <font color="orangered">non-occurrence (failure)</font></li>
+<li>Probability of occurrence of the event in each trial is constant</li>
+<li>The trials are statistically independent</li>
+
+</ol>
+</section>
+</section>
+<section>
+<section id="slide-orgc05c4d8">
+<h2 id="orgc05c4d8">Binomial distribution</h2>
+<ul>
+<li>A random variable \(X\) that describes the number of occurrences of an event among \(n\) trials</li>
+<li>The probability of occurrence of the event for each trial is \(p\)</li>
+
+</ul>
+<span class="fragment">
+<p>
+\[f(x) = \binom{n}{x} p^x (1-p)^{n-x}\]
+</p>
+</span>
+</section>
+<section>
+<iframe width="100%" height="608" frameborder="0" allowtransparency="true" style="background: #FFFFFF;" 
+  src="https://observablehq.com/embed/d9e6a8f936b94681?cells=plot%2Cviewof+n%2Cviewof+p"></iframe>
+</section>
+<section>
+<p>
+\[\binom{n}{x} = \dfrac{n!}{x!(n-x)!}\]
+</p>
+<div class="fragment block">
+<p>
+The CDF of the binomial distribution is \[F(x) = \sum_{k=0}^{x} \binom{n}{k} p^k (1-p)^{n-k}\]
+</p>
+</div>
+</section>
+<section id="slide-orgad4ec9a">
+<h3 id="orgad4ec9a">Example</h3>
+<p>
+Each water sample has 10% chance of containing a pollutant. What is the probability that the next 18 samples, exactly 2 will contain the pollutant?
+</p>
+</section>
+<section>
+<p>
+Determine the probability that at least 4 samples contain the pollutant.
+</p>
+</section>
+<section id="slide-org4ce32d9">
+<h3 id="org4ce32d9">Mean and variance</h3>
+<div class="block">
+<p>
+If \(X\) is a binomial variable with parameters \(p\) and \(n\), then
+\[\mu=E(X)=np\]
+\[\sigma^2=V(X)=np(1-p)\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgd63ed18">
+<h2 id="orgd63ed18">Geometric distribution</h2>
+<ul>
+<li class="fragment appear">Assume series of Bernoulli trials</li>
+<li class="fragment appear">Constant probability of success \(p\)</li>
+<li class="fragment appear">Instead of a fixed number of trials, <b>trials are conducted until success is obtained</b></li>
+<li class="fragment appear">\(X\) is the random variable describing number of trials until first success</li>
+
+</ul>
+</section>
+<section>
+<div class="block">
+<p>
+In a series of Bernoulli trials, the random variable \(X\) that equals the number of trials until the first success is a geometric random variable with parameter \(0 < p < 1\) and \[f(x)=(1-p)^{x-1}p\]
+</p>
+</div>
+</section>
+<section id="slide-orgd3b3ea3">
+<h3 id="orgd3b3ea3">Return period</h3>
+<ul>
+<li class="fragment appear">Time intervals until first occurrence of an event can be described as a set of Bernoulli trials</li>
+<li class="fragment appear">Time between two occurrences is also a geometric distribution (<b>recurrence time</b>)</li>
+
+</ul>
+
+<div class="fragment block">
+<p>
+Return period is the mean recurrence time between two occurrences, and is given by
+\[\overline{T} = \dfrac{1}{p}\]
+</p>
+</div>
+</section>
+<section>
+
+<figure id="orgb0ac052">
+<img src="images/fig8_2.png" alt="fig8_2.png" width="100%">
+
+</figure>
+
+<p>
+<a href="https://www.vox.com/science-and-health/2017/8/28/16211392/100-500-year-flood-meaning">https://www.vox.com/science-and-health/2017/8/28/16211392/100-500-year-flood-meaning</a>
+</p>
+</section>
+<section id="slide-orgc5237af">
+<h3 id="orgc5237af">Mean and variance</h3>
+<div class="block">
+<p>
+If \(X\) is a geometric random variable with parameter \(p\), then
+\[\mu=E(X)=\dfrac{1}{p}\]
+\[\sigma^2=V(X)=\dfrac{1-p}{p^2}\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org27bdd42">
+<h2 id="org27bdd42">Negative binomial distribution</h2>
+<p class="fragment (appear)">
+A generalization of the geometric distribution where the random variable \(X\) describes <b>the number of Bernoulli trials required to obtain \(r\) successes</b>
+</p>
+
+<span class="fragment">
+<ul>
+<li>Probability that \(r-1\) successes in the first \(x-1\) trials is \[\binom{x-1}{r-1}p^{r-1}(1-p)^{x-r}\]</li>
+<li>Probability that trial \(x\) is a success is \(p\)</li>
+
+</ul>
+</span>
+</section>
+<section>
+<div class="block">
+<p>
+In a series of Bernoulli trials (independent trials with constant probability \(p\) of a success), the random variable \(X\) that equals the number of trials until \(r\) successes occur is a negative binomial random variable with parameters \(0 < p < 1\) and $r = 1, 2, 3, &#x2026;$
+\[f(x) = \binom{x-1}{r-1}(1-p)^{x-r}p^r\]
+where $x=r,r+1,r+2,&#x2026;$
+</p>
+</div>
+</section>
+<section id="slide-orgc429b16">
+<h3 id="orgc429b16">Mean and variance</h3>
+<div class="block">
+<p>
+If \(X\) is a negative binomial random variable with parameters \(p\) and \(r\), then
+\[\mu=E(X)=\dfrac{r}{p}\]
+\[\sigma^2=V(X)=\dfrac{r(1-p)}{p^2}\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgf17e6a6">
+<h2 id="orgf17e6a6">Problem 8.1</h2>
+<p>
+A fixed offshore platform is designed for a wave height of 8 m above the mean sea level. This wave height corresponds to a 5% probability of being exceeded per year.
+</p>
+</section>
+<section>
+<p>
+What is the probability that the platform will be subjected to the design height within the return period?
+</p>
+</section>
+<section>
+<p>
+What is the probability that the first exceedance of the design height will occur after year 3?
+</p>
+</section>
+<section>
+<p>
+If the first exceedance of the design height occurs after year 3, what is the probability that it will occur in year 5?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org94474c5">
+<h2 id="org94474c5">Problem 8.2</h2>
+<p>
+The code for the design of a building in a coastal region specifies the 50-yr wind as the "design wind". What is the probability that a newly completed building is subjected to the design wind for the first time on the fifth year after completion?
+</p>
+</section>
+<section>
+<p>
+What is the probability that it is subjected <i>within</i> 5 years after completion?
+</p>
+</section>
+<section>
+<p>
+What is the probability that it is subjected to the design wind for the third time 10 years after completion?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org30b3d13">
+<h2 id="org30b3d13">Readings</h2>
+<ul>
+<li>Sections 3.1-3.6</li>
+<li><a href="https://www.jeff-bayless.com/wp-content/uploads/2020/07/ReturnPeriods-4April2019.pdf">Introduction to Return Periods</a></li>
+<li><p>
+<a href="https://riskfrontiers.com/insights/has-the-hundred-year-flood-had-its-day/">Has the 100-year flood had its day?</a>
+</p>
+
+<span class="fragment"></li>
+
+</ul>
+<p>
+<font color="orangered"> Homework #3 due 7 Oct!</font>
+</p>
+</span>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/math/math.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/customcontrols/plugin.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1280,
+height: 720,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+</script>
+</body>
+</html>

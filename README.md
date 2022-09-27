@@ -16,3 +16,5 @@ Probability and Statistics in Civil Engineering
 [Lecture #6 - 22 Sep 2022](https://kandread.github.io/cee260/06_bayes.html)
 
 [Lecture #7 - 27 Sep 2022](https://kandread.github.io/cee260/07_random_variables.html)
+
+[Lecture #8 - 29 Sep 2022](https://kandread.github.io/cee260/08_discrete_distributions.html)
