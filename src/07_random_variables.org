@@ -86,7 +86,8 @@
 
    #+reveal_html: <span class="fragment">
 
-   $$\{X \leq 3\} \cup \{X=0\} \cup \{X=1\} \cup \{X=3\}$$
+
+   $$\{X \leq 3\} = \{X=0\} \cup \{X=1\} \cup \{X=2\} \cup \{X=3\}$$
    #+reveal_html: </span>
    #+reveal_html: <span class="fragment">
    $$P(X \leq 3) = P(X=0)+P(X=1)+P(X=2)+P(X=3)$$

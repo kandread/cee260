@@ -26,8 +26,8 @@
 <h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 27 Sep</h2>
 </section>
 <section>
-<section id="slide-org3a01a6a">
-<h2 id="org3a01a6a">Random variables</h2>
+<section id="slide-orgff1ec02">
+<h2 id="orgff1ec02">Random variables</h2>
 <ul>
 <li class="fragment appear">Sample space and events for simple cases: outcomes</li>
 <li class="fragment appear">Sometimes we need an analytical form to describe these</li>
@@ -41,8 +41,8 @@ A random variable is a function that assigns a real number to each outcome in th
 </p>
 </div>
 </section>
-<section id="slide-orge8dddf4">
-<h3 id="orge8dddf4">Notation</h3>
+<section id="slide-org5747208">
+<h3 id="org5747208">Notation</h3>
 <p>
 \[X: \text{random variable}\]
 \[x: \text{value of random variable}\]
@@ -54,18 +54,18 @@ Any event can be expressed as \(X=a\), or \(X \leq a\), or \(a < X \leq b\)
 </p>
 </span>
 </section>
-<section id="slide-org32096ab">
-<h3 id="org32096ab">Mapping of events</h3>
+<section id="slide-org12e9c0a">
+<h3 id="org12e9c0a">Mapping of events</h3>
 
-<figure id="org76b29a9">
+<figure id="orgef65768">
 <img src="images/fig6_1.png" alt="fig6_1.png" width="65%">
 
 </figure>
 </section>
 </section>
 <section>
-<section id="slide-org9e83975">
-<h2 id="org9e83975">Discrete and Continuous random variables</h2>
+<section id="slide-org1fab5f8">
+<h2 id="org1fab5f8">Discrete and Continuous random variables</h2>
 <ul>
 <li class="fragment appear">Discrete and continuous sample space</li>
 <li class="fragment appear"><b>Discrete random variable</b>
@@ -82,8 +82,8 @@ Any event can be expressed as \(X=a\), or \(X \leq a\), or \(a < X \leq b\)
 
 </ul>
 </section>
-<section id="slide-orgae8de2c">
-<h3 id="orgae8de2c">Examples of random variables</h3>
+<section id="slide-orgca621a1">
+<h3 id="orgca621a1">Examples of random variables</h3>
 <ul>
 <li class="fragment appear">Electrical current</li>
 <li class="fragment appear">Length</li>
@@ -95,8 +95,8 @@ Any event can be expressed as \(X=a\), or \(X \leq a\), or \(a < X \leq b\)
 </section>
 </section>
 <section>
-<section id="slide-org1311e09">
-<h2 id="org1311e09">Probability distribution</h2>
+<section id="slide-org7916303">
+<h2 id="org7916303">Probability distribution</h2>
 <p>
 A probability is associated with each value of a random variable
 </p>
@@ -111,8 +111,8 @@ Probability distribution of a random variable is a description of the these prob
 </ul>
 </div>
 </section>
-<section id="slide-org49e8f0f">
-<h3 id="org49e8f0f">Example</h3>
+<section id="slide-orgb3683a4">
+<h3 id="orgb3683a4">Example</h3>
 <ul>
 <li class="fragment appear">Flash recharge time specification met (probability = 0.8)</li>
 <li class="fragment appear">Probability of tests with 3 cameras?</li>
@@ -218,8 +218,8 @@ Probability distribution of a random variable is a description of the these prob
 </section>
 </section>
 <section>
-<section id="slide-org0ab6e76">
-<h2 id="org0ab6e76">Probability distribution for discrete variable</h2>
+<section id="slide-org9da01c8">
+<h2 id="org9da01c8">Probability distribution for discrete variable</h2>
 <div class="theorem" name="Probability Mass Function">
 <p>
 For a discrete random variable \(X\) with possible values \(x_1\), \(x_2\), &#x2026;, \(x_n\) a PMF is a function such that
@@ -229,8 +229,8 @@ For a discrete random variable \(X\) with possible values \(x_1\), \(x_2\), &#x2
 </p>
 </div>
 </section>
-<section id="slide-orgeadfdf1">
-<h3 id="orgeadfdf1">Example</h3>
+<section id="slide-orgc72f344">
+<h3 id="orgc72f344">Example</h3>
 <ul>
 <li>Bit transmitted through a digital transmission is received in error</li>
 <li>\(X\) is the number of erroneous bits in the next four transmitted</li>
@@ -245,15 +245,15 @@ For a discrete random variable \(X\) with possible values \(x_1\), \(x_2\), &#x2
 </section>
 <section>
 
-<figure id="orgf038652">
+<figure id="org08ea2dc">
 <img src="images/fig7_1.png" alt="fig7_1.png" width="80%">
 
 </figure>
 </section>
 </section>
 <section>
-<section id="slide-org3ee54ac">
-<h2 id="org3ee54ac">Cumulative distribution functions</h2>
+<section id="slide-org97fde7d">
+<h2 id="org97fde7d">Cumulative distribution functions</h2>
 <p>
 Alternate method for describing a random variable's probability distribution is with cumulative probabilities such as \(P(X \leq x)\)
 </p>
@@ -265,8 +265,9 @@ Alternate method for describing a random variable's probability distribution is 
 
 <span class="fragment">
 
+
 <p>
-\[\{X \leq 3\} \cup \{X=0\} \cup \{X=1\} \cup \{X=3\}\]
+\[\{X \leq 3\} = \{X=0\} \cup \{X=1\} \cup \{X=2\} \cup \{X=3\}\]
 </p>
 </span>
 <span class="fragment">
@@ -301,13 +302,13 @@ For a discrete random variable \(X\), \(F(x)\) satisfies
 </section>
 <section>
 
-<figure id="org8bdf78b">
+<figure id="org22e407e">
 <img src="images/fig7_2.png" alt="fig7_2.png" width="50%">
 
 </figure>
 </section>
-<section id="slide-orgc89b0f3">
-<h3 id="orgc89b0f3">Example</h3>
+<section id="slide-orgf5059c0">
+<h3 id="orgf5059c0">Example</h3>
 <p>
 Operating bulldozers after 6 months (out of 3)
 </p>
@@ -327,8 +328,8 @@ Operating bulldozers after 6 months (out of 3)
 </section>
 </section>
 <section>
-<section id="slide-org355c04d">
-<h2 id="org355c04d">Descriptors of random variables</h2>
+<section id="slide-org2468009">
+<h2 id="org2468009">Descriptors of random variables</h2>
 <ul>
 <li class="fragment appear">Numbers used to <b>summarize</b> a probability distribution for a random variable \(X\)</li>
 <li class="fragment appear">Many times we don't know the exact form of a probability distribution</li>
@@ -338,8 +339,8 @@ Operating bulldozers after 6 months (out of 3)
 
 </ul>
 </section>
-<section id="slide-org6982440">
-<h3 id="org6982440">Mean</h3>
+<section id="slide-orgdc32a5d">
+<h3 id="orgdc32a5d">Mean</h3>
 <ul>
 <li>Also known as <b>Expected value</b>!</li>
 <li>Weighted average of the possible values of \(X\)</li>
@@ -361,8 +362,8 @@ Notion of expected value can be generalized for any function of \(X\)
 </p>
 </span>
 </section>
-<section id="slide-org65e0cf7">
-<h3 id="org65e0cf7">Median</h3>
+<section id="slide-orgb024175">
+<h3 id="orgb024175">Median</h3>
 <p>
 \(x_m\) is the value for which larger and smaller values are equally probable
 </p>
@@ -372,8 +373,8 @@ Notion of expected value can be generalized for any function of \(X\)
 </p>
 </span>
 </section>
-<section id="slide-org42e780e">
-<h3 id="org42e780e">Variance</h3>
+<section id="slide-orgf086d7f">
+<h3 id="orgf086d7f">Variance</h3>
 <ul>
 <li>Measure of the dispersion or scatter of the possible values of \(X\)</li>
 <li>Function of the deviations from the central value</li>
@@ -394,31 +395,31 @@ Notion of expected value can be generalized for any function of \(X\)
 Let's prove the second equation!
 </p>
 </section>
-<section id="slide-orgbb7e5c6">
-<h3 id="orgbb7e5c6">Standard deviation</h3>
+<section id="slide-org2a061ac">
+<h3 id="org2a061ac">Standard deviation</h3>
 <div class="block">
 <p>
 \[\sigma = \sqrt{\sigma^2}\]
 </p>
 </div>
 </section>
-<section id="slide-org2597f5b">
-<h3 id="org2597f5b">Identical mean and variance</h3>
+<section id="slide-org5600753">
+<h3 id="org5600753">Identical mean and variance</h3>
 
-<figure id="orgaa938c4">
+<figure id="org8b011b2">
 <img src="images/fig7_3.png" alt="fig7_3.png" width="90%">
 
 </figure>
 </section>
 </section>
 <section>
-<section id="slide-org2394196">
-<h2 id="org2394196">Problem 7.1</h2>
+<section id="slide-org1152612">
+<h2 id="org1152612">Problem 7.1</h2>
 <p>
 The profit of a construction project is described by the following PDF
 </p>
 
-<figure id="org5f9f04c">
+<figure id="org5cbb3b7">
 <img src="images/fig7_4.png" alt="fig7_4.png" width="80%">
 
 </figure>
@@ -430,8 +431,8 @@ What is the probability that the contractor will lose money on the project?
 </section>
 </section>
 <section>
-<section id="slide-org06508ed">
-<h2 id="org06508ed">Example</h2>
+<section id="slide-org9a0d1cd">
+<h2 id="org9a0d1cd">Example</h2>
 <span class="fragment">
 <p>
 What if we calculate the expected value of the square of the number of bits?
@@ -504,8 +505,8 @@ What if we calculate the expected value of the square of the number of bits?
 </table>
 </span>
 </section>
-<section id="slide-orge45b81e">
-<h3 id="orge45b81e">\(E[g(X)] \neq g[E(X)]\)</h3>
+<section id="slide-org2096b36">
+<h3 id="org2096b36">\(E[g(X)] \neq g[E(X)]\)</h3>
 <span class="fragment">
 <p>
 What about the special case \(g(X)=aX+b\)?
@@ -556,6 +557,10 @@ height: 720,
 
 transition: 'convex',
 transitionSpeed: 'default',
+
+        	  chalkboard: { 
+	  src: "https://raw.githubusercontent.com/kandread/cee260/master/annot/07_random_variables.json",
+		  },
 
 // Plugins with reveal.js 4.x
 plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
