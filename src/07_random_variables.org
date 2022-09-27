@@ -85,7 +85,8 @@
    $P(X=0)=0.6561$, $P(X=1)=0.2916$, $P(X=2)=0.0486$, $P(X=3)=0.0036$, $P(X=4)=0.0001$
 
    #+reveal_html: <span class="fragment">
-   $${X \leq 3} = {X=0} \cup {X=1} \cup {X=3}$$
+
+   $$\{X \leq 3\} \cup \{X=0\} \cup \{X=1\} \cup \{X=3\}$$
    #+reveal_html: </span>
    #+reveal_html: <span class="fragment">
    $$P(X \leq 3) = P(X=0)+P(X=1)+P(X=2)+P(X=3)$$
@@ -148,7 +149,8 @@
    - Function of the deviations from the central value
    #+reveal_html: <div class="fragment block">
    $$\sigma^2 = V(X)=E(X - \mu)^2 = \sum_{x_i} (x_i - \mu)^2 f(x_i)$$
-   $$\sigma^2 = = \sum_{x_i} x_i^2 f(x_i) - \mu^2$$
+
+   $$\sigma^2 = \sum_{x_i} x_i^2 f(x_i) - \mu^2$$
    #+reveal_html: </div>
    #+reveal: split
    Let's prove the second equation!
