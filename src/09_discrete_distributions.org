@@ -69,15 +69,9 @@
    What is the probability of 4 storms next year?
    #+reveal: split
    What is the probability of two or more storms next year?
+** Bernoulli vs Poisson
+   In the last 50 years, there have been two major ($M \geq 6$) earthquakes in California. What is the probability of such a large earthquake in the next 15 years if we model them as Bernoulli or Poisson sequence?
 ** Problem 9.1
-   A structure is located in a region of possible tornadoes. From records for the past 20 years, the mean occurrence rate of tornadoes is once every 10 years. Assume that tornado occurrence can be modeled as a Poisson process. The structure is designed to withstand a tornado force with an allowable probability of damage of 20%. /Hint:/ $\sum_{n=0}^{\infty} \dfrac{x^n}{n!} = e^{x}$
-   #+reveal: split
-   What is the probability that the structure will be damaged in the next 50 years?
-   #+reveal: split
-   If the structure were to be upgraded to reduce the 50-year probability of damage to 5%, what should the allowable damage probability against a tornado be?
-   #+reveal: split
-   The regional government plans to upgrade 10 similar structures to this standard (5%). What is the probability that at most one of the upgraded structures would be damaged in the next 50 years?
-** Problem 9.2
    A steel pipeline that transports crude oil over a distance of 100 km, is subject to damaging corrosion. From past annual inspection, the average distance between locations of such corrosion is 0.15 km. The occurrence of corrosion is modeled as a Poisson process. What is the probability that there will be 10 locations of corrosion between inspections?
    #+reveal: split
    What is the probability of at least 5 corrosion sites between inspections?
@@ -110,5 +104,10 @@
 ** Hypergeometric distribution
    #+reveal_html: <div class="block">
    A set of $N$ objects contains $K$ successes and $N-K$ failures. A sample of size $n$ objects is selected randomly. The random variable $X$ that equals the number of successes in the sample is a *hypergeometric random variable* and $$f(x)=\dfrac{\binom{K}{x}\binom{N-K}{n-x}}{\binom{N}{n}}$$
+   #+reveal_html: </div>
+** Mean and variance
+   #+reveal_html: <div class="block">
+   If $X$ is a hypergeometric random variable with parameters $N$, $K$, and $n$, then
+   $$\mu=E(X)=np$$ $$\sigma^2=V(X)=np(1-p)\left( \dfrac{N-n}{N-1} \right)$$
    #+reveal_html: </div>
 
