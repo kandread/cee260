@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Probability &amp; Statistics in Engineering</title>
+<meta name="author" content="Kostas Andreadis"/>
+<meta name="description" content="Setup file for reveal.js presentations"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="./reveal.js/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 6 Oct</h2>
+</section>
+<section>
+<section id="slide-orgc7f59bd">
+<h2 id="orgc7f59bd">Problem 10.1</h2>
+<p>
+Truck traffic on a highway can be described as a Poisson process with a mean arrival rate of 1 truck/minute. The weight of each truck is random, and the probability of being overloaded is 10%.
+</p>
+</section>
+<section>
+<p>
+What is the probability that there will be at least two trucks in a 5-min period?
+</p>
+</section>
+<section>
+<p>
+What is the probability that at most of the next 5 trucks will be overloaded?
+</p>
+</section>
+<section>
+<p>
+What is the probability of overloaded trucks on the highway over a 30-min period?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org6f1ddeb">
+<h2 id="org6f1ddeb">Continuous random variables</h2>
+<ul>
+<li class="fragment appear">A random variable with an interval of real numbers</li>
+<li class="fragment appear">Similar to discrete variables we describe them with
+<ul>
+<li>Probability density function \(f(x)\)</li>
+<li>Cumulative distribution function \(F(x)\)</li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org880be80">
+<h2 id="org880be80">Probability density function</h2>
+
+<figure id="org75448de">
+<img src="images/fig10_1.png" alt="fig10_1.png" width="80%">
+
+</figure>
+</section>
+<section id="slide-org828a0b4">
+<h3 id="org828a0b4">PDF properties</h3>
+<div class="block">
+<p>
+For a continuous random variable \(X\), a probability density function is a function such that
+\[f(x) \geq 0\]
+\[ \int_{-\infty}^{\infty} f(x)dx = 1\]
+\[P(a \leq X \leq b) = \int_a^b f(x)dx\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org32e538a">
+<h2 id="org32e538a">Histogram</h2>
+<ul>
+<li>An approximation to a probability density function</li>
+<li>For each interval of the histogram, the height represents the relative frequency of the measurements in that interval</li>
+<li><p>
+The area under the curve over that interval represents the probability of the measurements in that interval
+</p>
+
+<figure id="orge12ebea">
+<img src="images/fig10_2.png" alt="fig10_2.png" width="65%">
+
+</figure></li>
+
+</ul>
+</section>
+<section>
+<iframe width="100%" height="551" frameborder="0" style="background: #FFFFFF;"
+src="https://observablehq.com/embed/@toja/histogram-with-normal-distribution?cells=plot%2Cviewof+bin_width"></iframe>
+</section>
+</section>
+<section>
+<section id="slide-org056f5cf">
+<h2 id="org056f5cf">Probabilities with PDFs</h2>
+<p>
+\[P(a \leq X \leq b) = \int_{a}^{b} f(x)dx\]
+</p>
+<span class="fragment">
+<p>
+\[P(a \leq X \leq b) = \int_{-\infty}^{b} f(x)dx - \int_{-\infty}^{a} f(x)dx\]
+</p>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-org9cfed60">
+<h2 id="org9cfed60">Cumulative distribution function</h2>
+<div class="block">
+<p>
+The cumulative distribution function (CDF) of a continuous random variable \(X\) is
+\[F(x)=P(X \leq x)=\int_{-\infty}^{x}f(u)du\]
+</p>
+</div>
+<p>
+for \(-\infty < x < \infty\)
+</p>
+</section>
+<section>
+
+<figure id="orgb6192d3">
+<img src="images/fig10_3.png" alt="fig10_3.png" width="60%">
+
+</figure>
+</section>
+<section id="slide-org6d41351">
+<h3 id="org6d41351">Estimating the PDF from the CDF</h3>
+<div class="block">
+<p>
+Given \(F(x)\),
+\[f(x) = \dfrac{d F(x)}{dx}\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org16bac94">
+<h2 id="org16bac94">Mean and variance of continuous variables</h2>
+<div class="block">
+<p>
+Suppose that \(X\) is a continuous random variable, then
+\[\mu=E(X)=\int_{-\infty}^{\infty}x f(x) dx\]
+\[\sigma^2=V(X)=\int_{-\infty}^{\infty}(x-\mu)^2 f(x)dx = \int_{-\infty}^{\infty}x^2f(x)dx - \mu^2\]
+</p>
+</div>
+</section>
+<section id="slide-org4c18dda">
+<h3 id="org4c18dda">Expected value of a function of a continuous random variable</h3>
+<div class="block">
+<p>
+If \(X\) is a continuous random variable with PDF \(f(x)\), then
+\[E[h(X)] = \int_{-\infty}^{\infty} h(x)f(x)dx\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org351ec40">
+<h2 id="org351ec40">Problem 10.2</h2>
+<p>
+Suppose \(X\) is a random variable defined as \[X=\dfrac{\text{final cost of project}}{\text{estimated cost of project}}\] which has a PDF
+\[f(x)=\begin{cases} 0 & x<1 \\ 3/x^2 & 1 \leq x \leq a \\ 0 & x>1.5\end{cases}\]
+</p>
+</section>
+<section>
+<p>
+What is the value of \(a\)?
+</p>
+</section>
+<section>
+<p>
+What is the probability that the final cost of the project will exceed the estimated cost by 25%?
+</p>
+</section>
+<section>
+<p>
+What is the mean value and standard deviation of \(X\)?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgad5f5d5">
+<h2 id="orgad5f5d5">Readings</h2>
+<ul>
+<li>Sections 3.7-3.8</li>
+<li><p>
+Sections 4.1-4.3
+</p>
+
+<span class="fragment"></li>
+
+</ul>
+<p>
+<font color="orangered"> Homework #4 due 13 Oct!</font>
+</p>
+</span>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/math/math.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/customcontrols/plugin.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1280,
+height: 720,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+</script>
+</body>
+</html>
