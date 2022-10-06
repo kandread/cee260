@@ -7,7 +7,7 @@
   #+reveal: split
   What is the probability that there will be at least two trucks in a 5-min period?
   #+reveal: split
-  What is the probability that at most of the next 5 trucks will be overloaded?
+  What is the probability that at most 1 of the next 5 trucks will be overloaded?
   #+reveal: split
   What is the probability of overloaded trucks on the highway over a 30-min period?
 * Continuous random variables
