@@ -9,7 +9,7 @@
   #+reveal: split
   What is the probability that at most 1 of the next 5 trucks will be overloaded?
   #+reveal: split
-  What is the probability of overloaded trucks on the highway over a 30-min period?
+  What is the probability of overloaded trucks on the highway over a 30-min period? /Hint/: $\sum_{x=0}^{\infty}\dfrac{n^x}{x!}=e^n$
 * Continuous random variables
   #+attr_reveal: :frag (appear)
   - A random variable with an interval of real numbers
