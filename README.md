@@ -22,3 +22,5 @@ Probability and Statistics in Civil Engineering
 [Lecture #9 - 4 Oct 2022](https://kandread.github.io/cee260/09_discrete_distributions.html)
 
 [Lecture #10 - 6 Oct 2022](https://kandread.github.io/cee260/10_continuous_random_variables.html)
+
+[Lecture #11 - 11 Oct 2022](https://kandread.github.io/cee260/11_gaussian_distribution.html)
