@@ -1,0 +1,91 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 13 Oct
+#+setupfile: ./reveal.org
+* MAP feedback
+  #+attr_reveal: :frag (appear)
+  - Office hours
+  - Review session (equation sheet) on 10/25
+  - Problem difficulty level
+  - Recap of equations/important concepts
+  - Answers added to homework problems
+  - Quiz every Tuesday (starting 10/18)
+* {{{empty}}}
+  #+begin_export html
+  <iframe width="100%" height="745" frameborder="0" style="background: #FFFFFF;"
+    src="https://observablehq.com/embed/@kandread/central-limit-theorem?cells=viewof+nums%2Cchart"></iframe>
+  #+end_export
+* Central Limit Theorem
+  #+reveal_html: <div class="block">
+  The sum of a large number of random variables tends to the Gaussian distribution as the number of added variables increases.
+  #+reveal_html: </div>
+  #+attr_reveal: :frag (appear)
+  - Regardless of the actual distribution of random variables $X_i$, their average can be approximated by a Gaussian
+  - Many physical processes can be considered as aggregates of many smaller random events
+  - Practically, sample size needs to be >30
+* Lognormal distribution
+  #+attr_reveal: :frag (appear)
+  - Another popular distribution where the variable of interest $X$ can be transformed to a normally-distributed variable
+  - $\ln{X}$ is a Gaussian random variable
+  - Lifetime of a product that degrades over time often modeled with lognormal
+  #+reveal: split
+  #+reveal_html: <div class="block">
+  If $W$ is a normally-distributed variable with mean $\theta$ and variance $\omega^2$, then $X$ with $\ln{X}=W$ is a *lognormal random variable* with probability density function
+  $$f(x)=\dfrac{1}{x \omega \sqrt{2 \pi}} e^{-\dfrac{(\ln{x}-\theta)^2}{2\omega^2}}$$
+  The mean and variance of $X$ are $E(X)=e^{\dfrac{\theta + \omega^2}{2}}$ and $V(X)=e^{2\theta + \omega^2}\left( e^{\omega^2} - 1 \right)$
+  #+reveal_html: </div>
+  #+reveal: split
+  #+attr_html: :width 75%
+  [[file:images/fig12_1.png]]
+** Calculating lognormal probabilities
+   $$P(a < X < b) = \int_a^b \dfrac{1}{x \omega \sqrt{2\pi}} \text{exp}\left[-\dfrac{1}{2} \left(\dfrac{\ln{x}-\theta}{2\omega}\right)^2\right]$$
+   #+reveal_html: <span class="fragment">
+   Change variables to $s=\dfrac{\ln{x}-\theta}{\omega}$ and we have
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$=\dfrac{1}{2\pi} \int_{(\ln{a}-\theta)/\omega}^{(\ln{b}-\theta)/\omega} e^{-(1/2)[(s-0)/1]^2} ds = \Phi \left( \dfrac{\ln{b}-\theta}{\omega} \right) - \Phi \left( \dfrac{\ln{a}-\theta}{\omega} \right)$$
+   #+reveal_html: </span>
+** Example
+   The lifetime in hours of a semiconductor laser has a lognormal distribution with $\theta=10$ and $\omega=1.5$. What is the probability that the lifetime exceeds 10,000 hours?
+** Problem 12.1
+   The time between breakdowns of a major equipment is defined by a lognormal distribution with a median of 6 months and coefficient of variation of 0.30. What is the interval between inspections and repairs to be able to ensure a 95% probability that the equipment will be operational at any time?
+* Normal approximations to the Binomial and Poisson distributions
+  #+attr_reveal: :frag (appear)
+  - From the Central Limit Theorem, we can approximate a large number of variables with the normal distribution
+  - The Binomial and Poisson distributions can be approximated for very large $n$
+** Example
+   Number of bits received in error ($p=10^{-5}$), if 16 million bits are transmitted, what is the probability of less than 150 errors?
+   #+reveal_html: <span class="fragment">
+   $$P(X \leq 150) = \sum_{x=0}^{150} \binom{6 \times 10^6}{x}(10^{-5})^x(1-10^{-5})^{16 \times 10^6 - x}$$
+   #+reveal_html: </span>
+** Normal approximation to the Binomial
+   #+attr_html: :width 50%
+   [[file:images/fig12_2.png]]
+   #+reveal: split
+   #+reveal_html: <div class="block">
+   If $X$ is a binomial variable with $n$ and $p$ then $$Z=\dfrac{X-np}{\sqrt{np(1-p)}}$$ is approximately a standard normal variable
+   #+reveal_html: </div>
+   #+reveal: split
+   #+reveal_html: <div class="block">
+   To approximate a binomial probability, we apply a *continuity correction*
+   $$P(X \leq x) = P(X \leq x + 0.5) \approx P \left( Z \leq \dfrac{x + 0.5 - np}{\sqrt{np(1-p)}} \right)$$
+   $$P(X \geq x) = P(X \geq x - 0.5) \approx P \left( Z \leq \dfrac{x - 0.5 - np}{\sqrt{np(1-p)}} \right)$$
+   The approximation is good for $np>5$ and $n(1-p)>5$.
+   #+reveal_html: </div>
+** When $p$ is close to 0.1 or 0.9
+   #+attr_html: :width 50%
+   [[file:images/fig12_3.png]]
+** Normal approximation to the Poisson
+   #+reveal_html: <div class="block">
+   If $X$ is a Poisson random variable with $E(X)=\lambda$ and $V(X)=\lambda$, then $$Z=\dfrac{X-\lambda}{\sqrt{\lambda}}$$ is approximately a standard normal random variable. The same continuity correction as the binomial is applied, and the approximation is good for $\lambda>5$.
+   #+reveal_html: </div>
+** Example
+   Assume that the number of asbestos particles in 1 m^2 of dust on a surface follows a Poisson distribution with a mean of 1000. What is the probability that 950 or fewer particles are found?
+* Readings
+  - Sections 4.5-4.6
+  - Section 4.10
+
+  #+reveal_html: <span class="fragment">
+  {{{color(orangered, Homework #5 due 20 Oct!)}}}
+  #+reveal_html: </span>
+    
