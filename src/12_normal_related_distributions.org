@@ -32,7 +32,8 @@
   #+reveal_html: <div class="block">
   If $W$ is a normally-distributed variable with mean $\theta$ and variance $\omega^2$, then $X$ with $\ln{X}=W$ is a *lognormal random variable* with probability density function
   $$f(x)=\dfrac{1}{x \omega \sqrt{2 \pi}} e^{-\dfrac{(\ln{x}-\theta)^2}{2\omega^2}}$$
-  The mean and variance of $X$ are $E(X)=e^{\dfrac{\theta + \omega^2}{2}}$ and $V(X)=e^{2\theta + \omega^2}\left( e^{\omega^2} - 1 \right)$
+  The mean and variance of $X$ are
+  $E(X)=e^{\theta+\omega^2/2}$ and $V(X)=e^{2\theta + \omega^2}\left( e^{\omega^2} - 1 \right)$
   #+reveal_html: </div>
   #+reveal: split
   #+attr_html: :width 75%
@@ -43,7 +44,9 @@
    Change variables to $s=\dfrac{\ln{x}-\theta}{\omega}$ and we have
    #+reveal_html: </span>
    #+reveal_html: <span class="fragment">
-   $$=\dfrac{1}{2\pi} \int_{(\ln{a}-\theta)/\omega}^{(\ln{b}-\theta)/\omega} e^{-(1/2)[(s-0)/1]^2} ds = \Phi \left( \dfrac{\ln{b}-\theta}{\omega} \right) - \Phi \left( \dfrac{\ln{a}-\theta}{\omega} \right)$$
+
+   $$=\dfrac{1}{2\pi} \int_{(\ln{a}-\theta)/\omega}^{(\ln{b}-\theta)/\omega} e^{-(1/2)[(s-0)/1]^2} ds$$
+   $$= \Phi \left( \dfrac{\ln{b}-\theta}{\omega} \right) - \Phi \left( \dfrac{\ln{a}-\theta}{\omega} \right)$$
    #+reveal_html: </span>
 ** Example
    The lifetime in hours of a semiconductor laser has a lognormal distribution with $\theta=10$ and $\omega=1.5$. What is the probability that the lifetime exceeds 10,000 hours?
@@ -86,6 +89,6 @@
   - Section 4.10
 
   #+reveal_html: <span class="fragment">
-  {{{color(orangered, Homework #5 due 20 Oct!)}}}
+  {{{color(orangered, Homework #5 due 21 Oct!)}}}
   #+reveal_html: </span>
     
