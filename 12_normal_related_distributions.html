@@ -25,8 +25,8 @@
 <h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 13 Oct</h2>
 </section>
 <section>
-<section id="slide-org9613547">
-<h2 id="org9613547">MAP feedback</h2>
+<section id="slide-org8aa0906">
+<h2 id="org8aa0906">MAP feedback</h2>
 <ul>
 <li class="fragment appear">Office hours</li>
 <li class="fragment appear">Review session (equation sheet) on 10/25</li>
@@ -39,15 +39,15 @@
 </section>
 </section>
 <section>
-<section id="slide-orge257aee">
-<h2 id="orge257aee"></h2>
+<section id="slide-orgb20c468">
+<h2 id="orgb20c468"></h2>
 <iframe width="100%" height="745" frameborder="0" style="background: #FFFFFF;"
   src="https://observablehq.com/embed/@kandread/central-limit-theorem?cells=viewof+nums%2Cchart"></iframe>
 </section>
 </section>
 <section>
-<section id="slide-org16c0b72">
-<h2 id="org16c0b72">Central Limit Theorem</h2>
+<section id="slide-org1faa594">
+<h2 id="org1faa594">Central Limit Theorem</h2>
 <div class="block">
 <p>
 The sum of a large number of random variables tends to the Gaussian distribution as the number of added variables increases.
@@ -62,8 +62,8 @@ The sum of a large number of random variables tends to the Gaussian distribution
 </section>
 </section>
 <section>
-<section id="slide-orgabd4fc0">
-<h2 id="orgabd4fc0">Lognormal distribution</h2>
+<section id="slide-org7f6430a">
+<h2 id="org7f6430a">Lognormal distribution</h2>
 <ul>
 <li class="fragment appear">Another popular distribution where the variable of interest \(X\) can be transformed to a normally-distributed variable</li>
 <li class="fragment appear">\(\ln{X}\) is a Gaussian random variable</li>
@@ -76,19 +76,20 @@ The sum of a large number of random variables tends to the Gaussian distribution
 <p>
 If \(W\) is a normally-distributed variable with mean \(\theta\) and variance \(\omega^2\), then \(X\) with \(\ln{X}=W\) is a <b>lognormal random variable</b> with probability density function
 \[f(x)=\dfrac{1}{x \omega \sqrt{2 \pi}} e^{-\dfrac{(\ln{x}-\theta)^2}{2\omega^2}}\]
-The mean and variance of \(X\) are \(E(X)=e^{\dfrac{\theta + \omega^2}{2}}\) and \(V(X)=e^{2\theta + \omega^2}\left( e^{\omega^2} - 1 \right)\)
+The mean and variance of \(X\) are
+\(E(X)=e^{\theta+\omega^2/2}\) and \(V(X)=e^{2\theta + \omega^2}\left( e^{\omega^2} - 1 \right)\)
 </p>
 </div>
 </section>
 <section>
 
-<figure id="org8429b4c">
+<figure id="org665d2f6">
 <img src="images/fig12_1.png" alt="fig12_1.png" width="75%">
 
 </figure>
 </section>
-<section id="slide-org038e070">
-<h3 id="org038e070">Calculating lognormal probabilities</h3>
+<section id="slide-org9ba8a24">
+<h3 id="org9ba8a24">Calculating lognormal probabilities</h3>
 <p>
 \[P(a < X < b) = \int_a^b \dfrac{1}{x \omega \sqrt{2\pi}} \text{exp}\left[-\dfrac{1}{2} \left(\dfrac{\ln{x}-\theta}{2\omega}\right)^2\right]\]
 </p>
@@ -98,35 +99,37 @@ Change variables to \(s=\dfrac{\ln{x}-\theta}{\omega}\) and we have
 </p>
 </span>
 <span class="fragment">
+
 <p>
-\[=\dfrac{1}{2\pi} \int_{(\ln{a}-\theta)/\omega}^{(\ln{b}-\theta)/\omega} e^{-(1/2)[(s-0)/1]^2} ds = \Phi \left( \dfrac{\ln{b}-\theta}{\omega} \right) - \Phi \left( \dfrac{\ln{a}-\theta}{\omega} \right)\]
+\[=\dfrac{1}{2\pi} \int_{(\ln{a}-\theta)/\omega}^{(\ln{b}-\theta)/\omega} e^{-(1/2)[(s-0)/1]^2} ds\]
+\[= \Phi \left( \dfrac{\ln{b}-\theta}{\omega} \right) - \Phi \left( \dfrac{\ln{a}-\theta}{\omega} \right)\]
 </p>
 </span>
 </section>
-<section id="slide-orgc9f8dda">
-<h3 id="orgc9f8dda">Example</h3>
+<section id="slide-orgc14cbbd">
+<h3 id="orgc14cbbd">Example</h3>
 <p>
 The lifetime in hours of a semiconductor laser has a lognormal distribution with \(\theta=10\) and \(\omega=1.5\). What is the probability that the lifetime exceeds 10,000 hours?
 </p>
 </section>
-<section id="slide-org6cc42db">
-<h3 id="org6cc42db">Problem 12.1</h3>
+<section id="slide-orgc6e058f">
+<h3 id="orgc6e058f">Problem 12.1</h3>
 <p>
 The time between breakdowns of a major equipment is defined by a lognormal distribution with a median of 6 months and coefficient of variation of 0.30. What is the interval between inspections and repairs to be able to ensure a 95% probability that the equipment will be operational at any time?
 </p>
 </section>
 </section>
 <section>
-<section id="slide-orge222659">
-<h2 id="orge222659">Normal approximations to the Binomial and Poisson distributions</h2>
+<section id="slide-org4ec694a">
+<h2 id="org4ec694a">Normal approximations to the Binomial and Poisson distributions</h2>
 <ul>
 <li class="fragment appear">From the Central Limit Theorem, we can approximate a large number of variables with the normal distribution</li>
 <li class="fragment appear">The Binomial and Poisson distributions can be approximated for very large \(n\)</li>
 
 </ul>
 </section>
-<section id="slide-org0a1b141">
-<h3 id="org0a1b141">Example</h3>
+<section id="slide-orgbe8903d">
+<h3 id="orgbe8903d">Example</h3>
 <p>
 Number of bits received in error (\(p=10^{-5}\)), if 16 million bits are transmitted, what is the probability of less than 150 errors?
 </p>
@@ -136,10 +139,10 @@ Number of bits received in error (\(p=10^{-5}\)), if 16 million bits are transmi
 </p>
 </span>
 </section>
-<section id="slide-org3836cc4">
-<h3 id="org3836cc4">Normal approximation to the Binomial</h3>
+<section id="slide-org0f1088b">
+<h3 id="org0f1088b">Normal approximation to the Binomial</h3>
 
-<figure id="orgb66acaf">
+<figure id="org2c3dc70">
 <img src="images/fig12_2.png" alt="fig12_2.png" width="50%">
 
 </figure>
@@ -161,32 +164,32 @@ The approximation is good for \(np>5\) and \(n(1-p)>5\).
 </p>
 </div>
 </section>
-<section id="slide-org2198779">
-<h3 id="org2198779">When \(p\) is close to 0.1 or 0.9</h3>
+<section id="slide-org5c5a302">
+<h3 id="org5c5a302">When \(p\) is close to 0.1 or 0.9</h3>
 
-<figure id="org2862bce">
+<figure id="org1aa309c">
 <img src="images/fig12_3.png" alt="fig12_3.png" width="50%">
 
 </figure>
 </section>
-<section id="slide-orgc917580">
-<h3 id="orgc917580">Normal approximation to the Poisson</h3>
+<section id="slide-org4ab4062">
+<h3 id="org4ab4062">Normal approximation to the Poisson</h3>
 <div class="block">
 <p>
 If \(X\) is a Poisson random variable with \(E(X)=\lambda\) and \(V(X)=\lambda\), then \[Z=\dfrac{X-\lambda}{\sqrt{\lambda}}\] is approximately a standard normal random variable. The same continuity correction as the binomial is applied, and the approximation is good for \(\lambda>5\).
 </p>
 </div>
 </section>
-<section id="slide-org19548eb">
-<h3 id="org19548eb">Example</h3>
+<section id="slide-orge2188f9">
+<h3 id="orge2188f9">Example</h3>
 <p>
 Assume that the number of asbestos particles in 1 m<sup>2</sup> of dust on a surface follows a Poisson distribution with a mean of 1000. What is the probability that 950 or fewer particles are found?
 </p>
 </section>
 </section>
 <section>
-<section id="slide-org451f678">
-<h2 id="org451f678">Readings</h2>
+<section id="slide-org3293d52">
+<h2 id="org3293d52">Readings</h2>
 <ul>
 <li>Sections 4.5-4.6</li>
 <li>Section 4.10</li>
