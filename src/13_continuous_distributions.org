@@ -112,7 +112,7 @@
    #+reveal: split
    How often should the computer be scheduled for maintenance? /Hint/: $\gamma(23, 16) \approx 0.95$
    #+reveal: split
-   If the computer is in good operational condition at the time it is scheduled for regular maintenance but no maintenance is performed, what is the probability that it will break down withing a week beyond its regular maintenance schedule?
+   If the computer is in good operational condition at the time it is scheduled for regular maintenance but no maintenance is performed, what is the probability that it will break down withing a week beyond its regular maintenance schedule? /Hint/: $\gamma(26,16) \approx 0.98$
 * Weibull distribution
   - Often used to model the time until failure of many different physical systems
   - For example, when number of failures increases with time
