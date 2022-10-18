@@ -110,7 +110,7 @@
 ** Problem 13.3
    Breakdowns of a computer show that the duration for trouble-free operation follows a gamma distribution with mean of 40 days and standard deviation of 10 days. The computer is taken offline occasionally to ensure operational condition at any time with 95% probability.
    #+reveal: split
-   How often should the computer be scheduled for maintenance? /Hint/: $\gamma(23.2, 16) = 0.9520$
+   How often should the computer be scheduled for maintenance? /Hint/: $\gamma(23, 16) \approx 0.95$
    #+reveal: split
    If the computer is in good operational condition at the time it is scheduled for regular maintenance but no maintenance is performed, what is the probability that it will break down withing a week beyond its regular maintenance schedule?
 * Weibull distribution
