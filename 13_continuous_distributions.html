@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Probability &amp; Statistics in Engineering</title>
+<meta name="author" content="Kostas Andreadis"/>
+<meta name="description" content="Setup file for reveal.js presentations"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="./reveal.js/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 18 Oct</h2>
+</section>
+<section>
+<section id="slide-org3b31625">
+<h2 id="org3b31625">Exponential distribution</h2>
+<ul>
+<li class="fragment appear">Poisson distribution</li>
+<li class="fragment appear">Number of occurrences anywhere in space or time</li>
+<li class="fragment appear">Example: number of flaws along a length of copper wire</li>
+<li class="fragment appear">What if the random variable \(X\) was the length from a starting point on the wire <b>until a flaw is detected</b>?</li>
+
+</ul>
+</section>
+<section>
+<ul>
+<li>Distance to the first flaw exceeds \(x\) mm if there are no flaws within \(x\) mm</li>
+<li>\(N\) is the number flaws in \(x\) mm of wire</li>
+<li>\(\lambda\) is the mean number of flaws per mm</li>
+
+</ul>
+<span class="fragment">
+<p>
+\[P(X>x)=P(N=0)=\dfrac{e^{\lambda x} (\lambda x)^0}{0!}=e^{-\lambda x}\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[F(x)=P(X \leq x)=1 - e^{-\lambda x}\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[f(x)=\dfrac{dF(x)}{dx}=\lambda e^{-\lambda x}\]
+</p>
+</span>
+</section>
+<section>
+<div class="theorem" name="Exponential Distribution">
+<p>
+The random variable \(X\) that is equal to the distance/time between successive events from a Poisson process with mean number of events \(\lambda > 0\) per unit interval is an <b>exponential random variable</b> with a probability density function \[f(x)=\lambda e^{-\lambda x}\]
+</p>
+</div>
+</section>
+<section id="slide-org4465ee4">
+<h3 id="org4465ee4">Mean and variance</h3>
+<div class="block">
+<p>
+If the random variable \(X\) has an exponential distribution with parameter \(\lambda\) then
+\[\mu = E(X) = \dfrac{1}{\lambda}\]
+\[\sigma^2 = V(X) = \dfrac{1}{\lambda^2}\]
+</p>
+</div>
+</section>
+<section id="slide-org6e4ccc1">
+<h3 id="org6e4ccc1">Exponential PDFs for various \(\lambda\)</h3>
+
+<figure id="org93bdc21">
+<img src="images/fig13_1.png" alt="fig13_1.png" width="50%">
+
+</figure>
+</section>
+<section id="slide-org069c773">
+<h3 id="org069c773">Problem 13.1</h3>
+<p>
+User log-ons to a system follow Poisson with a mean of 25 per hour. What is the probability that there are no log-ons in an interval of 6 minutes?
+</p>
+</section>
+<section>
+<p>
+What is the probability that the time until the next log-on is between 2 and 3 minutes?
+</p>
+</section>
+<section>
+<p>
+What is the interval of time such that the probability of no log-ons in the interval is 90%?
+</p>
+</section>
+<section>
+<p>
+What is the mean time until the next log-on?
+</p>
+</section>
+<section id="slide-orgc51104a">
+<h3 id="orgc51104a">Memory in an exponential variable</h3>
+<ul>
+<li class="fragment appear">\(X\) is the time between detections of a particle with a Geiger counter</li>
+<li class="fragment appear">Has an exponential distribution with \(E(X)=1.4\) minutes</li>
+<li class="fragment appear">Probability that we detect a particle within 0.5 minute
+\[P(X < 0.5)=F(0.5)=1-e^{-0.5/1.4}=0.30\]</li>
+<li class="fragment appear">If we turn on the Geiger counter and wait for 3 minutes without detecting a particle, what is the probability of detection in the next 30 seconds?</li>
+
+</ul>
+</section>
+<section>
+<p>
+\[P(X < 3.5|X>3) = \dfrac{P(3 < X < 3.5)}{P(X > 3)}\]
+</p>
+<span class="fragment">
+<p>
+\[= \dfrac{F(3.5) - F(3)}{1 - F(3)} = \dfrac{\left( 1 - e^{-3.5/1.4} \right) - \left( 1 - e^{-3/1.4} \right)}{1 - 1 + e^{-3/1.4}}\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[= \dfrac{0.035}{0.017} = 0.30\]
+</p>
+</span>
+</section>
+<section>
+<div class="theorem" name="Lack of Memory Property">
+<p>
+For an exponential random variable \(X\), \[P(X < t_1 + t_2| X > t_1)=P(X < t_2)\]
+</p>
+</div>
+</section>
+<section id="slide-orga7e8d2c">
+<h3 id="orga7e8d2c">Problem 13.2</h3>
+<p>
+If the longevity of a device follows an exponential distribution with a mean lifetime of 8 years, what is the probability that it will last a total of over 19 years if we know that it has lasted for 12 years?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org27d7869">
+<h2 id="org27d7869">Erlang distribution</h2>
+<p>
+Length/time until \(r\) events in a Poisson process
+</p>
+<span class="fragment">
+<p>
+\[P(X > x) = \sum_{k=0}^{r-1} \dfrac{e^{-\lambda x} (\lambda x)^k}{k!}\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[f(x)=\dfrac{\lambda^r x^{r-1} e^{-\lambda x}}{(r-1)!}\]
+</p>
+</span>
+<span class="fragment">
+<p>
+<font color="steelblue"> An Erland random variable with $r=1$ is an exponential variable!</font>
+</p>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-org90afd50">
+<h2 id="org90afd50">Gamma function</h2>
+<div class="block">
+<p>
+\[\Gamma(r) = \int_{0}^{\infty} x^{r-1}e^{-x}dx \text{, for } r>0\]
+</p>
+</div>
+<span class="fragment">
+<p>
+\[\Gamma(r)=(r-1)\Gamma(r-1)\]
+\[\Gamma(1)=1\]
+\[\Gamma(0.5)=\sqrt{\pi}\]
+</p>
+</span>
+</section>
+<section id="slide-org9667206">
+<h3 id="org9667206">Gamma distribution</h3>
+<div class="block">
+<p>
+The random variable with probability density function \[f(x)=\dfrac{\lambda^r x^{r-1} e^{-\lambda x}}{\Gamma(r)}\] is a <b>gamma random variable</b> with parameters \(\lambda>0\) and \(r>0\).
+</p>
+</div>
+</section>
+<section>
+
+<figure id="orge820513">
+<img src="images/fig13_2.png" alt="fig13_2.png" width="50%">
+
+</figure>
+</section>
+<section id="slide-orgd95c3f3">
+<h3 id="orgd95c3f3">Mean and variance</h3>
+<div class="block">
+<p>
+If \(X\) is a gamma random variable with parameters \(\lambda\) and \(r\) then
+\[\mu=E(X)=\dfrac{r}{\lambda}\]
+\[\sigma^2=V(X)=\dfrac{r}{\lambda^2}\]
+</p>
+</div>
+</section>
+<section id="slide-org51438e5">
+<h3 id="org51438e5">Incomplete gamma function</h3>
+<p>
+\[\gamma(u,r)=\dfrac{\int_{0}^{u}y^{r-1}e^{-y}dy}{\Gamma(r)}\]
+</p>
+<span class="fragment">
+<p>
+\[P(a < X < b) = P(X < b) - P(X < a)\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[= \dfrac{1}{\Gamma(r)} \left( \int_{0}^{\lambda b} y^{r-1} e^{-y} dy - \int_{0}^{\lambda a} y^{r-1} e^{-y} dy \right)\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[= \gamma(\lambda b, r) - \gamma(\lambda a, r)\]
+</p>
+</span>
+</section>
+<section id="slide-org1447751">
+<h3 id="org1447751">Problem 13.3</h3>
+<p>
+Breakdowns of a computer show that the duration for trouble-free operation follows a gamma distribution with mean of 40 days and standard deviation of 10 days. The computer is taken offline occasionally to ensure operational condition at any time with 95% probability.
+</p>
+</section>
+<section>
+<p>
+How often should the computer be scheduled for maintenance?
+</p>
+</section>
+<section>
+<p>
+If the computer is in good operational condition at the time it is scheduled for regular maintenance but no maintenance is performed, what is the probability that it will break down withing a week beyond its regular maintenance schedule?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org4578b07">
+<h2 id="org4578b07">Weibull distribution</h2>
+<ul>
+<li>Often used to model the time until failure of many different physical systems</li>
+<li>For example, when number of failures increases with time</li>
+
+</ul>
+<div class="fragment block">
+<p>
+The random variable \(X\) with probability density function \[f(x)=\dfrac{\beta}{\delta} \left( \dfrac{x}{\delta} \right)^{\beta-1} \text{exp}\left[ -\left( \dfrac{x}{\delta} \right)^{\beta-1} \right]\] is a <b>Weibull random variable</b> with parameters \(\delta>0\)  and \(\beta>0\).
+</p>
+</div>
+</section>
+<section id="slide-org4d3c0b4">
+<h3 id="org4d3c0b4">Weibull distribution properties</h3>
+<p>
+\[F(x) = 1 - e^{-\left( \frac{x}{\delta} \right)^{\beta}}\]
+\[\mu=E(X)= \delta \Gamma \left( 1 + \dfrac{1}{\beta} \right)\]
+\[\sigma^2 = V(X) = \delta^2 \Gamma \left( 1 + \dfrac{2}{\beta} \right) - \delta^2 \left[ \Gamma \left( 1 + \dfrac{1}{\beta} \right) \right]^2\]
+</p>
+</section>
+<section id="slide-org59eb582">
+<h3 id="org59eb582">Problem 13.4</h3>
+<p>
+Time to failure (in hours) of a bearing in a mechanical shaft is a Weibull variable with \(\beta=0.5\) and \(\delta=5000\) hours. What is the mean time until failure?
+</p>
+</section>
+<section>
+<p>
+What is the probability that a bearing lasts at least 6000 hours?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgd297b34">
+<h2 id="orgd297b34">Beta distribution</h2>
+<ul>
+<li class="fragment appear">A flexible distribution that is bounded over a finite range</li>
+<li class="fragment appear">E.g., proportion of solar radiation absorbed by a material</li>
+
+</ul>
+<div class="fragment block">
+<p>
+The random variable \(X\) with probability density function \[f(x) = \dfrac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)} x^{\alpha - 1} (1 - x)^{\beta - 1}\] for \(0 \leq x \leq 1\) is a <b>beta random variable</b> with parameters \(\alpha>0\) and \(\beta>0\).
+</p>
+</div>
+</section>
+<section>
+
+<figure id="org9a640b7">
+<img src="images/fig13_3.png" alt="fig13_3.png" width="50%">
+
+</figure>
+</section>
+<section id="slide-org0ce00eb">
+<h3 id="org0ce00eb">Mean and variance</h3>
+<div class="block">
+<p>
+If \(X\) has a beta distribution with parameters \(\alpha\) and \(\beta\) then
+\[\mu = E(X) = \dfrac{\alpha}{\alpha + \beta}\]
+\[\sigma^2 = V(X) = \dfrac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgcbfa23e">
+<h2 id="orgcbfa23e">Recap</h2>
+<ul>
+<li class="fragment appear">Exponential distribution
+<ul>
+<li>Length/time until <b>first</b> occurrence in a Poisson process</li>
+
+</ul></li>
+<li class="fragment appear">Weibull distribution
+<ul>
+<li>Similar to exponential but with memory</li>
+
+</ul></li>
+<li class="fragment appear">Gamma distribution
+<ul>
+<li>Length/time to /r/th occurrence in a Poisson process</li>
+
+</ul></li>
+<li class="fragment appear">Beta distribution
+<ul>
+<li>Bounded continuous distribution</li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/math/math.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/customcontrols/plugin.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1280,
+height: 720,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+</script>
+</body>
+</html>

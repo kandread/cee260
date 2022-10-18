@@ -1,0 +1,156 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 18 Oct
+#+setupfile: ./reveal.org
+* Exponential distribution
+  #+attr_reveal: :frag (appear)
+  - Poisson distribution
+  - Number of occurrences anywhere in space or time
+  - Example: number of flaws along a length of copper wire
+  - What if the random variable $X$ was the length from a starting point on the wire *until a flaw is detected*?
+  #+reveal: split
+  - Distance to the first flaw exceeds $x$ mm if there are no flaws within $x$ mm
+  - $N$ is the number flaws in $x$ mm of wire
+  - $\lambda$ is the mean number of flaws per mm
+  #+reveal_html: <span class="fragment">
+  $$P(X>x)=P(N=0)=\dfrac{e^{\lambda x} (\lambda x)^0}{0!}=e^{-\lambda x}$$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  $$F(x)=P(X \leq x)=1 - e^{-\lambda x}$$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  $$f(x)=\dfrac{dF(x)}{dx}=\lambda e^{-\lambda x}$$
+  #+reveal_html: </span>
+  #+reveal: split
+  #+reveal_html: <div class="theorem" name="Exponential Distribution">
+  The random variable $X$ that is equal to the distance/time between successive events from a Poisson process with mean number of events $\lambda > 0$ per unit interval is an *exponential random variable* with a probability density function $$f(x)=\lambda e^{-\lambda x}$$
+  #+reveal_html: </div>
+** Mean and variance
+   #+reveal_html: <div class="block">
+   If the random variable $X$ has an exponential distribution with parameter $\lambda$ then
+   $$\mu = E(X) = \dfrac{1}{\lambda}$$
+   $$\sigma^2 = V(X) = \dfrac{1}{\lambda^2}$$
+   #+reveal_html: </div>
+** Exponential PDFs for various $\lambda$
+   #+attr_html: :width 50%
+   [[file:images/fig13_1.png]]
+** Problem 13.1
+   User log-ons to a system follow Poisson with a mean of 25 per hour. What is the probability that there are no log-ons in an interval of 6 minutes?
+   #+reveal: split
+   What is the probability that the time until the next log-on is between 2 and 3 minutes?
+   #+reveal: split
+   What is the interval of time such that the probability of no log-ons in the interval is 90%?
+   #+reveal: split
+   What is the mean time until the next log-on?
+** Memory in an exponential variable
+   #+attr_reveal: :frag (appear)
+   - $X$ is the time between detections of a particle with a Geiger counter
+   - Has an exponential distribution with $E(X)=1.4$ minutes
+   - Probability that we detect a particle within 0.5 minute
+     $$P(X < 0.5)=F(0.5)=1-e^{-0.5/1.4}=0.30$$
+   - If we turn on the Geiger counter and wait for 3 minutes without detecting a particle, what is the probability of detection in the next 30 seconds?
+   #+reveal: split
+   $$P(X < 3.5|X>3) = \dfrac{P(3 < X < 3.5)}{P(X > 3)}$$
+   #+reveal_html: <span class="fragment">
+   $$= \dfrac{F(3.5) - F(3)}{1 - F(3)} = \dfrac{\left( 1 - e^{-3.5/1.4} \right) - \left( 1 - e^{-3/1.4} \right)}{1 - 1 + e^{-3/1.4}}$$
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$= \dfrac{0.035}{0.017} = 0.30$$
+   #+reveal_html: </span>
+   #+reveal: split
+   #+reveal_html: <div class="theorem" name="Lack of Memory Property">
+   For an exponential random variable $X$, $$P(X < t_1 + t_2| X > t_1)=P(X < t_2)$$
+   #+reveal_html: </div>
+** Problem 13.2
+   If the longevity of a device follows an exponential distribution with a mean lifetime of 8 years, what is the probability that it will last a total of over 19 years if we know that it has lasted for 12 years?
+* Erlang distribution
+  Length/time until $r$ events in a Poisson process
+  #+reveal_html: <span class="fragment">
+  $$P(X > x) = \sum_{k=0}^{r-1} \dfrac{e^{-\lambda x} (\lambda x)^k}{k!}$$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  $$f(x)=\dfrac{\lambda^r x^{r-1} e^{-\lambda x}}{(r-1)!}$$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  {{{color(steelblue, An Erland random variable with $r=1$ is an exponential variable!)}}}
+  #+reveal_html: </span>
+* Gamma function
+  #+reveal_html: <div class="block">
+  $$\Gamma(r) = \int_{0}^{\infty} x^{r-1}e^{-x}dx \text{, for } r>0$$
+  #+reveal_html: </div>
+  #+reveal_html: <span class="fragment">
+  $$\Gamma(r)=(r-1)\Gamma(r-1)$$
+  $$\Gamma(1)=1$$
+  $$\Gamma(0.5)=\sqrt{\pi}$$
+  #+reveal_html: </span>
+** Gamma distribution
+   #+reveal_html: <div class="block">
+   The random variable with probability density function $$f(x)=\dfrac{\lambda^r x^{r-1} e^{-\lambda x}}{\Gamma(r)}$$ is a *gamma random variable* with parameters $\lambda>0$ and $r>0$.
+   #+reveal_html: </div>
+   #+reveal: split
+   #+attr_html: :width 50%
+   [[file:images/fig13_2.png]]
+** Mean and variance
+   #+reveal_html: <div class="block">
+   If $X$ is a gamma random variable with parameters $\lambda$ and $r$ then
+   $$\mu=E(X)=\dfrac{r}{\lambda}$$
+   $$\sigma^2=V(X)=\dfrac{r}{\lambda^2}$$
+   #+reveal_html: </div>
+** Incomplete gamma function
+   $$\gamma(u,r)=\dfrac{\int_{0}^{u}y^{r-1}e^{-y}dy}{\Gamma(r)}$$
+   #+reveal_html: <span class="fragment">
+   $$P(a < X < b) = P(X < b) - P(X < a)$$
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$= \dfrac{1}{\Gamma(r)} \left( \int_{0}^{\lambda b} y^{r-1} e^{-y} dy - \int_{0}^{\lambda a} y^{r-1} e^{-y} dy \right)$$
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$= \gamma(\lambda b, r) - \gamma(\lambda a, r)$$
+   #+reveal_html: </span>
+** Problem 13.3
+   Breakdowns of a computer show that the duration for trouble-free operation follows a gamma distribution with mean of 40 days and standard deviation of 10 days. The computer is taken offline occasionally to ensure operational condition at any time with 95% probability.
+   #+reveal: split
+   How often should the computer be scheduled for maintenance?
+   #+reveal: split
+   If the computer is in good operational condition at the time it is scheduled for regular maintenance but no maintenance is performed, what is the probability that it will break down withing a week beyond its regular maintenance schedule?
+* Weibull distribution
+  - Often used to model the time until failure of many different physical systems
+  - For example, when number of failures increases with time
+  #+reveal_html: <div class="fragment block">
+  The random variable $X$ with probability density function $$f(x)=\dfrac{\beta}{\delta} \left( \dfrac{x}{\delta} \right)^{\beta-1} \text{exp}\left[ -\left( \dfrac{x}{\delta} \right)^{\beta-1} \right]$$ is a *Weibull random variable* with parameters $\delta>0$  and $\beta>0$.
+  #+reveal_html: </div>
+** Weibull distribution properties
+   $$F(x) = 1 - e^{-\left( \frac{x}{\delta} \right)^{\beta}}$$
+   $$\mu=E(X)= \delta \Gamma \left( 1 + \dfrac{1}{\beta} \right)$$
+   $$\sigma^2 = V(X) = \delta^2 \Gamma \left( 1 + \dfrac{2}{\beta} \right) - \delta^2 \left[ \Gamma \left( 1 + \dfrac{1}{\beta} \right) \right]^2$$
+** Problem 13.4
+   Time to failure (in hours) of a bearing in a mechanical shaft is a Weibull variable with $\beta=0.5$ and $\delta=5000$ hours. What is the mean time until failure?
+   #+reveal: split
+   What is the probability that a bearing lasts at least 6000 hours?
+* Beta distribution
+  #+attr_reveal: :frag (appear)
+  - A flexible distribution that is bounded over a finite range
+  - E.g., proportion of solar radiation absorbed by a material
+  #+reveal_html: <div class="fragment block">
+  The random variable $X$ with probability density function $$f(x) = \dfrac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)} x^{\alpha - 1} (1 - x)^{\beta - 1}$$ for $0 \leq x \leq 1$ is a *beta random variable* with parameters $\alpha>0$ and $\beta>0$.
+  #+reveal_html: </div>
+  #+reveal: split
+  #+attr_html: :width 50%
+  [[file:images/fig13_3.png]]
+** Mean and variance
+   #+reveal_html: <div class="block">
+   If $X$ has a beta distribution with parameters $\alpha$ and $\beta$ then
+   $$\mu = E(X) = \dfrac{\alpha}{\alpha + \beta}$$
+   $$\sigma^2 = V(X) = \dfrac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}$$
+   #+reveal_html: </div>
+* Recap
+  #+attr_reveal: :frag (appear)
+  - Exponential distribution
+    - Length/time until *first* occurrence in a Poisson process
+  - Weibull distribution
+    - Similar to exponential but with memory
+  - Gamma distribution
+    - Length/time to /r/th occurrence in a Poisson process
+  - Beta distribution
+    - Bounded continuous distribution
+
