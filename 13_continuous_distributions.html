@@ -25,8 +25,8 @@
 <h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 18 Oct</h2>
 </section>
 <section>
-<section id="slide-org2666354">
-<h2 id="org2666354">Exponential distribution</h2>
+<section id="slide-org2871929">
+<h2 id="org2871929">Exponential distribution</h2>
 <ul>
 <li class="fragment appear">Poisson distribution</li>
 <li class="fragment appear">Number of occurrences anywhere in space or time</li>
@@ -44,7 +44,7 @@
 </ul>
 <span class="fragment">
 <p>
-\[P(X>x)=P(N=0)=\dfrac{e^{\lambda x} (\lambda x)^0}{0!}=e^{-\lambda x}\]
+\[P(X>x)=P(N=0)=\dfrac{e^{-\lambda x} (\lambda x)^0}{0!}=e^{-\lambda x}\]
 </p>
 </span>
 <span class="fragment">
@@ -65,8 +65,8 @@ The random variable \(X\) that is equal to the distance/time between successive 
 </p>
 </div>
 </section>
-<section id="slide-orgaf3e3fc">
-<h3 id="orgaf3e3fc">Mean and variance</h3>
+<section id="slide-org3a254df">
+<h3 id="org3a254df">Mean and variance</h3>
 <div class="block">
 <p>
 If the random variable \(X\) has an exponential distribution with parameter \(\lambda\) then
@@ -75,16 +75,16 @@ If the random variable \(X\) has an exponential distribution with parameter \(\l
 </p>
 </div>
 </section>
-<section id="slide-org53b27de">
-<h3 id="org53b27de">Exponential PDFs for various \(\lambda\)</h3>
+<section id="slide-org4884da1">
+<h3 id="org4884da1">Exponential PDFs for various \(\lambda\)</h3>
 
-<figure id="org1e65626">
+<figure id="org0c56c28">
 <img src="images/fig13_1.png" alt="fig13_1.png" width="50%">
 
 </figure>
 </section>
-<section id="slide-org1e98164">
-<h3 id="org1e98164">Problem 13.1</h3>
+<section id="slide-org2f7e2ee">
+<h3 id="org2f7e2ee">Problem 13.1</h3>
 <p>
 User log-ons to a system follow Poisson with a mean of 25 per hour. What is the probability that there are no log-ons in an interval of 6 minutes?
 </p>
@@ -104,8 +104,8 @@ What is the interval of time such that the probability of no log-ons in the inte
 What is the mean time until the next log-on?
 </p>
 </section>
-<section id="slide-orgc36c91d">
-<h3 id="orgc36c91d">Memory in an exponential variable</h3>
+<section id="slide-org77e0241">
+<h3 id="org77e0241">Memory in an exponential variable</h3>
 <ul>
 <li class="fragment appear">\(X\) is the time between detections of a particle with a Geiger counter</li>
 <li class="fragment appear">Has an exponential distribution with \(E(X)=1.4\) minutes</li>
@@ -137,16 +137,16 @@ For an exponential random variable \(X\), \[P(X < t_1 + t_2| X > t_1)=P(X < t_2)
 </p>
 </div>
 </section>
-<section id="slide-org1072b37">
-<h3 id="org1072b37">Problem 13.2</h3>
+<section id="slide-org3901928">
+<h3 id="org3901928">Problem 13.2</h3>
 <p>
 If the longevity of a device follows an exponential distribution with a mean lifetime of 8 years, what is the probability that it will last a total of over 19 years if we know that it has lasted for 12 years?
 </p>
 </section>
 </section>
 <section>
-<section id="slide-org0042bca">
-<h2 id="org0042bca">Erlang distribution</h2>
+<section id="slide-orge94eebe">
+<h2 id="orge94eebe">Erlang distribution</h2>
 <p>
 Length/time until \(r\) events in a Poisson process
 </p>
@@ -168,8 +168,8 @@ Length/time until \(r\) events in a Poisson process
 </section>
 </section>
 <section>
-<section id="slide-orge2fe331">
-<h2 id="orge2fe331">Gamma function</h2>
+<section id="slide-orge49f56a">
+<h2 id="orge49f56a">Gamma function</h2>
 <div class="block">
 <p>
 \[\Gamma(r) = \int_{0}^{\infty} x^{r-1}e^{-x}dx \text{, for } r>0\]
@@ -183,8 +183,8 @@ Length/time until \(r\) events in a Poisson process
 </p>
 </span>
 </section>
-<section id="slide-org1a712e0">
-<h3 id="org1a712e0">Gamma distribution</h3>
+<section id="slide-orgdc507b0">
+<h3 id="orgdc507b0">Gamma distribution</h3>
 <div class="block">
 <p>
 The random variable with probability density function \[f(x)=\dfrac{\lambda^r x^{r-1} e^{-\lambda x}}{\Gamma(r)}\] is a <b>gamma random variable</b> with parameters \(\lambda>0\) and \(r>0\).
@@ -193,13 +193,13 @@ The random variable with probability density function \[f(x)=\dfrac{\lambda^r x^
 </section>
 <section>
 
-<figure id="org540026b">
+<figure id="org8cf02e0">
 <img src="images/fig13_2.png" alt="fig13_2.png" width="50%">
 
 </figure>
 </section>
-<section id="slide-orgaa86902">
-<h3 id="orgaa86902">Mean and variance</h3>
+<section id="slide-orgd853bcc">
+<h3 id="orgd853bcc">Mean and variance</h3>
 <div class="block">
 <p>
 If \(X\) is a gamma random variable with parameters \(\lambda\) and \(r\) then
@@ -208,8 +208,8 @@ If \(X\) is a gamma random variable with parameters \(\lambda\) and \(r\) then
 </p>
 </div>
 </section>
-<section id="slide-orgcbc440e">
-<h3 id="orgcbc440e">Incomplete gamma function</h3>
+<section id="slide-org5062d71">
+<h3 id="org5062d71">Incomplete gamma function</h3>
 <p>
 \[\gamma(u,r)=\dfrac{\int_{0}^{u}y^{r-1}e^{-y}dy}{\Gamma(r)}\]
 </p>
@@ -229,8 +229,8 @@ If \(X\) is a gamma random variable with parameters \(\lambda\) and \(r\) then
 </p>
 </span>
 </section>
-<section id="slide-org701c297">
-<h3 id="org701c297">Problem 13.3</h3>
+<section id="slide-org6c6dd21">
+<h3 id="org6c6dd21">Problem 13.3</h3>
 <p>
 Breakdowns of a computer show that the duration for trouble-free operation follows a gamma distribution with mean of 40 days and standard deviation of 10 days. The computer is taken offline occasionally to ensure operational condition at any time with 95% probability.
 </p>
@@ -247,8 +247,8 @@ If the computer is in good operational condition at the time it is scheduled for
 </section>
 </section>
 <section>
-<section id="slide-orgbd6e3b5">
-<h2 id="orgbd6e3b5">Weibull distribution</h2>
+<section id="slide-org700de16">
+<h2 id="org700de16">Weibull distribution</h2>
 <ul>
 <li>Often used to model the time until failure of many different physical systems</li>
 <li>For example, when number of failures increases with time</li>
@@ -260,16 +260,16 @@ The random variable \(X\) with probability density function \[f(x)=\dfrac{\beta}
 </p>
 </div>
 </section>
-<section id="slide-org6911e3f">
-<h3 id="org6911e3f">Weibull distribution properties</h3>
+<section id="slide-orge42ca9e">
+<h3 id="orge42ca9e">Weibull distribution properties</h3>
 <p>
 \[F(x) = 1 - e^{-\left( \frac{x}{\delta} \right)^{\beta}}\]
 \[\mu=E(X)= \delta \Gamma \left( 1 + \dfrac{1}{\beta} \right)\]
 \[\sigma^2 = V(X) = \delta^2 \Gamma \left( 1 + \dfrac{2}{\beta} \right) - \delta^2 \left[ \Gamma \left( 1 + \dfrac{1}{\beta} \right) \right]^2\]
 </p>
 </section>
-<section id="slide-org86a6d4d">
-<h3 id="org86a6d4d">Problem 13.4</h3>
+<section id="slide-org2f14042">
+<h3 id="org2f14042">Problem 13.4</h3>
 <p>
 Time to failure (in hours) of a bearing in a mechanical shaft is a Weibull variable with \(\beta=0.5\) and \(\delta=5000\) hours. What is the mean time until failure?
 </p>
@@ -281,8 +281,8 @@ What is the probability that a bearing lasts at least 6000 hours?
 </section>
 </section>
 <section>
-<section id="slide-orgead4432">
-<h2 id="orgead4432">Beta distribution</h2>
+<section id="slide-org95501ff">
+<h2 id="org95501ff">Beta distribution</h2>
 <ul>
 <li class="fragment appear">A flexible distribution that is bounded over a finite range</li>
 <li class="fragment appear">E.g., proportion of solar radiation absorbed by a material</li>
@@ -296,13 +296,13 @@ The random variable \(X\) with probability density function \[f(x) = \dfrac{\Gam
 </section>
 <section>
 
-<figure id="orgeb18b2a">
+<figure id="org4597df1">
 <img src="images/fig13_3.png" alt="fig13_3.png" width="50%">
 
 </figure>
 </section>
-<section id="slide-org7ce54cc">
-<h3 id="org7ce54cc">Mean and variance</h3>
+<section id="slide-orgb9d06b3">
+<h3 id="orgb9d06b3">Mean and variance</h3>
 <div class="block">
 <p>
 If \(X\) has a beta distribution with parameters \(\alpha\) and \(\beta\) then
@@ -313,8 +313,8 @@ If \(X\) has a beta distribution with parameters \(\alpha\) and \(\beta\) then
 </section>
 </section>
 <section>
-<section id="slide-org212a715">
-<h2 id="org212a715">Recap</h2>
+<section id="slide-org32426d5">
+<h2 id="org32426d5">Recap</h2>
 <ul>
 <li class="fragment appear">Exponential distribution
 <ul>
@@ -372,6 +372,11 @@ height: 720,
 
 transition: 'convex',
 transitionSpeed: 'default',
+
+    	  chalkboard: { 
+	  src: "https://raw.githubusercontent.com/kandread/cee260/master/annot/13_continuous_distributions.json",
+},
+
 
 // Plugins with reveal.js 4.x
 plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],

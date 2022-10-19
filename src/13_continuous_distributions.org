@@ -13,7 +13,7 @@
   - $N$ is the number flaws in $x$ mm of wire
   - $\lambda$ is the mean number of flaws per mm
   #+reveal_html: <span class="fragment">
-  $$P(X>x)=P(N=0)=\dfrac{e^{\lambda x} (\lambda x)^0}{0!}=e^{-\lambda x}$$
+  $$P(X>x)=P(N=0)=\dfrac{e^{-\lambda x} (\lambda x)^0}{0!}=e^{-\lambda x}$$
   #+reveal_html: </span>
   #+reveal_html: <span class="fragment">
   $$F(x)=P(X \leq x)=1 - e^{-\lambda x}$$
