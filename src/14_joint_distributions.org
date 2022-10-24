@@ -1,0 +1,138 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 25 Oct
+#+setupfile: ./reveal.org
+* {{{empty}}}
+  :PROPERTIES:
+  :REVEAL_BACKGROUND: https://americanlegalnews.com/wp-content/uploads/sites/8/2018/02/AdobeStock_4803779.jpg
+  :REVEAL_BACKGROUND_TRANS: slide
+  :END:
+  #+attr_reveal: :frag (appear)
+  - Air quality monitoring stations measuring PM10 and O_3
+  - EPA sets limits for both, remedial actions needed if exceeded
+  - What is the probability of both pollutants exceeding limits?
+  - *Measurements are most likely not independent*
+  - *Joint relationship becomes important!*
+* Joint probability distributions
+  #+reveal_html: <div class="block">
+  The probability distribution that defines the /simultaneous/ behavior of two or more random variables
+  #+reveal_html: </div>
+* Joint probability mass function
+  #+reveal_html: <div class="block">
+  The joint PMF of the discrete random variables $X$ and $Y$, denoted as $f_{XY}(x, y)$, satisfies
+  $$f_{X,Y}(x, y) \geq 0$$
+  $$\sum_X f_{XY}(x,y) = 1$$
+  $$f_{XY}(x,y) = P(X=x, Y=y)$$
+  #+reveal_html: </div>
+* Joint probability density function
+  #+reveal_html: <div class="block">
+  A joint PDF for the continuous random variables $X$ and $Y$, denoted as $f_{XY}(x,y)$, satisfies
+  $$f_{XY}(x,y) \geq 0$$
+  $$\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{XY}(x,y) dx dy = 1$$
+  $$P[(X,Y) \in R] = \int \int_R f_{XY}(x,y) dx dy$$
+  #+reveal_html: </div>
+  #+reveal: split
+  #+attr_html: :width 80%
+  [[file:images/fig14_1.png]]
+** Problem 14.1
+   Let $X$ be the time until a server connects to your machine, and $Y$ be the time until authorizes the user. Assume that the joint PDF is $$f_{XY}(x,y)=6 \times 10^{-6} exp(-0.001x-0.002y)$$. What is the probability that the connection time will be less than 1000 ms and the authorization time will be less
+* Marginal probability distributions
+  #+reveal_html: <div class="fragment block">
+  If the joint PDF of random variables $X$ and $Y$ is $f_{XY}(x,y)$, the marginal PDFs of $X$ and $Y$ are
+  $$f_X(x)=\int f_{XY}(x,y)dy$$
+  $$f_Y(y)=\int f_{XY}(x,y)dx$$
+  where the first integral is for all $Y$ and $X=x$, and the second is for all $X$ and $Y=y$.
+  #+reveal_html: </div>
+** Problem 14.2
+   For the previous problem, what is the probability that $Y$ exceeds 2000 ms?
+** {{{empty}}}
+   #+attr_html: :width 80%
+   [[file:images/fig14_2.png]]
+* Mean and variance of a joint distribution
+  #+reveal_html: <div class="block">
+  $$E(X) = \int_{-\infty}^{\infty} x f_X(x) dx = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} x f_{XY} dy dx$$
+  $$V(X) = \int_{-\infty}^{\infty} (x - \mu_X)^2 f_X(x) dx = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} (x - \mu_X)^2 f_{XY}(x,y) dx dy$$
+  #+reveal_html: </div>
+* Conditional probability density function
+  #+reveal_html: <div class="block">
+  Given continuous random variables $X$ and $Y$ with joint PDF $f_{XY}(x,y)$, the conditional PDF of $Y$ given $X=x$ is
+  $$f_{Y|x}(y) = \dfrac{f_{XY}(x,y)}{f_X(x)}$$
+  #+reveal_html: </div>
+  #+reveal: split
+  #+reveal_html: <div class="block">
+  $$f_{Y|x}(y) \geq 0$$
+  $$ \int f_{Y|x}(y) dy = 1$$
+  $$P(Y \in B| X=x) = \int_B f_{Y|x}(y) dy$$
+  #+reveal_html: </div>
+** Problem 14.3
+   For the previous problem, what is the probability of $Y>2000$ if $X=1500$?
+** Conditional mean and variance
+   #+reveal_html: <div class="block">
+   The conditional mean and variance of $Y$ given $X=x$ are
+   $$E(Y|x) = \mu_{Y|x} = \int_y y f_{Y|x}(y) dy$$
+   $$V(Y|x) = \sigma^2_{Y|x} = \int_y (y - \mu_{Y|x})^2 f_{Y|x}(x) dy$$
+   $$= \int_y y^2 f_{Y|x}(y) dy - \mu^2_{Y|x}$$
+   #+reveal_html: </div>
+** Independence
+   If two random variables are independent, then for $f_X(x)>0$
+   $$f_{Y|x}(y) = \dfrac{f_{XY}(x,y)}{f_X(x)} = \dfrac{f_X(x) f_Y(y)}{f_X(x)} = f_Y(y)$$
+   #+reveal: split
+   #+reveal_html: <div class="block">
+   For random variables $X$ and $Y$, if one of the following properties is true the others are also true and $X$ and $Y$ are independent
+   $$f_{XY}(x,y) = f_X(x) f_Y(y)$$
+   $$f_{Y|x}(y) = f_Y(y) \text{ or } f_{X|y}(x) = f_X(x)$$
+   $$P(X \in A, Y \in B) = P(X \in A)P(Y \in B)$$
+   #+reveal_html: </div>
+* Covariance and correlation
+  #+attr_reveal: :frag (appear)
+  - Apart from joint/conditional PDF we need additional measure of relationship between two random variables
+  - *Covariance* and *correlation*
+  - Expected value of a function of two random variables
+  #+reveal_html: <div class="fragment block">
+  $$E[h(X,Y)] = \begin{cases}
+  \sum \sum h(x,y)f_{XY}(x,y) & X,Y\text{ discrete} \\
+  \int \int h(x,y) f_{XY}(x,y) dx dy & X, Y\text{ continuous}
+  \end{cases}$$
+  #+reveal_html: </div>
+** Covariance
+   #+reveal_html: <div class="block">
+   The *covariance* between the random variables $X$ and $Y$, denoted as $\text{cov}(X,Y)$ or $\sigma_{XY}$ is
+   $$ \sigma_{XY} = E[(X - \mu_X)(Y - \mu_Y)] = E(XY) - \mu_x \mu_Y $$
+   #+reveal_html: </div>
+   #+reveal_html: <span class="fragment">
+   Let's prove the equality (if we have time!)
+   #+reveal_html: </span>
+** Correlation
+   #+reveal_html: <div class="fragment block">
+   The *correlation* between random variables $X$ and $Y$, denoted $\rho_{XY}$, is
+   $$\rho_{XY} = \dfrac{\sigma_{XY}}{\sigma_X \sigma_Y}$$
+   #+reveal_html: </div>
+   #+reveal_html: <div class="fragment block">
+   For any two random variables $X$ and $Y$
+   $$-1 \leq \rho_{XY} \leq 1$$
+   #+reveal_html: </div>
+   #+reveal: split
+   #+attr_html: :width 100%
+   [[https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Correlation_examples2.svg/800px-Correlation_examples2.svg.png]]
+** Some caveats
+   #+attr_reveal: :frag (appear)
+   - Correlation only measures *linear relationship* between two variables!
+   - Implications for causality
+   - Always plot the data and check for outliers
+   #+reveal_html: <span class="fragment">
+   #+attr_html: :width 60%
+   [[file:images/fig14_3.png]]
+   #+reveal_html: </span>
+** Problem 14.4
+   A cantilever beam is subjected to two loads $S_1$ and $S_2$ that are independent and have means $\mu_1$, $\mu_2$ and equal variance $\sigma_1=\sigma_2$. The shear force $Q=S_1+S_2$ and bending moment $M=aS_1+2aS_2$ are random variables with $\mu_Q=\mu_1+\mu_2$, $\sigma_Q^2=\sigma_1^2+\sigma_2^2$, $\mu_M=a\mu_1+2a\mu_2$, and $\sigma_M^2=a^2\sigma_1^2+4a^2\sigma_2^2$.
+   #+attr_html: :width 60%
+   [[file:images/fig14_4.png]]
+   #+reveal: split
+   What is the correlation between $Q$ and $M$?
+* Readings
+  - Sections 5.1-5.2
+  - Section 5.4
+  - [[https://journals.sagepub.com/doi/pdf/10.1177/0310057X1204000403][Ten caveats of interpreting correlation coefficient in anaesthesia and intensive care research]]
+  #+reveal_html: <span class="fragment">
+  {{{color(orangered, Homework #6 due 4 Nov!)}}}
+  #+reveal_html: </span>
