@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Probability &amp; Statistics in Engineering</title>
+<meta name="author" content="Kostas Andreadis"/>
+<meta name="description" content="Setup file for reveal.js presentations"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="./reveal.js/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 1 Nov</h2>
+</section>
+<section>
+<section id="slide-org052274f">
+<h2 id="org052274f">Recap</h2>
+<ul>
+<li class="fragment appear">Random variables</li>
+<li class="fragment appear">PDF/PMF: \(f(a)=P(X=a)\) and CDF:\(F(a)=P(X \leq x)\)</li>
+<li class="fragment appear">Discrete and Continuous probability distributions
+<ul>
+<li>Normal distribution</li>
+
+</ul></li>
+<li class="fragment appear">Joint probability distributions and correlation</li>
+<li class="fragment appear">Functions of random variables</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgfe93480">
+<h2 id="orgfe93480">Linear functions of random variables</h2>
+<ul>
+<li class="fragment appear">Let \(X_1\) and \(X_2\) be the length and width of a manufactured part</li>
+<li class="fragment appear">Then \(Y=2X_1+2X_2\) represents the perimeter of the part</li>
+<li class="fragment appear">Geometric variable: number of \(n\) trials to 1st occurrence</li>
+<li class="fragment appear">Negative binomial variable: $r$-th occurrence on $n$-th trial</li>
+<li class="fragment appear">A negative binomial variable is the sum of several geometric random variables</li>
+
+</ul>
+</section>
+<section id="slide-org110f202">
+<h3 id="org110f202">Linear function</h3>
+<div class="block">
+<p>
+Given random variables \(X_1\), \(X_2\),&#x2026;, \(X_p\) and constants \(c_0\), \(c_1\),&#x2026;, \(c_p\)
+\[Y=c_0+c_1X_1+c_2X_2+...+c_pX_p\]
+is a <b>linear function</b> of \(X_1\), \(X_2\),&#x2026;, \(X_p\)
+</p>
+</div>
+</section>
+<section id="slide-org9598b1e">
+<h3 id="org9598b1e">Calculating the mean</h3>
+<p>
+\[E(Y)=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} ... \int_{-\infty}^{\infty} (c_0+c_1x_1+...+c_px_p)\]
+\[f_{X_1X_2...X_p}(x_1,x_2,...,x_p) dx_1 dx_2...dx_p\]
+</p>
+</section>
+<section id="slide-orgcfb625c">
+<h3 id="orgcfb625c">Mean of a linear function</h3>
+<div class="block">
+<p>
+If \(X_1\),\(X_2\),&#x2026;,\(X_p\) are random variables and \(Y=c_0+c_1X_1+c_2X_2+...+c_pX_p\)
+\[E(Y)=c_0 + c_1E(X_1) + c_2E(X_2) + ... + c_pE(X_p)\]
+</p>
+</div>
+</section>
+<section id="slide-org57860da">
+<h3 id="org57860da">Variance of a linear function</h3>
+<div class="block">
+<p>
+If \(X_1\),\(X_2\),&#x2026;,\(X_p\) are random variables and \(Y=c_0+c_1X_1+c_2X_2+...+c_pX_p\) then
+\[V(Y)=c_1^2V(X_1)+c_2^2V(X_2)+...+c_p^2V(X_p)+\]
+\[+2 \mathop{\sum\sum}\limits_{i < j} c_i c_j \text{cov}(X_i X_j)\]
+</p>
+</div>
+</section>
+<section>
+<div class="block">
+<p>
+If \(X_1\),\(X_2\),&#x2026;,\(X_p\) are statistically independent then
+\[V(Y)=c_1^2V(X_1)+c_2^2V(X_2)+...+c_p^2V(X_p)\]
+</p>
+</div>
+</section>
+<section id="slide-orgcd0df7c">
+<h3 id="orgcd0df7c">Example</h3>
+<ul>
+<li class="fragment appear">Ifz \(Y\) is a negative binomial variable with parameters \(p\) and \(r\), then \(Y=X_1+X_2+...+X_r\)</li>
+<li class="fragment appear">Each \(X_i\) is a geometric random variable with \(E(X_i)=1/p\) and \(V(X_i)=(1-p)/p^2\)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org69575ea">
+<h2 id="org69575ea">Mean and variance of an Average</h2>
+<p>
+What if each of the \(X_i\) random variables had the same mean?
+</p>
+<div class="fragment block">
+<p>
+If \(\overline{X}=(X_1+X_2+...+X_p)/p\) with \(E(X_i)=\mu\) then
+\[E(\overline{X})=\mu\]
+</p>
+</div>
+<div class="fragment block">
+<p>
+If \(X_1\), \(X_2\), &#x2026;, \(X_p\) are also independent with \(V(X_i)=\sigma^2\) then
+\[V(\overline{X})=\dfrac{\sigma^2}{p}\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org8f25358">
+<h2 id="org8f25358">Reproductive property of the Normal distribution</h2>
+<div class="block">
+<p>
+If \(X_1\), \(X_2\), &#x2026;, \(X_p\) are independent, normal random variables with \(E(X_i)=\mu_i\) and \(V(X_i)=\sigma_i^2\) then
+\[Y=c_0 + c_1X_1 + c_2X_2 + ... + c_p X_p\]
+is a normal random variable with
+\[E(Y)=c_0+c_1\mu_1+c_2\mu_2+...+c_p\mu_p\]
+\[V(Y)=c_1^2\sigma_1^2+c_w^2\sigma_w^2+...+c_p^2\sigma_p^2\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgc41fcca">
+<h2 id="orgc41fcca">Problem 15.1</h2>
+<p>
+The maximum load on a column of a concrete building is \(T=D+L+E\), and each one has statistics
+</p>
+<ul>
+<li>\(\mu_D=2000\) and \(\sigma_D=210\)</li>
+<li>\(\mu_L=1500\) and \(\sigma_L=350\)</li>
+<li>\(\mu_E=2500\) and \(\sigma_E=450\)</li>
+
+</ul>
+<p>
+If the three loads are statistically independent, what is the mean and standard deviation of \(T\)?
+</p>
+</section>
+<section>
+<p>
+If the load-carrying capacity of the column \(C\) had \(\mu_C=10000\) and \(\sigma_C=1500\), what is the probability that the column will be overloaded?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgd6fb081">
+<h2 id="orgd6fb081">Problem 15.2</h2>
+<p>
+The settlement of a structure resting on a soil stratum can be estimated with \[S=0.3A+0.2B+0.1C\]
+</p>
+
+<figure id="orga50aa41">
+<img src="images/fig15_1.png" alt="fig15_1.png" width="50%">
+
+</figure>
+</section>
+<section>
+<p>
+If \(A \sim N(5,1)\), \(B \sim N(8,4)\), and \(C \sim N(7,1)\) are statistically independent, calculate the probability that the settlement will exceed 4 cm.
+</p>
+</section>
+<section>
+<p>
+If the total thickness of the layers is 20 m, and \(A\) is correlated with \(B\) with \(\rho=0.5\), what is the probability that the settlement will exceed 4 cm?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgb99db43">
+<h2 id="orgb99db43">Statistical inference</h2>
+
+<figure id="org3bc7976">
+<img src="images/fig15_2.png" alt="fig15_2.png" width="90%">
+
+</figure>
+</section>
+</section>
+<section>
+<section id="slide-org864e47f">
+<h2 id="org864e47f">Random sample</h2>
+<div class="block">
+<p>
+The random variables \(X_1\), \(X_2\), &#x2026;, \(X_n\) are a <b>random sample</b> of size \(n\) if the \(X_i\) are independent random variables and have the same probability distribution.
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org83e56a9">
+<h2 id="org83e56a9">Sample statistics</h2>
+<div class="block">
+<p>
+A <b>statistic</b> is any function of the observations in a random sample.
+</p>
+</div>
+<ul>
+<li class="fragment appear">sample mean, \(\overline{X}\)</li>
+<li class="fragment appear">sample variance, \(S^2\)</li>
+<li class="fragment appear">sample standard deviation, \(S\)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org9456d6c">
+<h2 id="org9456d6c">Sampling distribution</h2>
+<div class="block">
+<p>
+The probability distribution of a statistic is called a <b>sampling distribution</b>
+</p>
+</div>
+</section>
+<section id="slide-orgae0bc25">
+<h3 id="orgae0bc25">Sampling distribution of the sample mean</h3>
+<ul>
+<li class="fragment appear">Population with \(\mu\) and \(\sigma\)</li>
+<li class="fragment appear">Random sample of size \(n\)</li>
+
+</ul>
+<span class="fragment">
+<p>
+\[\overline{X} = \dfrac{X_1+X_2+..+X_n}{n}\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[\mu_X=\dfrac{\mu+\mu+...+\mu}{n}=\mu\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[\sigma_X^2=\dfrac{\sigma^2+\sigma^2+...+\sigma^2}{n^2}=\dfrac{\sigma^2}{n}\]
+</p>
+</span>
+</section>
+<section id="slide-orgecc0b17">
+<h3 id="orgecc0b17">Central Limit Theorem</h3>
+<div class="block">
+<p>
+If \(X_1\), \(X_2\),&#x2026;, \(X_n\) is a random sample of size \(n\) taken from a population with mean \(\mu\) and variance \(\sigma^2\) and if \(\overline{X}\) is the sample mean, the limiting form of the distribution of \[Z=\dfrac{\overline{X}-\mu}{\sigma / \sqrt{n}}\] as \(n \rightarrow \infty\) is the standard normal distribution.
+</p>
+</div>
+</section>
+<section>
+
+<figure id="orgfdf6c97">
+<img src="images/fig15_3.png" alt="fig15_3.png" width="80%">
+
+</figure>
+</section>
+<section>
+
+<figure id="org9ae37c4">
+<img src="images/fig15_4.png" alt="fig15_4.png" width="80%">
+
+</figure>
+</section>
+<section>
+
+<figure id="org8b966c4">
+<img src="images/fig15_5.png" alt="fig15_5.png" width="80%">
+
+</figure>
+</section>
+</section>
+<section>
+<section id="slide-org2c0642b">
+<h2 id="org2c0642b">Problem 15.3</h2>
+<p>
+If a random variable \(X\) has the uniform distribution \[f(x)=\begin{cases} 1/2 & 4 \leq x \leq 6 \\ 0 & \text{otherwise}\end{cases}\]
+what is the distribution of the sample mean of a random sample of size \(n=40\)?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org7ff1597">
+<h2 id="org7ff1597">Problem 15.4</h2>
+<p>
+Engineer salaries at a company are uniformly distributed between $30K and $40K per year. What is the probability that a randomly selected engineer will have an annual salary exceeding $40K?
+</p>
+</section>
+<section>
+<p>
+What is the probability that the average salary of 50 randomly selected engineers will exceed $40K?
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/math/math.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/customcontrols/plugin.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1280,
+height: 720,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+</script>
+</body>
+</html>

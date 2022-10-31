@@ -1,0 +1,134 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 1 Nov
+#+setupfile: ./reveal.org
+* Recap
+  #+attr_reveal: :frag (appear)
+  - Random variables
+  - PDF/PMF: $f(a)=P(X=a)$ and CDF:$F(a)=P(X \leq x)$
+  - Discrete and Continuous probability distributions
+    - Normal distribution
+  - Joint probability distributions and correlation
+  - Functions of random variables
+* Linear functions of random variables
+  #+attr_reveal: :frag (appear)
+  - Let $X_1$ and $X_2$ be the length and width of a manufactured part
+  - Then $Y=2X_1+2X_2$ represents the perimeter of the part
+  - Geometric variable: number of $n$ trials to 1st occurrence
+  - Negative binomial variable: $r$-th occurrence on $n$-th trial
+  - A negative binomial variable is the sum of several geometric random variables
+** Linear function
+   #+reveal_html: <div class="block">
+   Given random variables $X_1$, $X_2$,..., $X_p$ and constants $c_0$, $c_1$,..., $c_p$
+   $$Y=c_0+c_1X_1+c_2X_2+...+c_pX_p$$
+   is a *linear function* of $X_1$, $X_2$,..., $X_p$
+   #+reveal_html: </div>
+** Calculating the mean
+   $$E(Y)=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} ... \int_{-\infty}^{\infty} (c_0+c_1x_1+...+c_px_p)$$
+   $$f_{X_1X_2...X_p}(x_1,x_2,...,x_p) dx_1 dx_2...dx_p$$
+** Mean of a linear function
+   #+reveal_html: <div class="block">
+   If $X_1$,$X_2$,...,$X_p$ are random variables and $Y=c_0+c_1X_1+c_2X_2+...+c_pX_p$
+   $$E(Y)=c_0 + c_1E(X_1) + c_2E(X_2) + ... + c_pE(X_p)$$
+   #+reveal_html: </div>
+** Variance of a linear function
+   #+reveal_html: <div class="block">
+   If $X_1$,$X_2$,...,$X_p$ are random variables and $Y=c_0+c_1X_1+c_2X_2+...+c_pX_p$ then
+   $$V(Y)=c_1^2V(X_1)+c_2^2V(X_2)+...+c_p^2V(X_p)+$$
+   $$+2 \mathop{\sum\sum}\limits_{i < j} c_i c_j \text{cov}(X_i X_j)$$
+   #+reveal_html: </div>
+   #+reveal: split
+   #+reveal_html: <div class="block">
+   If $X_1$,$X_2$,...,$X_p$ are statistically independent then
+   $$V(Y)=c_1^2V(X_1)+c_2^2V(X_2)+...+c_p^2V(X_p)$$
+   #+reveal_html: </div>
+** Example
+   #+attr_reveal: :frag (appear)
+   - Ifz $Y$ is a negative binomial variable with parameters $p$ and $r$, then $Y=X_1+X_2+...+X_r$
+   - Each $X_i$ is a geometric random variable with $E(X_i)=1/p$ and $V(X_i)=(1-p)/p^2$
+* Mean and variance of an Average
+  What if each of the $X_i$ random variables had the same mean?
+  #+reveal_html: <div class="fragment block">
+  If $\overline{X}=(X_1+X_2+...+X_p)/p$ with $E(X_i)=\mu$ then
+  $$E(\overline{X})=\mu$$
+  #+reveal_html: </div>
+  #+reveal_html: <div class="fragment block">
+  If $X_1$, $X_2$, ..., $X_p$ are also independent with $V(X_i)=\sigma^2$ then
+  $$V(\overline{X})=\dfrac{\sigma^2}{p}$$
+  #+reveal_html: </div>
+* Reproductive property of the Normal distribution
+  #+reveal_html: <div class="block">
+  If $X_1$, $X_2$, ..., $X_p$ are independent, normal random variables with $E(X_i)=\mu_i$ and $V(X_i)=\sigma_i^2$ then
+  $$Y=c_0 + c_1X_1 + c_2X_2 + ... + c_p X_p$$
+  is a normal random variable with
+  $$E(Y)=c_0+c_1\mu_1+c_2\mu_2+...+c_p\mu_p$$
+  $$V(Y)=c_1^2\sigma_1^2+c_w^2\sigma_w^2+...+c_p^2\sigma_p^2$$
+  #+reveal_html: </div>
+* Problem 15.1
+  The maximum load on a column of a concrete building is $T=D+L+E$, and each one has statistics
+  - $\mu_D=2000$ and $\sigma_D=210$
+  - $\mu_L=1500$ and $\sigma_L=350$
+  - $\mu_E=2500$ and $\sigma_E=450$
+  If the three loads are statistically independent, what is the mean and standard deviation of $T$?
+  #+reveal: split
+  If the load-carrying capacity of the column $C$ had $\mu_C=10000$ and $\sigma_C=1500$, what is the probability that the column will be overloaded?
+* Problem 15.2
+  The settlement of a structure resting on a soil stratum can be estimated with $$S=0.3A+0.2B+0.1C$$
+  #+attr_html: :width 50%
+  [[file:images/fig15_1.png]]
+  #+reveal: split
+  If $A \sim N(5,1)$, $B \sim N(8,4)$, and $C \sim N(7,1)$ are statistically independent, calculate the probability that the settlement will exceed 4 cm.
+  #+reveal: split
+  If the total thickness of the layers is 20 m, and $A$ is correlated with $B$ with $\rho=0.5$, what is the probability that the settlement will exceed 4 cm?
+* Statistical inference
+  #+attr_html: :width 90%
+  [[file:images/fig15_2.png]]
+* Random sample
+  #+reveal_html: <div class="block">
+  The random variables $X_1$, $X_2$, ..., $X_n$ are a *random sample* of size $n$ if the $X_i$ are independent random variables and have the same probability distribution.
+  #+reveal_html: </div>
+* Sample statistics
+  #+reveal_html: <div class="block">
+  A *statistic* is any function of the observations in a random sample.
+  #+reveal_html: </div>
+  #+attr_reveal: :frag (appear)
+  - sample mean, $\overline{X}$
+  - sample variance, $S^2$
+  - sample standard deviation, $S$
+* Sampling distribution
+  #+reveal_html: <div class="block">
+  The probability distribution of a statistic is called a *sampling distribution*
+  #+reveal_html: </div>
+** Sampling distribution of the sample mean
+   #+attr_reveal: :frag (appear)
+   - Population with $\mu$ and $\sigma$
+   - Random sample of size $n$
+   #+reveal_html: <span class="fragment">
+   $$\overline{X} = \dfrac{X_1+X_2+..+X_n}{n}$$
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$\mu_X=\dfrac{\mu+\mu+...+\mu}{n}=\mu$$
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$\sigma_X^2=\dfrac{\sigma^2+\sigma^2+...+\sigma^2}{n^2}=\dfrac{\sigma^2}{n}$$
+   #+reveal_html: </span>
+** Central Limit Theorem
+   #+reveal_html: <div class="block">
+   If $X_1$, $X_2$,..., $X_n$ is a random sample of size $n$ taken from a population with mean $\mu$ and variance $\sigma^2$ and if $\overline{X}$ is the sample mean, the limiting form of the distribution of $$Z=\dfrac{\overline{X}-\mu}{\sigma / \sqrt{n}}$$ as $n \rightarrow \infty$ is the standard normal distribution.
+   #+reveal_html: </div>
+   #+reveal: split
+   #+attr_html: :width 80%
+   [[file:images/fig15_3.png]]
+   #+reveal: split
+   #+attr_html: :width 80%
+   [[file:images/fig15_4.png]]
+   #+reveal: split
+   #+attr_html: :width 80%
+   [[file:images/fig15_5.png]]
+* Problem 15.3
+  If a random variable $X$ has the uniform distribution $$f(x)=\begin{cases} 1/2 & 4 \leq x \leq 6 \\ 0 & \text{otherwise}\end{cases}$$
+  what is the distribution of the sample mean of a random sample of size $n=40$?
+* Problem 15.4
+  Engineer salaries at a company are uniformly distributed between $30K and $40K per year. What is the probability that a randomly selected engineer will have an annual salary exceeding $40K?
+  #+reveal: split
+  What is the probability that the average salary of 50 randomly selected engineers will exceed $40K?
