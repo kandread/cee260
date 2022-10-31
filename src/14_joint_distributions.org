@@ -35,7 +35,7 @@
   #+attr_html: :width 80%
   [[file:images/fig14_1.png]]
 ** Problem 14.1
-   Let $X$ be the time until a server connects to your machine, and $Y$ be the time until authorizes the user. Assume that the joint PDF is $$f_{XY}(x,y)=6 \times 10^{-6} exp(-0.001x-0.002y)$$. What is the probability that the connection time will be less than 1000 ms and the authorization time will be less
+   Let $X$ be the time until a server connects to your machine, and $Y$ be the time until authorizes the user. Assume that the joint PDF is $$f_{XY}(x,y)=6 \times 10^{-6} exp(-0.001x-0.002y)$$ What is the probability that the connection time will be less than 1000 ms and the authorization time will be less than 2000 ms?
 * Marginal probability distributions
   #+reveal_html: <div class="fragment block">
   If the joint PDF of random variables $X$ and $Y$ is $f_{XY}(x,y)$, the marginal PDFs of $X$ and $Y$ are
