@@ -129,6 +129,6 @@
   If a random variable $X$ has the uniform distribution $$f(x)=\begin{cases} 1/2 & 4 \leq x \leq 6 \\ 0 & \text{otherwise}\end{cases}$$
   what is the distribution of the sample mean of a random sample of size $n=40$?
 * Problem 15.4
-  Engineer salaries at a company are uniformly distributed between \$30K and \$50K per year. What is the probability that a randomly selected engineer will have an annual salary exceeding $40K?
+  Engineer salaries at a company are uniformly distributed between \$30K and \$50K per year. What is the probability that a randomly selected engineer will have an annual salary exceeding $42K?
   #+reveal: split
-  What is the probability that the average salary of 50 randomly selected engineers will exceed $40K?
+  What is the probability that the average salary of 50 randomly selected engineers will exceed $42K?
