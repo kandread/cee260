@@ -32,3 +32,5 @@ Probability and Statistics in Civil Engineering
 [Lecture #14 - 25 Oct 2022](https://kandread.github.io/cee260/14_joint_distributions.html)
 
 [Lecture #15 - 1 Nov 2022](https://kandread.github.io/cee260/15_random_functions_and_sampling_distributions.html)
+
+[Lecture #16 - 3 Nov 2022](https://kandread.github.io/cee260/16_point_estimation.html)
