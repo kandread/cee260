@@ -1,0 +1,97 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 3 Nov
+#+setupfile: ./reveal.org
+* Statistical inference
+  #+attr_html: :width 60%
+  [[file:images/fig16_1.png]]
+* Point estimation
+  #+attr_reveal: :frag (appear)
+  - Calculate a single number from a set of observations
+  - Represent parameters of underlying population
+  - Certain properties that are desirable in a point estimator
+    - Unbiased - /expected value of estimator is equal to parameter/
+    - Consistent - /error decreases as sample size increases/
+* Bias of an estimator
+  #+reveal_html: <div class="block">
+  The point estimator $\hat{\theta}$ is an *unbiased estimator* for the parameter $\theta$ if $$E(\hat{\theta})=\theta$$
+  If the estimator is biased, then the bias is defined as $$E(\hat{\theta})-\theta$$
+  #+reveal_html: </div>
+* Standard error
+  The standard error of an estimator is given by $\sigma_{\hat{\theta}}$
+  #+reveal_html: <span class="fragment">
+  For the sample mean we have
+  $$\sigma_{\overline{X}}=\dfrac{\sigma}{\sqrt{n}}$$
+  $$\hat{\sigma}_{\overline{X}}=\dfrac{s}{\sqrt{n}}$$
+  #+reveal_html: </span>
+* Mean squared error
+  #+reveal_html: <div class="block">
+  The mean squared error of an estimator $\hat{\theta}$ of the parameter $\theta$ is defined as $$\text{MSE}(\hat{\theta})=E(\hat{\theta}-\theta)^2$$
+  #+reveal_html: </div>
+  #+reveal_html: <span class="fragment">
+  $$\text{MSE}(\hat{\theta})=V(\hat{\theta})+(\text{bias})^2$$
+  #+reveal_html: </span>
+* Point estimation methods
+  - Method of Moments
+  - Maximum Likelihood Estimation
+  - Bayesian Estimation
+* Method of moments
+  - Equates the sample with the population moments
+  - Uses the relationships between distribution parameters and moments
+  #+reveal_html: <div class="fragment block">
+  - Let $X_1$, $X_2$,..., $X_n$ be a random sample from a probability distribution with $m$ unknown parameters.
+  - The $k$th moment is $E(X^k)$ estimated from the sample moment $(1/n)\sum X_i^k
+  - The *moment estimators* $\hat{\theta_1}$, $\hat{\theta_2}$,..., $\hat{\theta_m}$ are found by solving the equations relating parameters and moments
+  #+reveal_html: </div>
+** Example
+   #+attr_reveal: :frag (appear)
+   - Suppose that $X_1$, $X_2$,..., $X_n$ is a random sample from an exponential distribution
+   - Exponential distribution has only one parameter $\lambda$
+   #+reveal_html: <span class="fragment">
+   $$E(X)=\overline{X}$$
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$E(x)=\dfrac{1}{\lambda}=\overline{X} \Rightarrow \lambda = \dfrac{1}{\overline{X}}$$
+   #+reveal_html: </span>
+** Problem 16.1
+   Data for the fatigue life of aluminum yielded the sample mean and variance of $\overline{x}=26.75$ and $s^2=360.0$ in million cycles. Assuming that fatigue life follows a lognormal distribution, find its parameters $\theta$ and $\omega$.
+* Maximum Likelihood Estimation
+  #+attr_reveal: :frag (appear)
+  - Consider a random variable $X$ from a distribution $f(x;\theta)$
+  - The observed sample values are $x_1$, $x_2$,..., $x_n$
+  - /What is the most likely value of $\theta$ that will produce this particular set of observations?/
+  - The likelihood would be proportional to the value of the PDF at $x_i$
+** Likelihood function and Estimator
+   #+reveal_html: <div class="block">
+   The *likelihood function* of the sample $x_1$, $x_2$,..., $x_n$ is the product
+   $$L(\theta) = f(x_1;\theta) \times f(x_2;\theta) \times ... \times f(x_n;\theta)$$
+   #+reveal_html: </div>
+   #+reveal_html: <div class="fragment block">
+   The *maximum likelihood estimator* (MLE) is the value of $\theta$ that maximizes the likelihood function $L(\theta)$
+   #+reveal_html: </div>
+** Log-likelihood
+   The value $\hat{\theta}$ that maximizes $L(\theta)$ can be obtained by
+   $$\dfrac{\partial L(x_1, x_2,..., x_n; \theta)}{\partial \theta} = 0$$
+   #+reveal_html: <span class="fragment">
+   $$L(x_1,x_2,...,x_n;\theta_1,\theta_2,...,\theta_m)=\prod_{i=1}^n f(x_i;\theta_1, \theta_2,..., \theta_m)$$
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$\dfrac{\partial \ln{L(x_1,x_2,...,x_n;\theta_1,\theta_2,...,\theta_m)}}{\partial \theta_j}=0$$
+   #+reveal_html: </span>
+** Problem 16.2
+   Let $X$ be a Bernoulli random variable with PMF $$\begin{cases} p^x (1-p)^{1-x} & x=0,1 \\ 0 & \text{otherwise}\end{cases}$$
+   Find the MLE of the parameter $p$.
+** Problem 16.3
+   Let $X$ be an exponential random variable with PDF $$\lambda e^{-\lambda x}$$
+   Find the MLE for $\lambda$.
+** Problem 16.4
+   Lab tests are performed on five specimens of sand, with each one subjected to loads and the number of cycles the specimens lasted before failure were 25, 20, 28, 33, and 26 cycles. If the number of load cycles to failure is modeled with a lognormal distribution, find the MLE estimates of $\theta$ and $\omega$.
+* Readings
+  - Section 7.1-7.2
+  - Section 7.3.1
+  - Section 7.3.3
+    Section 7.3.5
+  - Sections 7.4.1-7.4.2
+  #+reveal_html: <span class="fragment">
+  {{{color(orangered, Homework #7 due 11 Nov!)}}}
+  #+reveal_html: </span>
