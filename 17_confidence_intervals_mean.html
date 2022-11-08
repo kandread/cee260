@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Probability &amp; Statistics in Engineering</title>
+<meta name="author" content="Kostas Andreadis"/>
+<meta name="description" content="Setup file for reveal.js presentations"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="./reveal.js/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 8 Nov</h2>
+</section>
+<section>
+<section id="slide-orgafc005c">
+<h2 id="orgafc005c">An unknown random variable \(X\)</h2>
+<ul>
+<li class="fragment appear">Distribution? \(\mu\)? \(\sigma\)?</li>
+<li class="fragment appear">We do know some things about \(\overline{X}\)</li>
+<li class="fragment appear">\(\mu_{\overline{X}}=\mu\) and \(\sigma_{\overline{X}}=\sigma / \sqrt{n}\)</li>
+<li class="fragment appear">For large \(n\) the distribution of \(\overline{X}\) is normal</li>
+
+</ul>
+</section>
+<section>
+<iframe width="100%" height="428" frameborder="0" style="background: #FFFFFF;"
+  src="https://observablehq.com/embed/@credmond/confidence-intervals?cells=curve%2Cviewof+st"></iframe>
+<span class="fragment">
+<p>
+\[\overline{X} \pm \dfrac{s}{\sqrt{n}}\]
+</p>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-org5f07d28">
+<h2 id="org5f07d28">Confidence interval</h2>
+<ul>
+<li class="fragment appear"><font color="steelblue"> An interval estimate for a population parameter</font></li>
+<li class="fragment appear">Usually they are 90%, 95% and 99%</li>
+<li class="fragment appear">Measure of <b>reliability</b>: if we repeated the experiment multiple times and calculated the 95% bounds then 95% of samples would contain the true mean within their corresponding bounds</li>
+<li class="fragment appear">Confidence interval for mean, variance and proportion</li>
+<li class="fragment appear">Cases of normal distribution with known or unknown variance</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org11bc840">
+<h2 id="org11bc840">Confidence interval on the mean of a Normal distribution, variance known</h2>
+</section>
+<section>
+<p>
+Suppose that \(X_1\), \(X_2\),&#x2026;, \(X_n\) is a random sample from a \(\text{N}(\mu,\sigma2)\)
+</p>
+<span class="fragment">
+<p>
+We're looking for the probability that \[P(L \leq \mu \leq U) = 1 - a\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[Z=\dfrac{\overline{X}-\mu}{\sigma / \sqrt{n}}\]
+follows a standard normal
+</p>
+</span>
+</section>
+<section>
+
+<figure id="org46763c1">
+<img src="images/fig17_1.png" alt="fig17_1.png" width="90%">
+
+</figure>
+</section>
+<section>
+<p>
+\[P\left( -z_{a / 2} \leq \dfrac{\overline{X}-\mu}{\sigma / \sqrt{n}} \leq z_{a / 2} \right) = 1 - a\]
+</p>
+<span class="fragment">
+<p>
+\[P\left( \overline{X}-z_{a / 2} \dfrac{\sigma}{\sqrt{n}} \leq \mu \leq \overline{X} + z_{a / 2} \dfrac{\sigma}{\sqrt{n}} \right) = 1 - a\]
+</p>
+</span>
+</section>
+<section>
+<div class="block">
+<p>
+If \(\overline{x}\) is the sample mean of a random sample of size \(n\) from a normal population with known variance \(\sigma^2\), a \(100(1-a)\%\) confidence interval on \(\mu\) is given by \[\overline{x}-z_{a / 2} \sigma / \sqrt{n} \leq \mu \leq \overline{x} + z_{a / 2} \sigma / \sqrt{n}\]
+</p>
+</div>
+</section>
+<section id="slide-orgb5f96af">
+<h3 id="orgb5f96af">Example</h3>
+<ul>
+<li>Ten measurements of impact energy on specimens of steel materials had a mean of 64.46 J</li>
+<li>Impact energy is normally distributed with \(\sigma=1\) J</li>
+<li>What is the 95% confidence interval?</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgffec10b">
+<h2 id="orgffec10b">Interpreting a confidence interval</h2>
+<ul>
+<li class="fragment appear">Probability of \(\mu\) being within the CI we calculated?</li>
+<li class="fragment appear">Subtle difference between probability and confidence</li>
+<li class="fragment appear">The CI is itself a <b>random interval</b></li>
+
+</ul>
+<span class="fragment">
+
+<figure id="orgc94d80e">
+<img src="images/fig17_2.png" alt="fig17_2.png" width="50%">
+
+</figure>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-orgd963466">
+<h2 id="orgd963466">Choice of sample size</h2>
+
+<figure id="org4870547">
+<img src="images/fig17_3.png" alt="fig17_3.png" width="60%">
+
+</figure>
+<span class="fragment">
+<p>
+We can choose sample size \(n\) so that we are \(100(1-a)%\) confident that the error is less than \(E\)
+</p>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-org515d44b">
+<h2 id="org515d44b">Sample size for specified error on the mean</h2>
+<div class="block">
+<p>
+If \(\overline{x}\) is used as an estimate of \(\mu\), we can be \(100(1-a)%\) confident that the error \(|\overline{x}-\mu|\) will not exceed \(E\) when the sample size is \[n=\left( \dfrac{z_{a/2}\sigma}{E} \right)^2\]
+</p>
+</div>
+</section>
+<section id="slide-org0e38a9a">
+<h3 id="org0e38a9a">Example</h3>
+<p>
+How many steel material specimens do we need to keep the 95% bounds at most 1.0 J?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgfb66b86">
+<h2 id="orgfb66b86">One-sided confidence bounds</h2>
+<ul>
+<li class="fragment appear">Two-sided confidence intervals</li>
+<li class="fragment appear">Sometimes we only care about the lower or upper bound only</li>
+<li class="fragment appear">For example, in material strength only the lower limit of the mean is important</li>
+
+</ul>
+</section>
+<section id="slide-orgc10251e">
+<h3 id="orgc10251e">One-sided confidence bound on mean, variance known</h3>
+<div class="block">
+<p>
+A \(100(1-a)%\) upper confidence bound for \(\mu\) is \[\mu \leq \overline{x}+z_{a} \sigma / \sqrt{n}\]
+and a \(100(1-a)%\) lower confidence bound for \(\mu\) is \[\mu \geq \overline{x}-z_{a} \sigma / \sqrt{n}\]
+</p>
+</div>
+</section>
+<section id="slide-orga96a5a5">
+<h4 id="orga96a5a5">Example</h4>
+<p>
+What is the 95% lower bound of the mean impact energy?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org9a119d3">
+<h2 id="org9a119d3">Problem 17.1</h2>
+<p>
+The average speed of vehicles on a highway is being studied. Observations on 50 vehicles yielded a mean of 65 mph. Assume that the standard deviation is known to be 6 mph. What is the 2-sided 99% confidence interval on the mean speed?
+</p>
+</section>
+<section>
+<p>
+How many additional vehicles need to be observed so that the mean speed can be estimated within \(\pm 1\) mph with 99% confidence?
+</p>
+</section>
+<section>
+<p>
+If two engineers collect data and each one separately observes 10 vehicles, what is the probability that Engineer 1 will have a sample mean larger than Engineer's 2 by 2 mph?
+</p>
+</section>
+<section>
+<p>
+What if the two engineers observed 100 vehicles instead?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org702f6dd">
+<h2 id="org702f6dd">What if \(X\) does not have a normal distribution?</h2>
+<div class="fragment block">
+<p>
+When \(n\) is large the quantity \(\dfrac{\overline{X}-\mu}{S / \sqrt{n}}\) has an approximate standard normal and therefore \[\overline{x}-z_{a/2} \dfrac{s}{\sqrt{n}} \leq \mu \leq \overline{x} + z_{a/2} \dfrac{s}{\sqrt{n}}\] which is a large-sample confidence interval for \(\mu\)
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgcf38d12">
+<h2 id="orgcf38d12">Example</h2>
+<p>
+A study of mercury concentration in fish obtained these measurements
+</p>
+
+<figure id="org775a3e1">
+<img src="images/fig17_4.png" alt="fig17_4.png" width="70%">
+
+</figure>
+</section>
+<section>
+
+<figure id="org8c84150">
+<img src="images/fig17_5.png" alt="fig17_5.png" width="70%">
+
+</figure>
+</section>
+<section>
+
+<figure id="orgb222f21">
+<img src="images/fig17_6.png" alt="fig17_6.png" width="70%">
+
+</figure>
+</section>
+<section>
+<p>
+\[\overline{x} - z_{0.025} \dfrac{s}{\sqrt{n}} \leq \mu \leq \overline{x} + z_{0.025} \dfrac{s}{\sqrt{n}}\]
+</p>
+<span class="fragment">
+<p>
+\[0.5250 - 1.96 \dfrac{0.3486}{\sqrt{53}} \leq \mu \leq 0.5250 + 1.96 \dfrac{0.3486}{\sqrt{53}}\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[0.4311 \leq \mu \leq 0.6189\]
+</p>
+</span>
+</section>
+<section>
+
+<figure id="orgb2915fe">
+<img src="images/fig17_7.png" alt="fig17_7.png" width="70%">
+
+</figure>
+</section>
+</section>
+<section>
+<section id="slide-org5466b80">
+<h2 id="org5466b80">Confidence interval on the mean of a Normal distribution, variance unknown</h2>
+<p>
+We replace the random variable \(Z\) with \[T=\dfrac{\overline{X}-\mu}{S / \sqrt{n}}\]
+</p>
+<span class="fragment">
+<p>
+We know that for large \(n\) this is a normal distribution, but what about a smaller \(n\)?
+</p>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-org295e2aa">
+<h2 id="org295e2aa">\(t\) distribution</h2>
+<div class="block">
+<p>
+Let \(X_1\), \(X_2\),&#x2026;, \(X_n\) be a random sample from a normal distribution with unknown mean and unknown variance. The random variable \[T=\dfrac{\overline{X}-\mu}{S / \sqrt{n}}\] has a \(t\) distribution with \(n-1\) degrees of freedom.
+</p>
+</div>
+</section>
+<section id="slide-org3f9fdc1">
+<h3 id="org3f9fdc1">\(t\) probability density function</h3>
+<p>
+\[f(x) = \dfrac{\Gamma [(k+1)/2]}{\sqrt{\pi k} \Gamma(k/2)} \dfrac{1}{[(x^2/k)+1]^{(k+1)/2}}\]
+\(k\) is the degrees of freedom, the mean is zero and the variance is \(k/(k-2)\)
+</p>
+</section>
+<section>
+
+<figure id="org449a110">
+<img src="images/fig17_8.png" alt="fig17_8.png" width="90%">
+
+</figure>
+</section>
+<section id="slide-org50b20f3">
+<h3 id="org50b20f3">Calculating probabilities of the \(t\) distribution</h3>
+<ul>
+<li>The \(t\) distribution is symmetric</li>
+<li>\(t_{1-a,n}=-t_{a,n}\)</li>
+
+</ul>
+
+<figure id="org8fd4f73">
+<img src="images/fig17_9.png" alt="fig17_9.png" width="70%">
+
+</figure>
+</section>
+<section>
+
+<figure id="org7abd079">
+<img src="images/fig17_10.png" alt="fig17_10.png" width="70%">
+
+</figure>
+</section>
+<section id="slide-org2f33bf1">
+<h3 id="org2f33bf1">\(t\) confidence interval on \(\mu\)</h3>
+<div class="block">
+<p>
+If \(\overline{x}\) and \(s\) are the mean and standard deviation of a random sample from a normal distribution with unknown variance with unknown variance \(\sigma^2\), a \(100(1-a)%\) confidence interval on \(\mu\) is given by
+\[\overline{x}-t_{a/2,n-1} s / \sqrt{n} \leq \mu \leq \overline{x}+t_{a/2,n-1} s / \sqrt{n}\]
+where \(t_{a/2,n-1}\) is the upper \(a/2\) point of the \(t\) distribution with \(n-1\) degrees of freedom.
+</p>
+</div>
+</section>
+<section id="slide-org938f941">
+<h3 id="org938f941">Example</h3>
+<p>
+A sample of 25 rebars tested for yield strengths yielded \(\overline{x}=37.5\) psi and \(s=3.5\) psi. What is the 95% confidence interval for the mean yield strength?
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/math/math.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/customcontrols/plugin.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1280,
+height: 720,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+</script>
+</body>
+</html>

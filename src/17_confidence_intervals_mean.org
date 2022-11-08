@@ -1,0 +1,149 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 8 Nov
+#+setupfile: ./reveal.org
+* An unknown random variable $X$
+  #+attr_reveal: :frag (appear)
+  - Distribution? $\mu$? $\sigma$?
+  - We do know some things about $\overline{X}$
+  - $\mu_{\overline{X}}=\mu$ and $\sigma_{\overline{X}}=\sigma / \sqrt{n}$
+  - For large $n$ the distribution of $\overline{X}$ is normal
+  #+reveal: split
+  #+begin_export html
+  <iframe width="100%" height="428" frameborder="0" style="background: #FFFFFF;"
+    src="https://observablehq.com/embed/@credmond/confidence-intervals?cells=curve%2Cviewof+st"></iframe>
+  #+end_export
+  #+reveal_html: <span class="fragment">
+  $$\overline{X} \pm \dfrac{s}{\sqrt{n}}$$
+  #+reveal_html: </span>
+* Confidence interval
+  #+attr_reveal: :frag (appear)
+  - {{{color(steelblue, An interval estimate for a population parameter)}}}
+  - Usually they are 90%, 95% and 99%
+  - Measure of *reliability*: if we repeated the experiment multiple times and calculated the 95% bounds then 95% of samples would contain the true mean within their corresponding bounds
+  - Confidence interval for mean, variance and proportion
+  - Cases of normal distribution with known or unknown variance
+* Confidence interval on the mean of a Normal distribution, variance known
+  #+reveal: split
+  Suppose that $X_1$, $X_2$,..., $X_n$ is a random sample from a $\text{N}(\mu,\sigma2)$
+  #+reveal_html: <span class="fragment">
+  We're looking for the probability that $$P(L \leq \mu \leq U) = 1 - a$$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  $$Z=\dfrac{\overline{X}-\mu}{\sigma / \sqrt{n}}$$
+  follows a standard normal
+  #+reveal_html: </span>
+  #+reveal: split
+  #+attr_html: :width 90%
+  [[file:images/fig17_1.png]]
+  #+reveal: split
+  $$P\left( -z_{a / 2} \leq \dfrac{\overline{X}-\mu}{\sigma / \sqrt{n}} \leq z_{a / 2} \right) = 1 - a$$
+  #+reveal_html: <span class="fragment">
+  $$P\left( \overline{X}-z_{a / 2} \dfrac{\sigma}{\sqrt{n}} \leq \mu \leq \overline{X} + z_{a / 2} \dfrac{\sigma}{\sqrt{n}} \right) = 1 - a$$
+  #+reveal_html: </span>
+  #+reveal: split
+  #+reveal_html: <div class="block">
+  If $\overline{x}$ is the sample mean of a random sample of size $n$ from a normal population with known variance $\sigma^2$, a $100(1-a)\%$ confidence interval on $\mu$ is given by $$\overline{x}-z_{a / 2} \sigma / \sqrt{n} \leq \mu \leq \overline{x} + z_{a / 2} \sigma / \sqrt{n}$$
+  #+reveal_html: </div>
+** Example
+   - Ten measurements of impact energy on specimens of steel materials had a mean of 64.46 J
+   - Impact energy is normally distributed with $\sigma=1$ J
+   - What is the 95% confidence interval?
+* Interpreting a confidence interval
+  #+attr_reveal: :frag (appear)
+  - Probability of $\mu$ being within the CI we calculated?
+  - Subtle difference between probability and confidence
+  - The CI is itself a *random interval*
+  #+reveal_html: <span class="fragment">
+  #+attr_html: :width 50%
+  [[file:images/fig17_2.png]]
+  #+reveal_html: </span>
+* Choice of sample size
+  #+attr_html: :width 60%
+  [[file:images/fig17_3.png]]
+  #+reveal_html: <span class="fragment">
+  We can choose sample size $n$ so that we are $100(1-a)%$ confident that the error is less than $E$
+  #+reveal_html: </span>
+* Sample size for specified error on the mean
+  #+reveal_html: <div class="block">
+  If $\overline{x}$ is used as an estimate of $\mu$, we can be $100(1-a)%$ confident that the error $|\overline{x}-\mu|$ will not exceed $E$ when the sample size is $$n=\left( \dfrac{z_{a/2}\sigma}{E} \right)^2$$
+  #+reveal_html: </div>
+** Example
+   How many steel material specimens do we need to keep the 95% bounds at most 1.0 J?
+* One-sided confidence bounds
+  #+attr_reveal: :frag (appear)
+  - Two-sided confidence intervals
+  - Sometimes we only care about the lower or upper bound only
+  - For example, in material strength only the lower limit of the mean is important
+** One-sided confidence bound on mean, variance known
+   #+reveal_html: <div class="block">
+   A $100(1-a)%$ upper confidence bound for $\mu$ is $$\mu \leq \overline{x}+z_{a} \sigma / \sqrt{n}$$
+   and a $100(1-a)%$ lower confidence bound for $\mu$ is $$\mu \geq \overline{x}-z_{a} \sigma / \sqrt{n}$$
+   #+reveal_html: </div>
+*** Example
+    What is the 95% lower bound of the mean impact energy?
+* Problem 17.1
+  The average speed of vehicles on a highway is being studied. Observations on 50 vehicles yielded a mean of 65 mph. Assume that the standard deviation is known to be 6 mph. What is the 2-sided 99% confidence interval on the mean speed?
+  #+reveal: split
+  How many additional vehicles need to be observed so that the mean speed can be estimated within $\pm 1$ mph with 99% confidence?
+  #+reveal: split
+  If two engineers collect data and each one separately observes 10 vehicles, what is the probability that Engineer 1 will have a sample mean larger than Engineer's 2 by 2 mph?
+  #+reveal: split
+  What if the two engineers observed 100 vehicles instead?
+* What if $X$ does not have a normal distribution?
+  #+reveal_html: <div class="fragment block">
+  When $n$ is large the quantity $\dfrac{\overline{X}-\mu}{S / \sqrt{n}}$ has an approximate standard normal and therefore $$\overline{x}-z_{a/2} \dfrac{s}{\sqrt{n}} \leq \mu \leq \overline{x} + z_{a/2} \dfrac{s}{\sqrt{n}}$$ which is a large-sample confidence interval for $\mu$
+  #+reveal_html: </div>
+* Example
+  A study of mercury concentration in fish obtained these measurements
+  #+attr_html: :width 70%
+  [[file:images/fig17_4.png]]
+  #+reveal: split
+  #+attr_html: :width 70%
+  [[file:images/fig17_5.png]]
+  #+reveal: split
+  #+attr_html: :width 70%
+  [[file:images/fig17_6.png]]
+  #+reveal: split
+  $$\overline{x} - z_{0.025} \dfrac{s}{\sqrt{n}} \leq \mu \leq \overline{x} + z_{0.025} \dfrac{s}{\sqrt{n}}$$
+  #+reveal_html: <span class="fragment">
+  $$0.5250 - 1.96 \dfrac{0.3486}{\sqrt{53}} \leq \mu \leq 0.5250 + 1.96 \dfrac{0.3486}{\sqrt{53}}$$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  $$0.4311 \leq \mu \leq 0.6189$$
+  #+reveal_html: </span>
+  #+reveal: split
+  #+attr_html: :width 70%
+  [[file:images/fig17_7.png]]
+* Confidence interval on the mean of a Normal distribution, variance unknown
+  We replace the random variable $Z$ with $$T=\dfrac{\overline{X}-\mu}{S / \sqrt{n}}$$
+  #+reveal_html: <span class="fragment">
+  We know that for large $n$ this is a normal distribution, but what about a smaller $n$?
+  #+reveal_html: </span>
+* $t$ distribution
+  #+reveal_html: <div class="block">
+  Let $X_1$, $X_2$,..., $X_n$ be a random sample from a normal distribution with unknown mean and unknown variance. The random variable $$T=\dfrac{\overline{X}-\mu}{S / \sqrt{n}}$$ has a $t$ distribution with $n-1$ degrees of freedom.
+  #+reveal_html: </div>
+** $t$ probability density function
+   $$f(x) = \dfrac{\Gamma [(k+1)/2]}{\sqrt{\pi k} \Gamma(k/2)} \dfrac{1}{[(x^2/k)+1]^{(k+1)/2}}$$
+   $k$ is the degrees of freedom, the mean is zero and the variance is $k/(k-2)$
+   #+reveal: split
+   #+attr_html: :width 90%
+  [[file:images/fig17_8.png]]
+** Calculating probabilities of the $t$ distribution
+   - The $t$ distribution is symmetric
+   - $t_{1-a,n}=-t_{a,n}$
+   #+attr_html: :width 70%
+   [[file:images/fig17_9.png]]
+   #+reveal: split
+   #+attr_html: :width 70%
+   [[file:images/fig17_10.png]]
+** $t$ confidence interval on $\mu$
+   #+reveal_html: <div class="block">
+   If $\overline{x}$ and $s$ are the mean and standard deviation of a random sample from a normal distribution with unknown variance with unknown variance $\sigma^2$, a $100(1-a)%$ confidence interval on $\mu$ is given by
+   $$\overline{x}-t_{a/2,n-1} s / \sqrt{n} \leq \mu \leq \overline{x}+t_{a/2,n-1} s / \sqrt{n}$$
+   where $t_{a/2,n-1}$ is the upper $a/2$ point of the $t$ distribution with $n-1$ degrees of freedom.
+   #+reveal_html: </div>
+** Example
+   A sample of 25 rebars tested for yield strengths yielded $\overline{x}=37.5$ psi and $s=3.5$ psi. What is the 95% confidence interval for the mean yield strength?
+
