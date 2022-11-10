@@ -36,3 +36,5 @@ Probability and Statistics in Civil Engineering
 [Lecture #16 - 3 Nov 2022](https://kandread.github.io/cee260/16_point_estimation.html)
 
 [Lecture #17 - 8 Nov 2022](https://kandread.github.io/cee260/17_confidence_intervals_mean.html)
+
+[Lecture #18 - 10 Nov 2022](https://kandread.github.io/cee260/18_confidence_intervals_variance_proportion.html)
