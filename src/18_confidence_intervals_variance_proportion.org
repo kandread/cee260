@@ -1,0 +1,101 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 10 Nov
+#+setupfile: ./reveal.org
+* Confidence interval on the variance
+  #+attr_reveal: :frag (appear)
+  - When population follows normal distribution we can estimate confidence interval on variance
+  - Similar to when we used the $t$ distribution, we will use the $\chi^2$ distribution here
+  #+reveal_html: <span class="fragment">
+  $$f(x)=\dfrac{1}{2^{k/2} \Gamma(k/2)} x^{(k/2)-1} e^{-x/2}$$
+  #+reveal_html: </span>
+* $\chi^2$ distribution
+  #+reveal_html: <div class="block">
+  Let $X_1$, $X_2$,..., $X_n$ be a random sample from a normal distribution with mean $\mu$ and variance $\sigma^2$, and let $S$ be the sample variance. Then the random variable
+  $$X^2=\dfrac{(n-1) S^2}{\sigma^2}$$
+  has a chi-square distribution with $n-1$ degrees of freedom.
+  #+reveal_html: </div>
+** $\chi^2$ probability density functions
+   #+attr_html: :width 35%
+   [[file:images/fig18_1.png]]
+   #+reveal_html: <span class="fragment">
+   Non-negative and skewed to the right
+   #+reveal_html: </span>
+** Percentage points of the $\chi^2$ distribution
+   #+reveal_html: <div class="twocolumn"><div>
+   $$P(X^2 > x_{a,k}^2) = \int_{x_{a,k}^2}^{\infty} f(u)du = a$$
+   Not symmetric!
+   #+reveal_html: </div><div>
+   #+attr_html: :width 80%
+   [[file:images/fig18_2.png]]
+   #+reveal_html: </div>
+   #+reveal: split
+   #+attr_html: :width 70%
+   [[file:images/fig18_3.png]]
+** Confidence intervals for $\chi^2$ distribution
+   $$P(x_{1-a/2,n-1}^2 \leq X^2 \leq x_{a/2,n-1}^2)=1-a$$
+   #+reveal_html: <span class="fragment">
+   $$P \left( x_{1-a/2,n-1}^2 \leq \dfrac{(n-1)S^2}{\sigma^2} \leq x_{a/2,n-1}^2 \right)=1-a$$
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$P \left( \dfrac{(n-1)S^2}{x_{a/2,n-1}^2} \leq \sigma^2 \leq \dfrac{(n-1)S^2}{x_{1-a/2,n-1}^2} \right)=1-a$$
+   #+reveal_html: </span>
+** Confidence interval on variance
+   #+reveal_html: <div class="block">
+   If $s^2$ is the sample variance from a random sample of $n$ observations from a normal distribution, then a $100(1-a)\%$ confidence interval on $\sigma^2$ is
+   $$\dfrac{(n-1)s^2}{x_{a/2,n-1}^2} \leq \sigma^2 \leq \dfrac{(n-1)s^2}{x_{1-a/2,n-1}^2}$$
+   #+reveal_html: </div>
+** One-sided confidence bounds on variance
+   #+reveal_html: <div class="block">
+   The $100(1-a)\%$ lower and upper confidence bounds on $\sigma^2$ are
+   $$\dfrac{(n-1)s^2}{x_{a,n-1}^2} \leq \sigma^2$$
+   $$\sigma^2 \leq \dfrac{(n-1)s^2}{x_{1-a,n-1}^2}$$
+   #+reveal_html: </div>
+** Example
+   The sample variance of runoff in a river from 25 storms is 0.36 in^2. What is the upper 95% confidence bound for the standard deviation of runoff?
+* Confidence interval for a population proportion
+  #+attr_reveal: :frag (appear)
+  - A *large* random sample of size $n$ from a population
+  - $X$ observations ($\leq n$) are  of interest
+  - Then $\hat{P}=X/n$ is an estimate of the proportion of the population for values of interest
+  - $n$ and $p$ are parameters of the binomial distribution
+  - We can approximate the binomial with a normal distribution
+** Normal approximation for a binomial proportion
+   #+reveal_html: <div class="block">
+   If $n$ is large, the distribution of
+   $$Z=\dfrac{X-np}{\sqrt{np(1-p)}}=\dfrac{\hat{P}-p}{\sqrt{\dfrac{p(1-p)}{n}}}$$
+   is approximately standard normal.
+   #+reveal_html: </div>
+** Constructing the confidence interval
+   $$P(-z_{a/2} \leq Z \leq z_{a/2}) = 1-a$$
+   After rearranging terms
+   $$P\left( \hat{P} - z_{a/2} \sqrt{\dfrac{p(1-p)}{n}} \leq p \leq \hat{P} + z_{a/2} \sqrt{\dfrac{p(1-p)}{n}} \right) = 1 - a$$
+** Approximate confidence interval on a binomial proportion
+   #+reveal_html: <div class="block">
+   If $\hat{p}$ is the proportion of observations in a random sample of size $n$ that belongs to a class of interest, an approximate $100(1-a)\%$ confidence interval on the proportion $p$ of the population that belongs to that class is
+   $$\hat{p} - z_{a/2} \sqrt{\hat{p}(1-\hat{p})} \leq p \leq \hat{p} + z_{a/2} \sqrt{\dfrac{\hat{p}(1-\hat{p})}{n}}$$
+   #+reveal_html: </div>
+** Choice of sample size
+   #+reveal_html: <div class="block">
+   Sample size for a specified error on a binomial proportion
+   $$n=\left( \dfrac{z_{a/2}}{E} \right)^2 p (1-p)$$
+   #+reveal_html: </div>
+   #+reveal_html: <span class="fragment">
+   If information about $p$ is unavailable, we can obtain an upper bound of $n$
+   $$n=\left( \dfrac{z_{a/2}}{E} \right)^2 (0.25)$$
+   #+reveal_html: </span>
+** Approximate one-sided bounds on a binomial proportion
+   #+reveal_html: <div class="block">
+   The approximate $100(1-a)\%$ lower and upper confidence bounds are
+   $$\hat{p} - z_a \sqrt{\dfrac{\hat{p}(1-\hat{p})}{n}} \leq p$$
+   $$p \leq \hat{p} + z_a \sqrt{\dfrac{\hat{p} (1-\hat{p})}{n}}$$
+   #+reveal_html: </div>
+** Problem 18.1
+   At a weight station, the weights of trucks were observed before crossing a bridge. Suppose observations of 30 trucks yielded a mean of 12.5 tons. Assume that the standard deviation of truck weights is known to be 3 tons. What is the two-sided 99% confidence interval for the mean weight of trucks?
+   #+reveal: split
+   How many additional trucks should be observed such that the mean truck weight can be estimated to within $\pm1.0$ ton with 99% confidence?
+** Readings
+   - Sections 8.1-8.5
+   #+reveal_html: <span class="fragment">
+   {{{color(orangered, Homework #8 due 18 Nov!)}}}
+   #+reveal_html: </span>
