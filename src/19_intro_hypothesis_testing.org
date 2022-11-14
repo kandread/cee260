@@ -1,0 +1,141 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 15 Nov
+#+setupfile: ./reveal.org
+* Recap
+  #+attr_reveal: :frag (appear)
+  - Statistical inference
+  - Point estimation
+  - Interval estimation
+  - Two competing statements about a parameter value
+  #+reveal_html: <span class="fragment">
+  #+begin_quote
+  - Interest in the yield strength of rebars satisfying a minimum threshold.
+  - Samples taken and their mean calculated
+  - How confident are we that the mean is greater than the threshold?
+  #+end_quote
+  #+reveal_html: </span>
+* Hypothesis testing
+  #+reveal_html: <div class="block">
+  A *statistical hypothesis* is a statement about the parameters of one or more populations.
+  #+reveal_html: </div>
+  #+attr_reveal: :frag (appear)
+  - Hypotheses are the two competing statements
+  - Closely related to confidence intervals
+* Hypotheses
+  #+reveal_html: <div class="block">
+  /Null hypothesis/: $H_0: \mu = \mu_0$
+
+  /Alternative hypothesis/: $H_1: \mu \neq \mu_0$
+  #+reveal_html: </div>
+  #+reveal_html: <span class="fragment">
+  - Null hypothesis is most of the time an equality claim
+  - Unless alternative hypothesis is $>$ or $<$
+  - When $H_1 < \mu_0$ or $H_1 > \mu_0$ then *one-sided alternative hypothesis*
+  #+reveal_html: </span>
+* Example
+  - Interested in the burn rate of a propellant
+  - $H_0: \mu = 50\,\text{cm/s}$
+  - $H_1: \mu \neq 50\,\text{cm/s}$
+  - Sample of $n=10$ specimens
+  #+reveal_html: <span class="fragment">
+  #+attr_html: :width 80%
+  [[file:images/fig19_1.png]]
+  #+reveal_html: </span>
+  #+reveal: split
+  #+attr_reveal: :frag (appear)
+  - Acceptance region
+  - Critical region
+  - Critical values
+  - We reject $H_0$ if values fall inside the critical region
+* Hypothesis testing errors
+  #+reveal_html: <div class="block">
+  #+attr_reveal: :frag (appear)
+  - Type I Error
+    - Rejecting the null hypothesis when it actually is true
+  - Type II Error
+    - Failing to reject the null hypothesis when it is actually false
+  #+reveal_html: </div>
+  #+reveal_html: <span class="fragment">
+  #+attr_html: :width 80%
+  [[file:images/fig19_2.png]]
+  #+reveal_html: </span>
+** Probability of Type I error
+   #+reveal_html: <div class="block">
+   $$\alpha = P(\text{type I error})=P(\text{reject }H_0\text{ when }H_0\text{ is true})$$
+   #+reveal_html: <span class="fragment">
+   This probability is also called the *significance level* (or the size of the test)
+   #+reveal_html: </span>
+   #+reveal_html: </div>
+   #+reveal: split
+   #+attr_html: :width 80%
+   [[file:images/fig19_3.png]]
+   #+reveal_html: <span class="fragment">
+   How can we reduce $\alpha$?
+   #+reveal_html: </span>
+** Probability of Type II error
+   #+reveal_html: <div class="block">
+   $$\beta = P(\text{type II error})=P(\text{fail to reject }H_0\text{ when }H_0\text{ is false})$$
+   #+reveal_html: </div>
+   #+reveal_html: <span class="fragment">
+   The probability of a type II error increases rapidly when the true value of $\mu$ approaches the hypothesized value
+   #+reveal_html: </span>
+   #+reveal: split
+   #+attr_html: :width 80%
+   [[file:images/fig19_4.png]]
+** Summary
+   #+attr_html: :width 90%
+   [[file:images/fig19_5.png]]
+   #+reveal: split
+   #+attr_reveal: :frag (appear)
+   - Size of the critical region ($\alpha$) can be reduced by appropriate selection of critical values
+   - Type I and II errors are related: a decrease in the probability of one type of error always leads to the increase in the probability of the other (assuming $n$ is constant)
+   - An increase in $n$ reduces $\beta$ (assuming $\alpha$ is constant)
+   - When the null hypothesis is false, $\beta$ increases as the true value of the parameter approaches the hypothesized value (and vice versa)
+* Power of a hypothesis test
+  #+reveal_html: <div class="block">
+  The *power* of a statistical test is the probability of rejecting the null hypothesis $H_0$ when the alternative hypothesis is true.
+  #+reveal_html: </div>
+  #+reveal_html: <span class="fragment">
+  #+attr_reveal: :frag (appear)
+  - Power is computed as $1-\beta$
+  - Probability of correctly rejecting the false null hypothesis
+  - If the test's power is deemed too low then we can either increase $\alpha$ or $n$
+  #+reveal_html: </span>
+* P-values in hypothesis tests
+  #+attr_reveal: :frag (appear)
+  - Fixed significance level
+  - Can be limited as it a priori defines a risk associated with the value of $\alpha$
+  #+reveal_html: <div class="fragment block">
+  The *P-value* is the smallest level of significance that would lead to rejection of the null hypothesis $H_0$ with the given data.
+  #+reveal_html: </div>
+** Example
+   $$H_0: \mu=50;H_1: \mu \leq 50$$
+
+   Assume $n=16$, $\sigma=2.5$ and $\overline{x}=51.3$
+
+   #+reveal_html: <div class="twocolumn"><div>
+   $$P\text{-value}=1-P(48.7<\overline{X}<51.3)$$
+   $$=1-P(-2.08< Z <2.08)$$
+   $$=0.038$$
+   #+reveal_html: </div><div>
+   #+attr_html: :width 80%
+   [[file:images/fig19_6.png]]
+   #+reveal_html: </div>
+** P-values are a random variable
+   #+attr_html: :width 55%
+   [[file:images/fig19_7.png]]
+* General procedure for hypothesis tests
+  #+attr_reveal: :frag (appear)
+  1. Parameter of interest: identify the parameter
+  2. Null hypothesis, $H_0$: state the null hypothesis
+  3. Alternative hypothesis, $H_1$: specify an appropriate alternative hypothesis
+  4. Test statistic: determine the appropriate test statistic
+  5. Reject $H_0$ if: state the rejection criteria
+  6. Computations: compute any sample quantities and test statistics
+  7. Draw conclusions: Decide whether $H_0$ can be rejected or not
+* Statistical vs Practical Significance
+  #+attr_html: :width 90%
+  [[file:images/fig19_8.png]]
+  
+
