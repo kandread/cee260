@@ -73,7 +73,7 @@
 ** Approximate confidence interval on a binomial proportion
    #+reveal_html: <div class="block">
    If $\hat{p}$ is the proportion of observations in a random sample of size $n$ that belongs to a class of interest, an approximate $100(1-a)\%$ confidence interval on the proportion $p$ of the population that belongs to that class is
-   $$\hat{p} - z_{a/2} \sqrt{\hat{p}(1-\hat{p})} \leq p \leq \hat{p} + z_{a/2} \sqrt{\dfrac{\hat{p}(1-\hat{p})}{n}}$$
+   $$\hat{p} - z_{a/2} \sqrt{\dfrac{\hat{p}(1-\hat{p})}{n}} \leq p \leq \hat{p} + z_{a/2} \sqrt{\dfrac{\hat{p}(1-\hat{p})}{n}}$$
    #+reveal_html: </div>
 ** Choice of sample size
    #+reveal_html: <div class="block">

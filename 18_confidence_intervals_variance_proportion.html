@@ -25,8 +25,8 @@
 <h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 10 Nov</h2>
 </section>
 <section>
-<section id="slide-org64428a4">
-<h2 id="org64428a4">Confidence interval on the variance</h2>
+<section id="slide-org206a93a">
+<h2 id="org206a93a">Confidence interval on the variance</h2>
 <ul>
 <li class="fragment appear">When population follows normal distribution we can estimate confidence interval on variance</li>
 <li class="fragment appear">Similar to when we used the \(t\) distribution, we will use the \(\chi^2\) distribution here</li>
@@ -40,8 +40,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org6321ffd">
-<h2 id="org6321ffd">\(\chi^2\) distribution</h2>
+<section id="slide-orgab1837f">
+<h2 id="orgab1837f">\(\chi^2\) distribution</h2>
 <div class="block">
 <p>
 Let \(X_1\), \(X_2\),&#x2026;, \(X_n\) be a random sample from a normal distribution with mean \(\mu\) and variance \(\sigma^2\), and let \(S\) be the sample variance. Then the random variable
@@ -50,10 +50,10 @@ has a chi-square distribution with \(n-1\) degrees of freedom.
 </p>
 </div>
 </section>
-<section id="slide-orgbd91635">
-<h3 id="orgbd91635">\(\chi^2\) probability density functions</h3>
+<section id="slide-org74dd3f6">
+<h3 id="org74dd3f6">\(\chi^2\) probability density functions</h3>
 
-<figure id="org1542bce">
+<figure id="org8a49243">
 <img src="images/fig18_1.png" alt="fig18_1.png" width="35%">
 
 </figure>
@@ -63,8 +63,8 @@ Non-negative and skewed to the right
 </p>
 </span>
 </section>
-<section id="slide-orgb4ca926">
-<h3 id="orgb4ca926">Percentage points of the \(\chi^2\) distribution</h3>
+<section id="slide-orged1962f">
+<h3 id="orged1962f">Percentage points of the \(\chi^2\) distribution</h3>
 <div class="twocolumn"><div>
 <p>
 \[P(X^2 > x_{a,k}^2) = \int_{x_{a,k}^2}^{\infty} f(u)du = a\]
@@ -72,7 +72,7 @@ Not symmetric!
 </p>
 </div><div>
 
-<figure id="orgf990595">
+<figure id="org74839ed">
 <img src="images/fig18_2.png" alt="fig18_2.png" width="80%">
 
 </figure>
@@ -80,13 +80,13 @@ Not symmetric!
 </section>
 <section>
 
-<figure id="org58698b4">
+<figure id="org42334fd">
 <img src="images/fig18_3.png" alt="fig18_3.png" width="70%">
 
 </figure>
 </section>
-<section id="slide-org516c0e5">
-<h3 id="org516c0e5">Confidence intervals for \(\chi^2\) distribution</h3>
+<section id="slide-org788caca">
+<h3 id="org788caca">Confidence intervals for \(\chi^2\) distribution</h3>
 <p>
 \[P(x_{1-a/2,n-1}^2 \leq X^2 \leq x_{a/2,n-1}^2)=1-a\]
 </p>
@@ -101,8 +101,8 @@ Not symmetric!
 </p>
 </span>
 </section>
-<section id="slide-org1164e9c">
-<h3 id="org1164e9c">Confidence interval on variance</h3>
+<section id="slide-org5436989">
+<h3 id="org5436989">Confidence interval on variance</h3>
 <div class="block">
 <p>
 If \(s^2\) is the sample variance from a random sample of \(n\) observations from a normal distribution, then a \(100(1-a)\%\) confidence interval on \(\sigma^2\) is
@@ -110,8 +110,8 @@ If \(s^2\) is the sample variance from a random sample of \(n\) observations fro
 </p>
 </div>
 </section>
-<section id="slide-orgc04a1a5">
-<h3 id="orgc04a1a5">One-sided confidence bounds on variance</h3>
+<section id="slide-org43a533d">
+<h3 id="org43a533d">One-sided confidence bounds on variance</h3>
 <div class="block">
 <p>
 The \(100(1-a)\%\) lower and upper confidence bounds on \(\sigma^2\) are
@@ -120,16 +120,16 @@ The \(100(1-a)\%\) lower and upper confidence bounds on \(\sigma^2\) are
 </p>
 </div>
 </section>
-<section id="slide-orge3bef75">
-<h3 id="orge3bef75">Example</h3>
+<section id="slide-orgb9b5e28">
+<h3 id="orgb9b5e28">Example</h3>
 <p>
 The sample variance of runoff in a river from 25 storms is 0.36 in<sup>2</sup>. What is the upper 95% confidence bound for the standard deviation of runoff?
 </p>
 </section>
 </section>
 <section>
-<section id="slide-orgf17d916">
-<h2 id="orgf17d916">Confidence interval for a population proportion</h2>
+<section id="slide-org70af3d3">
+<h2 id="org70af3d3">Confidence interval for a population proportion</h2>
 <ul>
 <li class="fragment appear">A <b>large</b> random sample of size \(n\) from a population</li>
 <li class="fragment appear">\(X\) observations (\(\leq n\)) are  of interest</li>
@@ -139,8 +139,8 @@ The sample variance of runoff in a river from 25 storms is 0.36 in<sup>2</sup>. 
 
 </ul>
 </section>
-<section id="slide-org7f86036">
-<h3 id="org7f86036">Normal approximation for a binomial proportion</h3>
+<section id="slide-orga54875b">
+<h3 id="orga54875b">Normal approximation for a binomial proportion</h3>
 <div class="block">
 <p>
 If \(n\) is large, the distribution of
@@ -149,25 +149,25 @@ is approximately standard normal.
 </p>
 </div>
 </section>
-<section id="slide-orga8b3be7">
-<h3 id="orga8b3be7">Constructing the confidence interval</h3>
+<section id="slide-org827d369">
+<h3 id="org827d369">Constructing the confidence interval</h3>
 <p>
 \[P(-z_{a/2} \leq Z \leq z_{a/2}) = 1-a\]
 After rearranging terms
 \[P\left( \hat{P} - z_{a/2} \sqrt{\dfrac{p(1-p)}{n}} \leq p \leq \hat{P} + z_{a/2} \sqrt{\dfrac{p(1-p)}{n}} \right) = 1 - a\]
 </p>
 </section>
-<section id="slide-org503ca70">
-<h3 id="org503ca70">Approximate confidence interval on a binomial proportion</h3>
+<section id="slide-orga5d3a2c">
+<h3 id="orga5d3a2c">Approximate confidence interval on a binomial proportion</h3>
 <div class="block">
 <p>
 If \(\hat{p}\) is the proportion of observations in a random sample of size \(n\) that belongs to a class of interest, an approximate \(100(1-a)\%\) confidence interval on the proportion \(p\) of the population that belongs to that class is
-\[\hat{p} - z_{a/2} \sqrt{\hat{p}(1-\hat{p})} \leq p \leq \hat{p} + z_{a/2} \sqrt{\dfrac{\hat{p}(1-\hat{p})}{n}}\]
+\[\hat{p} - z_{a/2} \sqrt{\dfrac{\hat{p}(1-\hat{p})}{n}} \leq p \leq \hat{p} + z_{a/2} \sqrt{\dfrac{\hat{p}(1-\hat{p})}{n}}\]
 </p>
 </div>
 </section>
-<section id="slide-org8d09175">
-<h3 id="org8d09175">Choice of sample size</h3>
+<section id="slide-org2e53fc3">
+<h3 id="org2e53fc3">Choice of sample size</h3>
 <div class="block">
 <p>
 Sample size for a specified error on a binomial proportion
@@ -181,8 +181,8 @@ If information about \(p\) is unavailable, we can obtain an upper bound of \(n\)
 </p>
 </span>
 </section>
-<section id="slide-orgc6ea7d8">
-<h3 id="orgc6ea7d8">Approximate one-sided bounds on a binomial proportion</h3>
+<section id="slide-org1895f7d">
+<h3 id="org1895f7d">Approximate one-sided bounds on a binomial proportion</h3>
 <div class="block">
 <p>
 The approximate \(100(1-a)\%\) lower and upper confidence bounds are
@@ -191,8 +191,8 @@ The approximate \(100(1-a)\%\) lower and upper confidence bounds are
 </p>
 </div>
 </section>
-<section id="slide-org39e6cb7">
-<h3 id="org39e6cb7">Problem 18.1</h3>
+<section id="slide-org8472320">
+<h3 id="org8472320">Problem 18.1</h3>
 <p>
 At a weight station, the weights of trucks were observed before crossing a bridge. Suppose observations of 30 trucks yielded a mean of 12.5 tons. Assume that the standard deviation of truck weights is known to be 3 tons. What is the two-sided 99% confidence interval for the mean weight of trucks?
 </p>
@@ -202,8 +202,8 @@ At a weight station, the weights of trucks were observed before crossing a bridg
 How many additional trucks should be observed such that the mean truck weight can be estimated to within \(\pm1.0\) ton with 99% confidence?
 </p>
 </section>
-<section id="slide-org7dc4899">
-<h3 id="org7dc4899">Readings</h3>
+<section id="slide-orgb39feb3">
+<h3 id="orgb39feb3">Readings</h3>
 <ul>
 <li>Sections 8.1-8.5</li>
 
@@ -246,21 +246,21 @@ width: 1280,
 height: 720,
 
 transition: 'convex',
-transitionSpeed: 'default',
+    transitionSpeed: 'default',
 
-chalkboard: { 
-src: "https://raw.githubusercontent.com/kandread/cee260/master/annot/18_confidence_intervals_variance_proportion.json",
-},
+    chalkboard: { 
+	src: "https://raw.githubusercontent.com/kandread/cee260/master/annot/18_confidence_intervals_variance_proportion.json",
+    },
 
 
-// Plugins with reveal.js 4.x
-plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+    // Plugins with reveal.js 4.x
+    plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
 
-// Optional libraries used to extend reveal.js
-dependencies: [
-]
+    // Optional libraries used to extend reveal.js
+    dependencies: [
+    ]
 
-,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+    ,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
 </script>
 </body>
 </html>
