@@ -1,0 +1,112 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 17 Nov
+#+setupfile: ./reveal.org
+* Recap
+  #+attr_reveal: :frag (appear)
+  - Hypotheses
+    /Null hypothesis/: $H_0: \mu = \mu_0$
+
+   /Alternative hypothesis/: $H_1: \mu \neq \mu_0$
+  - Type I error
+  - Significance level
+  - Type II error
+  - Power of a test
+  - P-value of a test
+** Hypothesis test procedure
+   #+attr_reveal: :frag (appear)
+   1. Parameter of interest: identify the parameter
+   2. Null hypothesis, $H_0$: state the null hypothesis
+   3. Alternative hypothesis, $H_1$: specify an appropriate alternative hypothesis
+   4. Test statistic: determine the appropriate test statistic
+   5. Reject $H_0$ if: state the rejection criteria
+   6. Computations: compute any sample quantities and test statistics
+   7. Draw conclusions: Decide whether $H_0$ can be rejected or not
+* Example
+  The specification for yield strength of rebars requires a mean value of 38 psi. From the rebars delivered at the site, we choose 25 at random to test: the sample mean was 37.5 psi and it is known that the standard deviation of rebar strength from the supplier is 3.0 psi.
+  #+reveal: split
+  #+attr_html: :width 80%
+  [[file:images/fig20_1.png]]
+  #+reveal: split
+  #+reveal_html: <span class="fragment">
+  $$H_0: \mu_Y = 38\text{ psi}$$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  $$H_1: \mu_Y < 38\text{ psi}$$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  $$z = \dfrac{\overline{x}-\mu}{\sigma / \sqrt{n}}$$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  $$z=\dfrac{37.5-38}{3.0/\sqrt{25}}=-0.833$$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  At 5% significance level, $z_a=\Phi^{-1}(0.05)=-1.95$ and since $z$ is outside the critical region *we cannot reject $H_0$*
+  #+reveal_html: </span>
+* Tests on the mean of a normal distribution, variance known
+  #+reveal_html: <div class="block">
+  Suppose that we wish to test the hypotheses $H_0: \mu = \mu_0$ and $H_1: \mu \neq \mu_0$. If we have a random  sample $X_1$, $X_2$,..., $X_n$ we can use the test statistic $$z_0 = \dfrac{\overline{x}-\mu_0}{\sigma / \sqrt{n}}$$ which follows a $N(0,1)$.
+  #+reveal_html: </div>
+** Distribution of $z_0$
+   #+attr_html: :width 100%
+   [[file:images/fig20_2.png]]
+** P-values for a $z$ test
+   #+attr_html: :width 100%
+   [[file:images/fig20_3.png]]
+** Summary
+   #+attr_html: :width 100%
+   [[file:images/fig20_4.png]]
+** Type II error and sample size
+   $H_0: \mu = \mu_0$ and $H_1: \mu \neq \mu_0$
+   #+reveal_html: <span class="fragment">
+   Suppose that $H_0$ is false and $\mu=\mu_0+\delta$
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$E(Z_0)=\dfrac{E(\overline{X})-\mu_0}{\sigma / \sqrt{n}} = \dfrac{(\mu_0+\delta)-\mu_0}{\sigma / \sqrt{n}} = \dfrac{\delta \sqrt{n}}{\sigma}$$
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$Z_0 \sim N\left( \dfrac{\delta \sqrt{n}}{\sigma}, 1 \right)$$
+   #+reveal_html: </span>
+   #+reveal: split
+   #+attr_html: :width 90%
+   [[file:images/fig20_5.png]]
+*** Probability of a Type II error for a two-sided test on the mean, variance known
+    #+reveal_html: <div class="block">
+    $$\beta = \Phi \left( z_{\alpha/2}-\dfrac{\delta \sqrt{n}}{\sigma} \right) - \Phi \left( -z_{\alpha/2}-\dfrac{\delta \sqrt{n}}{\sigma} \right)$$
+    #+reveal_html: </div>
+*** Sample size formulas
+    $$\beta \approx \Phi \left( z_{\alpha/2}-\dfrac{\delta \sqrt{n}}{\sigma} \right)$$
+    #+reveal_html: <span class="fragment">
+    If $z_{\beta}=\Phi(\beta)$ then $-z_{\beta} \approx z_{\alpha/2}-\dfrac{\delta \sqrt{n}}{\sigma}$
+    #+reveal_html: </span>
+    #+reveal_html: <div class="fragment block">
+    $$n \approx \dfrac{(z_{\alpha/2}+z_{\beta})^2 \sigma^2}{\delta^2}$$
+    $$\delta=\mu-\mu_0$$
+    #+reveal_html: </div>
+*** Example
+    Suppose that the true burning rate of a propellant is 49 cm/s but the specifications require it to be 50 cm/s. If we know that the standard deviation is 2 cm/s, what is $\beta$ for the two-sided test with $\alpha=0.05$ and $n=25$?
+    #+reveal: split
+    What would be the sample size if the required test power is 90%?
+* Example
+  What if the variance in the rebar example is unknown? Suppose that the sample mean is 37.5 psi and the sample standard deviation is 3.50 psi. Can you reject the null hypothesis about the mean?
+* Tests on the mean of a normal distribution, variance unknown
+  #+attr_html: :width 100%
+  [[file:images/fig20_6.png]]
+* Example
+  Let's now test the population variance of $\sigma^2=0.9$, assuming that the sample size has increased to 41 and $\overline{x}=37.6\text{ psi}$ and $\s=3.75\text{ psi}$.
+* Tests on the variance of a normal distribution
+  #+attr_html: :width 100%
+  [[file:images/fig20_7.png]]
+  #+reveal: split
+  #+attr_html: :width 100%
+  [[file:images/fig20_8.png]]
+* Problem 20.1
+  A study of the thermal inertia properties of concrete had 5 samples tested and the average interior temperature was 23.01, 22.22, 22.04, 22.62, and 22.59 deg C. Test the hypothesis for $\mu=22.8$ and 5% significance level.
+  #+reveal: split
+  What is the p-value?
+** Readings
+   - Sections 9.1-9.4
+   - Skip operating curves
+   #+reveal_html: <span class="fragment">
+   {{{color(orangered, No homework!)}}}
+   #+reveal_html: </span>
