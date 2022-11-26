@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Probability &amp; Statistics in Engineering</title>
+<meta name="author" content="Kostas Andreadis"/>
+<meta name="description" content="Setup file for reveal.js presentations"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="./reveal.js/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 29 Nov</h2>
+</section>
+<section>
+<section id="slide-org115bc5a">
+<h2 id="org115bc5a"></h2>
+<ul>
+<li class="fragment appear">Test on mean, variance known
+<ul>
+<li>\(H_0: \mu=\mu_0\) and \(H_1: \mu \neq \mu_0\)</li>
+<li>\(Z_0=\dfrac{\overline{X}-\mu_0}{\sigma / \sqrt{n}}\)</li>
+
+</ul></li>
+<li class="fragment appear">Type II error
+<ul>
+<li>\(\beta \approx \Phi \left( z_{\alpha/2} - \dfrac{\delta \sqrt{n}}{\sigma} \right)\)</li>
+
+</ul></li>
+<li class="fragment appear">Test on mean, variance unknown
+<ul>
+<li>\(H_0: \mu=\mu_0\) and \(H_1: \mu \neq \mu_0\)</li>
+<li>\(T_0 = \dfrac{\overline{X}-\mu_0}{s/\sqrt{n}}\)</li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org6af6700">
+<h2 id="org6af6700">Tests on population proportion</h2>
+<ul>
+<li class="fragment appear">Many engineering problems concern a random variable from a binomial distribution</li>
+<li class="fragment appear">Suppose a random sample of size \(n\) is taken from a large population</li>
+<li class="fragment appear">\(X(\leq n)\) observations belong to class of interest</li>
+<li class="fragment appear">\(\hat{P}=X/n\) is a point estimator</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org91f5189">
+<h2 id="org91f5189">Large-sample test on a proportion</h2>
+<ul>
+<li class="fragment appear">Null hypothesis is \(H_0: p=p_0\)</li>
+<li class="fragment appear">Alternative hypothesis is \(H_1: p \neq p_0\)</li>
+<li class="fragment appear">Sampling distribution of \(\hat{P}\) is approximately normal with mean \(p\) and variance \(p(1-p)/n\)</li>
+<li class="fragment appear">Approximation works if \(np\) and \(n(1-p)\) are \(\geq 5\)</li>
+
+</ul>
+</section>
+<section id="slide-org3fdc549">
+<h3 id="org3fdc549">Test statistic</h3>
+<div class="block">
+<p>
+\[Z_0 = \dfrac{X - np_0}{\sqrt{np_0(1-p_0)}}\]
+</p>
+</div>
+</section>
+<section>
+
+<div id="org349d035" class="figure">
+<p><img src="images/fig21_1.png" alt="fig21_1.png" width="90%" />
+</p>
+</div>
+</section>
+<section id="slide-org1c3e07b">
+<h3 id="org1c3e07b">Example</h3>
+<p>
+A semiconductor manufacturer produces controllers used in car engines. The customer requires that the fraction of defective items not exceed 0.05 and the manufacturer demonstrate this quality level at \(\alpha=0.05\). The manufacturer takes a sample of 200 units and finds 4 defective. Can the manufacturer demonstrate process capability for the customer?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org1daf27d">
+<h2 id="org1daf27d">Type II error</h2>
+<div class="block">
+<p>
+\[\beta = \Phi \left( \dfrac{p_0 - p + z_{\alpha/2} \sqrt{p_0(1-p_0)/n}}{\sqrt{p(1-p)/n}} \right)\]
+\[ - \Phi \left( \dfrac{p_0 - p - z_{\alpha/2} \sqrt{p_0(1-p_0)/n}}{\sqrt{p(1-p)/n}} \right)\]
+</p>
+</div>
+</section>
+<section id="slide-org1a8e5e8">
+<h3 id="org1a8e5e8">Approximate sample size for a two-sided test</h3>
+<div class="block">
+<p>
+\[n = \left[ \dfrac{z_{\alpha/2}\sqrt{p_0(1-p_0)} + z_{\beta}\sqrt{p(1-p)}}{p_p_0} \right]^2\]
+</p>
+</div>
+</section>
+<section id="slide-orgb262f1e">
+<h3 id="orgb262f1e">Approximate sample size of a one-sided test</h3>
+<div class="block">
+<p>
+\[n = \left[ \dfrac{z_{\alpha}\sqrt{p_0(1-p_0)} + z_{\beta}\sqrt{p(1-p)}}{p_p_0} \right]^2\]
+</p>
+</div>
+</section>
+<section id="slide-org24bae89">
+<h3 id="org24bae89">Example</h3>
+<p>
+From the previous example about the semiconductor manufacturer. Suppose the defective fraction is really \(p=0.03\). What is the \(\beta\) error for a process that uses \(n=200\) and \(\alpha=0.05\)?
+</p>
+</section>
+<section>
+<p>
+What is the required sample size of the manufacturer is willing to accept a \(\beta\) error as large as 0.10?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org4d12427">
+<h2 id="org4d12427">What if we don't know the underlying distribution?</h2>
+<span class="fragment">
+<p>
+We have a sample and an assumed distribution. Can we test whether the chosen distribution is satisfactory as a population model?
+</p>
+</span>
+<span class="fragment">
+<p>
+<b>Goodness-of-fit</b>
+</p>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-orgfd49cfa">
+<h2 id="orgfd49cfa">The Chi-square test for goodness-of-fit</h2>
+<ul>
+<li>A sample of size \(n\) is obtained and the values are arranged in \(k\) bins</li>
+<li>Similar to probability plots, the test will compare the observed frequencies with the theoretical frequencies (if the chosen distribution is the correct one)</li>
+<li>\(O_i\) are the observed frequencies for each bin and \(E_i\) is the expected (or theoretical) frequency</li>
+
+</ul>
+</section>
+<section>
+<p>
+We can derive a statistic that follows the \(\chi^2\) distribution
+</p>
+<div class="fragment block">
+<p>
+\[\chi_0^2 = \sum_{i=1}^k \dfrac{(O-i - E_i)^2}{E_i}\]
+with \(k-p-1\) degrees of freedom
+</p>
+</div>
+<span class="fragment">
+<p>
+We would reject \(H_0\) if \(\chi_0^2 > \chi_{\alpha,k-p-1}^2\)
+</p>
+</span>
+</section>
+<section id="slide-org60c28b6">
+<h3 id="org60c28b6">Example</h3>
+<p>
+The number of defects in printed circuit boards is assumed to follow a Poisson distribution. A random sample of \(n=60\) boards has been collected with the following results
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Number of defects</th>
+<th scope="col" class="org-right">Observed Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">32</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">15</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">9</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+</tr>
+</tbody>
+</table>
+<p>
+Is the Poisson an appropriate distribution?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgfcd1c06">
+<h2 id="orgfcd1c06">Some other tests</h2>
+<ul>
+<li class="fragment appear">Kolmogorov-Smirnov test
+<ul>
+<li>Compares the observed and theoretical CDF for goodness-of-fit</li>
+
+</ul></li>
+<li class="fragment appear">Tests on the median
+<ul>
+<li>Sign test</li>
+<li>Wilcoxon Signed-Rank test</li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/math/math.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/customcontrols/plugin.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1280,
+height: 720,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+</script>
+</body>
+</html>

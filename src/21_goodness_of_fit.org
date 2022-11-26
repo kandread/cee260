@@ -1,0 +1,89 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 29 Nov
+#+setupfile: ./reveal.org
+* {{{empty}}}
+#+attr_reveal: :frag (appear)
+- Test on mean, variance known
+  - $H_0: \mu=\mu_0$ and $H_1: \mu \neq \mu_0$
+  - $Z_0=\dfrac{\overline{X}-\mu_0}{\sigma / \sqrt{n}}$
+- Type II error
+  - $\beta \approx \Phi \left( z_{\alpha/2} - \dfrac{\delta \sqrt{n}}{\sigma} \right)$
+- Test on mean, variance unknown
+  - $H_0: \mu=\mu_0$ and $H_1: \mu \neq \mu_0$
+  - $T_0 = \dfrac{\overline{X}-\mu_0}{s/\sqrt{n}}$
+* Tests on population proportion
+#+attr_reveal: :frag (appear)
+- Many engineering problems concern a random variable from a binomial distribution
+- Suppose a random sample of size $n$ is taken from a large population
+- $X(\leq n)$ observations belong to class of interest
+- $\hat{P}=X/n$ is a point estimator
+* Large-sample test on a proportion
+#+attr_reveal: :frag (appear)
+- Null hypothesis is $H_0: p=p_0$
+- Alternative hypothesis is $H_1: p \neq p_0$
+- Sampling distribution of $\hat{P}$ is approximately normal with mean $p$ and variance $p(1-p)/n$
+- Approximation works if $np$ and $n(1-p)$ are $\geq 5$
+** Test statistic
+#+reveal_html: <div class="block">
+$$Z_0 = \dfrac{X - np_0}{\sqrt{np_0(1-p_0)}}$$
+#+reveal_html: </div>
+#+reveal: split
+#+attr_html: :width 90%
+[[file:images/fig21_1.png]]
+** Example
+A semiconductor manufacturer produces controllers used in car engines. The customer requires that the fraction of defective items not exceed 0.05 and the manufacturer demonstrate this quality level at $\alpha=0.05$. The manufacturer takes a sample of 200 units and finds 4 defective. Can the manufacturer demonstrate process capability for the customer?
+* Type II error
+#+reveal_html: <div class="block">
+$$\beta = \Phi \left( \dfrac{p_0 - p + z_{\alpha/2} \sqrt{p_0(1-p_0)/n}}{\sqrt{p(1-p)/n}} \right)$$
+$$ - \Phi \left( \dfrac{p_0 - p - z_{\alpha/2} \sqrt{p_0(1-p_0)/n}}{\sqrt{p(1-p)/n}} \right)$$
+#+reveal_html: </div>
+** Approximate sample size for a two-sided test
+#+reveal_html: <div class="block">
+$$n = \left[ \dfrac{z_{\alpha/2}\sqrt{p_0(1-p_0)} + z_{\beta}\sqrt{p(1-p)}}{p_p_0} \right]^2$$
+#+reveal_html: </div>
+** Approximate sample size of a one-sided test
+#+reveal_html: <div class="block">
+$$n = \left[ \dfrac{z_{\alpha}\sqrt{p_0(1-p_0)} + z_{\beta}\sqrt{p(1-p)}}{p_p_0} \right]^2$$
+#+reveal_html: </div>
+** Example
+From the previous example about the semiconductor manufacturer. Suppose the defective fraction is really $p=0.03$. What is the $\beta$ error for a process that uses $n=200$ and $\alpha=0.05$?
+#+reveal: split
+What is the required sample size of the manufacturer is willing to accept a $\beta$ error as large as 0.10?
+* What if we don't know the underlying distribution?
+#+reveal_html: <span class="fragment">
+We have a sample and an assumed distribution. Can we test whether the chosen distribution is satisfactory as a population model?
+#+reveal_html: </span>
+#+reveal_html: <span class="fragment">
+*Goodness-of-fit*
+#+reveal_html: </span>
+* The Chi-square test for goodness-of-fit
+- A sample of size $n$ is obtained and the values are arranged in $k$ bins
+- Similar to probability plots, the test will compare the observed frequencies with the theoretical frequencies (if the chosen distribution is the correct one)
+- $O_i$ are the observed frequencies for each bin and $E_i$ is the expected (or theoretical) frequency
+#+reveal: split
+We can derive a statistic that follows the $\chi^2$ distribution
+  #+reveal_html: <div class="fragment block">
+  $$\chi_0^2 = \sum_{i=1}^k \dfrac{(O-i - E_i)^2}{E_i}$$
+  with $k-p-1$ degrees of freedom
+  #+reveal_html: </div>
+  #+reveal_html: <span class="fragment">
+  We would reject $H_0$ if $\chi_0^2 > \chi_{\alpha,k-p-1}^2$
+  #+reveal_html: </span>
+** Example
+The number of defects in printed circuit boards is assumed to follow a Poisson distribution. A random sample of $n=60$ boards has been collected with the following results
+| Number of defects | Observed Frequency |
+|-------------------+--------------------|
+|                 0 |                 32 |
+|                 1 |                 15 |
+|                 2 |                  9 |
+|                 3 |                  4 |
+Is the Poisson an appropriate distribution?
+* Some other tests
+#+attr_reveal: :frag (appear)
+- Kolmogorov-Smirnov test
+  - Compares the observed and theoretical CDF for goodness-of-fit
+- Tests on the median
+  - Sign test
+  - Wilcoxon Signed-Rank test
+
