@@ -25,8 +25,8 @@
 <h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 29 Nov</h2>
 </section>
 <section>
-<section id="slide-org115bc5a">
-<h2 id="org115bc5a"></h2>
+<section id="slide-orgf2730fd">
+<h2 id="orgf2730fd"></h2>
 <ul>
 <li class="fragment appear">Test on mean, variance known
 <ul>
@@ -50,8 +50,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org6af6700">
-<h2 id="org6af6700">Tests on population proportion</h2>
+<section id="slide-org304fbda">
+<h2 id="org304fbda">Tests on population proportion</h2>
 <ul>
 <li class="fragment appear">Many engineering problems concern a random variable from a binomial distribution</li>
 <li class="fragment appear">Suppose a random sample of size \(n\) is taken from a large population</li>
@@ -62,8 +62,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org91f5189">
-<h2 id="org91f5189">Large-sample test on a proportion</h2>
+<section id="slide-orgbfd5953">
+<h2 id="orgbfd5953">Large-sample test on a proportion</h2>
 <ul>
 <li class="fragment appear">Null hypothesis is \(H_0: p=p_0\)</li>
 <li class="fragment appear">Alternative hypothesis is \(H_1: p \neq p_0\)</li>
@@ -72,8 +72,8 @@
 
 </ul>
 </section>
-<section id="slide-org3fdc549">
-<h3 id="org3fdc549">Test statistic</h3>
+<section id="slide-orgec0800a">
+<h3 id="orgec0800a">Test statistic</h3>
 <div class="block">
 <p>
 \[Z_0 = \dfrac{X - np_0}{\sqrt{np_0(1-p_0)}}\]
@@ -82,21 +82,21 @@
 </section>
 <section>
 
-<div id="org349d035" class="figure">
+<div id="org9511377" class="figure">
 <p><img src="images/fig21_1.png" alt="fig21_1.png" width="90%" />
 </p>
 </div>
 </section>
-<section id="slide-org1c3e07b">
-<h3 id="org1c3e07b">Example</h3>
+<section id="slide-org97703c4">
+<h3 id="org97703c4">Example</h3>
 <p>
 A semiconductor manufacturer produces controllers used in car engines. The customer requires that the fraction of defective items not exceed 0.05 and the manufacturer demonstrate this quality level at \(\alpha=0.05\). The manufacturer takes a sample of 200 units and finds 4 defective. Can the manufacturer demonstrate process capability for the customer?
 </p>
 </section>
 </section>
 <section>
-<section id="slide-org1daf27d">
-<h2 id="org1daf27d">Type II error</h2>
+<section id="slide-org97a79fe">
+<h2 id="org97a79fe">Type II error</h2>
 <div class="block">
 <p>
 \[\beta = \Phi \left( \dfrac{p_0 - p + z_{\alpha/2} \sqrt{p_0(1-p_0)/n}}{\sqrt{p(1-p)/n}} \right)\]
@@ -104,24 +104,24 @@ A semiconductor manufacturer produces controllers used in car engines. The custo
 </p>
 </div>
 </section>
-<section id="slide-org1a8e5e8">
-<h3 id="org1a8e5e8">Approximate sample size for a two-sided test</h3>
+<section id="slide-orgdbf8cd1">
+<h3 id="orgdbf8cd1">Approximate sample size for a two-sided test</h3>
 <div class="block">
 <p>
-\[n = \left[ \dfrac{z_{\alpha/2}\sqrt{p_0(1-p_0)} + z_{\beta}\sqrt{p(1-p)}}{p_p_0} \right]^2\]
+\[n = \left[ \dfrac{z_{\alpha/2} \sqrt{p_0(1-p_0)} + z_{\beta} \sqrt{p(1-p)}}{p-p_0} \right]^2\]
 </p>
 </div>
 </section>
-<section id="slide-orgb262f1e">
-<h3 id="orgb262f1e">Approximate sample size of a one-sided test</h3>
+<section id="slide-orgb075482">
+<h3 id="orgb075482">Approximate sample size of a one-sided test</h3>
 <div class="block">
 <p>
-\[n = \left[ \dfrac{z_{\alpha}\sqrt{p_0(1-p_0)} + z_{\beta}\sqrt{p(1-p)}}{p_p_0} \right]^2\]
+\[n = \left[ \dfrac{z_{\alpha}\sqrt{p_0(1-p_0)} + z_{\beta}\sqrt{p(1-p)}}{p-p_0} \right]^2\]
 </p>
 </div>
 </section>
-<section id="slide-org24bae89">
-<h3 id="org24bae89">Example</h3>
+<section id="slide-org9b1f57e">
+<h3 id="org9b1f57e">Example</h3>
 <p>
 From the previous example about the semiconductor manufacturer. Suppose the defective fraction is really \(p=0.03\). What is the \(\beta\) error for a process that uses \(n=200\) and \(\alpha=0.05\)?
 </p>
@@ -133,8 +133,8 @@ What is the required sample size of the manufacturer is willing to accept a \(\b
 </section>
 </section>
 <section>
-<section id="slide-org4d12427">
-<h2 id="org4d12427">What if we don't know the underlying distribution?</h2>
+<section id="slide-orgd84edc0">
+<h2 id="orgd84edc0">What if we don't know the underlying distribution?</h2>
 <span class="fragment">
 <p>
 We have a sample and an assumed distribution. Can we test whether the chosen distribution is satisfactory as a population model?
@@ -148,8 +148,8 @@ We have a sample and an assumed distribution. Can we test whether the chosen dis
 </section>
 </section>
 <section>
-<section id="slide-orgfd49cfa">
-<h2 id="orgfd49cfa">The Chi-square test for goodness-of-fit</h2>
+<section id="slide-org687b787">
+<h2 id="org687b787">The Chi-square test for goodness-of-fit</h2>
 <ul>
 <li>A sample of size \(n\) is obtained and the values are arranged in \(k\) bins</li>
 <li>Similar to probability plots, the test will compare the observed frequencies with the theoretical frequencies (if the chosen distribution is the correct one)</li>
@@ -173,8 +173,8 @@ We would reject \(H_0\) if \(\chi_0^2 > \chi_{\alpha,k-p-1}^2\)
 </p>
 </span>
 </section>
-<section id="slide-org60c28b6">
-<h3 id="org60c28b6">Example</h3>
+<section id="slide-orgab4f50d">
+<h3 id="orgab4f50d">Example</h3>
 <p>
 The number of defects in printed circuit boards is assumed to follow a Poisson distribution. A random sample of \(n=60\) boards has been collected with the following results
 </p>
@@ -220,8 +220,8 @@ Is the Poisson an appropriate distribution?
 </section>
 </section>
 <section>
-<section id="slide-orgfcd1c06">
-<h2 id="orgfcd1c06">Some other tests</h2>
+<section id="slide-orga19fff6">
+<h2 id="orga19fff6">Some other tests</h2>
 <ul>
 <li class="fragment appear">Kolmogorov-Smirnov test
 <ul>

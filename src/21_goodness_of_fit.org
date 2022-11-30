@@ -40,11 +40,11 @@ $$ - \Phi \left( \dfrac{p_0 - p - z_{\alpha/2} \sqrt{p_0(1-p_0)/n}}{\sqrt{p(1-p)
 #+reveal_html: </div>
 ** Approximate sample size for a two-sided test
 #+reveal_html: <div class="block">
-$$n = \left[ \dfrac{z_{\alpha/2}\sqrt{p_0(1-p_0)} + z_{\beta}\sqrt{p(1-p)}}{p_p_0} \right]^2$$
+$$n = \left[ \dfrac{z_{\alpha/2} \sqrt{p_0(1-p_0)} + z_{\beta} \sqrt{p(1-p)}}{p-p_0} \right]^2$$
 #+reveal_html: </div>
 ** Approximate sample size of a one-sided test
 #+reveal_html: <div class="block">
-$$n = \left[ \dfrac{z_{\alpha}\sqrt{p_0(1-p_0)} + z_{\beta}\sqrt{p(1-p)}}{p_p_0} \right]^2$$
+$$n = \left[ \dfrac{z_{\alpha}\sqrt{p_0(1-p_0)} + z_{\beta}\sqrt{p(1-p)}}{p-p_0} \right]^2$$
 #+reveal_html: </div>
 ** Example
 From the previous example about the semiconductor manufacturer. Suppose the defective fraction is really $p=0.03$. What is the $\beta$ error for a process that uses $n=200$ and $\alpha=0.05$?
