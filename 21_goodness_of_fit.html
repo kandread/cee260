@@ -25,8 +25,8 @@
 <h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 29 Nov</h2>
 </section>
 <section>
-<section id="slide-orgf2730fd">
-<h2 id="orgf2730fd"></h2>
+<section id="slide-orgd6dab4d">
+<h2 id="orgd6dab4d"></h2>
 <ul>
 <li class="fragment appear">Test on mean, variance known
 <ul>
@@ -50,8 +50,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org304fbda">
-<h2 id="org304fbda">Tests on population proportion</h2>
+<section id="slide-org8530855">
+<h2 id="org8530855">Tests on population proportion</h2>
 <ul>
 <li class="fragment appear">Many engineering problems concern a random variable from a binomial distribution</li>
 <li class="fragment appear">Suppose a random sample of size \(n\) is taken from a large population</li>
@@ -62,8 +62,8 @@
 </section>
 </section>
 <section>
-<section id="slide-orgbfd5953">
-<h2 id="orgbfd5953">Large-sample test on a proportion</h2>
+<section id="slide-orgae504b4">
+<h2 id="orgae504b4">Large-sample test on a proportion</h2>
 <ul>
 <li class="fragment appear">Null hypothesis is \(H_0: p=p_0\)</li>
 <li class="fragment appear">Alternative hypothesis is \(H_1: p \neq p_0\)</li>
@@ -72,8 +72,8 @@
 
 </ul>
 </section>
-<section id="slide-orgec0800a">
-<h3 id="orgec0800a">Test statistic</h3>
+<section id="slide-org7906b9f">
+<h3 id="org7906b9f">Test statistic</h3>
 <div class="block">
 <p>
 \[Z_0 = \dfrac{X - np_0}{\sqrt{np_0(1-p_0)}}\]
@@ -82,21 +82,21 @@
 </section>
 <section>
 
-<div id="org9511377" class="figure">
+<div id="orgcdf6dde" class="figure">
 <p><img src="images/fig21_1.png" alt="fig21_1.png" width="90%" />
 </p>
 </div>
 </section>
-<section id="slide-org97703c4">
-<h3 id="org97703c4">Example</h3>
+<section id="slide-org3bf4551">
+<h3 id="org3bf4551">Example</h3>
 <p>
 A semiconductor manufacturer produces controllers used in car engines. The customer requires that the fraction of defective items not exceed 0.05 and the manufacturer demonstrate this quality level at \(\alpha=0.05\). The manufacturer takes a sample of 200 units and finds 4 defective. Can the manufacturer demonstrate process capability for the customer?
 </p>
 </section>
 </section>
 <section>
-<section id="slide-org97a79fe">
-<h2 id="org97a79fe">Type II error</h2>
+<section id="slide-orgf516016">
+<h2 id="orgf516016">Type II error</h2>
 <div class="block">
 <p>
 \[\beta = \Phi \left( \dfrac{p_0 - p + z_{\alpha/2} \sqrt{p_0(1-p_0)/n}}{\sqrt{p(1-p)/n}} \right)\]
@@ -104,24 +104,24 @@ A semiconductor manufacturer produces controllers used in car engines. The custo
 </p>
 </div>
 </section>
-<section id="slide-orgdbf8cd1">
-<h3 id="orgdbf8cd1">Approximate sample size for a two-sided test</h3>
+<section id="slide-orga771b3f">
+<h3 id="orga771b3f">Approximate sample size for a two-sided test</h3>
 <div class="block">
 <p>
 \[n = \left[ \dfrac{z_{\alpha/2} \sqrt{p_0(1-p_0)} + z_{\beta} \sqrt{p(1-p)}}{p-p_0} \right]^2\]
 </p>
 </div>
 </section>
-<section id="slide-orgb075482">
-<h3 id="orgb075482">Approximate sample size of a one-sided test</h3>
+<section id="slide-org9444d4e">
+<h3 id="org9444d4e">Approximate sample size of a one-sided test</h3>
 <div class="block">
 <p>
 \[n = \left[ \dfrac{z_{\alpha}\sqrt{p_0(1-p_0)} + z_{\beta}\sqrt{p(1-p)}}{p-p_0} \right]^2\]
 </p>
 </div>
 </section>
-<section id="slide-org9b1f57e">
-<h3 id="org9b1f57e">Example</h3>
+<section id="slide-org603fb48">
+<h3 id="org603fb48">Example</h3>
 <p>
 From the previous example about the semiconductor manufacturer. Suppose the defective fraction is really \(p=0.03\). What is the \(\beta\) error for a process that uses \(n=200\) and \(\alpha=0.05\)?
 </p>
@@ -133,8 +133,8 @@ What is the required sample size of the manufacturer is willing to accept a \(\b
 </section>
 </section>
 <section>
-<section id="slide-orgd84edc0">
-<h2 id="orgd84edc0">What if we don't know the underlying distribution?</h2>
+<section id="slide-org7fd3cff">
+<h2 id="org7fd3cff">What if we don't know the underlying distribution?</h2>
 <span class="fragment">
 <p>
 We have a sample and an assumed distribution. Can we test whether the chosen distribution is satisfactory as a population model?
@@ -148,8 +148,8 @@ We have a sample and an assumed distribution. Can we test whether the chosen dis
 </section>
 </section>
 <section>
-<section id="slide-org687b787">
-<h2 id="org687b787">The Chi-square test for goodness-of-fit</h2>
+<section id="slide-orgff794b7">
+<h2 id="orgff794b7">The Chi-square test for goodness-of-fit</h2>
 <ul>
 <li>A sample of size \(n\) is obtained and the values are arranged in \(k\) bins</li>
 <li>Similar to probability plots, the test will compare the observed frequencies with the theoretical frequencies (if the chosen distribution is the correct one)</li>
@@ -163,7 +163,7 @@ We can derive a statistic that follows the \(\chi^2\) distribution
 </p>
 <div class="fragment block">
 <p>
-\[\chi_0^2 = \sum_{i=1}^k \dfrac{(O-i - E_i)^2}{E_i}\]
+\[\chi_0^2 = \sum_{i=1}^k \dfrac{(O_i - E_i)^2}{E_i}\]
 with \(k-p-1\) degrees of freedom
 </p>
 </div>
@@ -173,8 +173,8 @@ We would reject \(H_0\) if \(\chi_0^2 > \chi_{\alpha,k-p-1}^2\)
 </p>
 </span>
 </section>
-<section id="slide-orgab4f50d">
-<h3 id="orgab4f50d">Example</h3>
+<section id="slide-org063c62a">
+<h3 id="org063c62a">Example</h3>
 <p>
 The number of defects in printed circuit boards is assumed to follow a Poisson distribution. A random sample of \(n=60\) boards has been collected with the following results
 </p>
@@ -220,8 +220,8 @@ Is the Poisson an appropriate distribution?
 </section>
 </section>
 <section>
-<section id="slide-orga19fff6">
-<h2 id="orga19fff6">Some other tests</h2>
+<section id="slide-orgbbd9577">
+<h2 id="orgbbd9577">Some other tests</h2>
 <ul>
 <li class="fragment appear">Kolmogorov-Smirnov test
 <ul>
@@ -269,16 +269,20 @@ width: 1280,
 height: 720,
 
 transition: 'convex',
-transitionSpeed: 'default',
+    transitionSpeed: 'default',
 
-// Plugins with reveal.js 4.x
-plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+    chalkboard: { 
+	src: "https://raw.githubusercontent.com/kandread/cee260/master/annot/21_goodness_of_fit.json",
+    },
 
-// Optional libraries used to extend reveal.js
-dependencies: [
-]
+    // Plugins with reveal.js 4.x
+    plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
 
-,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+    // Optional libraries used to extend reveal.js
+    dependencies: [
+    ]
+
+    ,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
 </script>
 </body>
 </html>
