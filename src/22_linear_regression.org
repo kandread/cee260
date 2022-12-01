@@ -1,0 +1,162 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 1 Dec
+#+setupfile: ./reveal.org
+* {{{empty}}}
+  #+reveal_html: <div class="twocolumn"><div>
+  #+attr_html: :width 100%
+  [[file:images/fig22_1.png]]
+  #+reveal_html: </div><div>
+  #+reveal_html: <span class="fragment">
+  #+attr_html: :width 100%
+  [[file:images/fig22_2.jpg]]
+  #+reveal_html: </span>
+  #+reveal_html: </div>
+  #+reveal: split
+  #+attr_html: :width 70%
+  [[https://hannahloughridge.files.wordpress.com/2014/04/screen-shot-2014-04-11-at-19-17-11.png]]
+  https://aerossurance.com/safety-management/challenger-launch-decision-30/
+* Empirical models
+  #+attr_reveal: :frag (appear)
+  - Relationship between two or more variables
+    - Pressure of a gas in a container related to temperature
+    - Water velocity in open channel related to width
+  - $d_t = d_0 + v t$ is a deterministic linear relationship
+  - Regression analysis
+  - One *independent* variable $x$ and one *dependent* $y$ with a *linear* relationship
+* Example
+  #+reveal_html: <div class="twocolumn"><div>
+  #+attr_html: :width 100%
+  [[file:images/fig22_3.png]]
+  #+reveal_html: </div><div>
+  #+attr_html: :width 100%
+  [[file:images/fig22_4.png]]
+  #+reveal_html: </div>
+** Simple linear regression model
+   $$E(Y|x)=\mu_{Y|x}=b_0 + b_1 x$$
+   #+reveal_html: <span class="fragment">
+   $b_0$: intercept and $b_1$: slope are the *regression coefficients*
+   #+reveal_html: </span>
+   $$Y=b_0 + b_1 x + \epsilon$$
+   is the *simple linear regression model*
+   #+reveal: split
+   $$E(Y|x)=E(b_0+b_1x+\epsilon)=b_0+b_1x+E(\epsilon)=b_0+b_1x$$
+   #+reveal_html: <span class="fragment">
+   $$V(Y|x)=V(b_0+b_1x+\epsilon)=V(b_0+b_1x)+V(\epsilon)=0+\sigma^2=\sigma^2$$
+   #+reveal_html: </span>
+   #+reveal: split
+   #+attr_html: :width 100%
+   [[file:images/fig22_5.png]]
+* Estimating the regression coefficients
+  $$Y=b_0+b_1x+\epsilon$$
+  #+reveal_html: <span class="fragment">
+  $\epsilon$ are assumed to be uncorrelated random errors with mean zero and unknown variance $\sigma^2$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  $n$ pairs of observations $(x_1,y_1)$, $(x_2,y_2)$,..., $(x_n,y_n)$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  $$y_i=b_0+b_1x_i+\epsilon_{i}$$
+  #+reveal_html: </span>
+** Least squares
+   #+attr_html: :width 50%
+   [[file:images/fig22_6.png]]
+   #+reveal_html: <span class="fragment">
+   Minimize the sum of squares of the vertical deviations (*method of least squares*)
+   #+reveal_html: </span>
+   #+reveal: split
+   $$L=\sum_{i=1}^{n}\epsilon_{i}^{2}=\sum_{i=1}^n (y_i-b_0-b_1x_i)^2$$
+   #+reveal_html: <span class="fragment">
+   $$ \frac{\partial L}{\partial b_0} = -2 \sum_{i=1}^n \left( y_i-\hat{b}_0-\hat{b}_1x_i \right) = 0$$
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $$\dfrac{\partial L}{\partial b_1} = -2 \sum_{i=1}^n \left( y_i-\hat{b}_0-\hat{b}_1x_i \right)x_i = 0$$
+   #+reveal_html: </span>
+   #+reveal: split
+   #+reveal_html: <div class="block">
+   The least squares estimates of the slope and intercept are
+   $$\hat{b}_0 = \overline{y} - \hat{b}_1 \overline{x}$$
+   $$\hat{b}_1 = \dfrac{\sum_{i=1}^n y_i x_i - \dfrac{1}{n} \left(\sum_{i=1}^n y_i\right)\left(\sum_{i=1}^nx_{i}\right)}{\sum_{i=1}^n x_i^2 - \dfrac{1}{n} \left( \sum_{i=1}^n x_i\right)^2}$$
+   where $\overline{x}=(1/n)\sum_{i=1}^n x_i$ and $\overline{y}=(1/n)\sum_{i=1}^n$
+   #+reveal_html: </div>
+   #+reveal: split
+   The *estimated regression line* is therefore
+   $$\hat{y}=\hat{b}_0+\hat{b}_1$$
+   and each observation pair satisfies $$y_i=\hat{b}_{0}+\hat{b}_1+e_i$$ where $e_i=y_i-\hat{y}_i$ is the *residual*
+** Example
+   Fit a simple linear regression model to the oxygen purity data. From calculations of the $n=20$ observations we have $\sum x_i=23.92$, $\sum y_i=1843.21$, $\overline{x}=1.1960$, $\overline{y}=92.1605$, $\sum y_i^2=170044.5321$, $\sum x_i^2=29.2892$, and $\sum x_iy_i=2214.6566$.
+   #+reveal: split
+   #+attr_html: :width 60%
+   [[file:images/fig22_7.png]]
+* Estimating $\sigma^2$
+  $${SS}_E = \sum_{i=1}^n e_i^2 = \sum_{i=1}^n (y_i-\hat{y}_i)^2$$
+  #+reveal_html: <span class="fragment">
+  $${SS}_E = {SS}_T - \hat{b}_1 S_{xy}$$
+  $${SS}_T=\sum_{i=1}^n (y_i-\overline{y})^2 = \sum_{i=1}^n y_i^2 - n\overline{y}^2$$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  $$\hat{\sigma}^2 = \dfrac{{SS}_E}{n-2}$$
+  #+reveal_html: </span>
+* Properties of least squares estimators
+  #+reveal_html: <span class="fragment">
+  $$E(\hat{b}_1)=b_1, V(\hat{b}_1)=\dfrac{\sigma^2}{S_{xx}}$$
+  $$E(\hat{b}_0)=b_0, V(\hat{b}_0)=\sigma^2 \left( \dfrac{1}{n} + \dfrac{\overline{x}^2}{S_{xx}} \right)$$
+  #+reveal_html: </span>
+  #+reveal: split
+  #+reveal_html: <div class="block">
+  In simple linear regression, the estimated standard errors of the slope and intercept are
+  $${se}(\hat{b}_1) = \sqrt{\dfrac{\hat{\sigma^2}}{S_{xx}}}$$
+  $${se}(\hat{b}_0)=\sqrt{\hat{\sigma}^2 \left( \dfrac{1}{n} + \dfrac{\overline{x}^2}{S_{xx}} \right)}$$
+  #+reveal_html: </div>
+* Testing hypotheses for regression coefficients
+  We can test $H_0: b_1=b_{1,0}$ and $H_1: b_1 \neq b_{1,0}$
+  #+reveal_html: <span class="fragment">
+  $$T_0 = \dfrac{\hat{b}_1 - b_{1,0}}{\sqrt{\hat{\sigma}^{2} / S_{xx}}} = \dfrac{\hat{b}_1 - b_{1,0}}{{se}(\hat{b}_1)}$$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  $$T_0 = \dfrac{\hat{b}_0 - b_{0,0}}{\sqrt{\hat{\sigma}^2 \left( \dfrac{1}{n} + \dfrac{\overline{x}^2}{S_{xx}} \right)}} = \dfrac{\hat{b}_0  - b_{0,0}}{{se}(\hat{b}_0)}$$
+  #+reveal_html: </span>
+  #+reveal: split
+  #+attr_html: :width 50%
+  [[file:images/fig22_8.png]]
+** Example
+   Examine the regression for the oxygen purity data and evaluate its significance.
+* Confidence intervals on parameters
+  #+reveal_html: <div class="block">
+  Under the assumption that the observations are normally and independently distributed, a $100(1-\alpha)%$ confidence interval on the parameters is given by
+  $$\hat{b}_1 - t_{\alpha/2,n-2} \sqrt{\dfrac{\hat{\sigma}^2}{S_{xx}}} \leq b_1 \leq \hat{b}_1 + t_{\alpha/2,n-2} \sqrt{\dfrac{\hat{\sigma}^2}{S_{xx}}}$$
+  $$\hat{b}_0 - t_{\alpha/2,n-2} \sqrt{\hat{\sigma}^2 \left( \dfrac{1}{n} + \dfrac{\overline{x}^2}{S_{xx}} \right)} \leq b_0 \leq \hat{b}_0 + t_{\alpha/2,n-2} \sqrt{\hat{\sigma}^2 \left( \dfrac{1}{n} + \dfrac{\overline{x}^2}{S_{xx}} \right)}$$
+  #+reveal_html: </div>
+* Confidence interval on the mean response
+  #+reveal_html: <div class="block">
+  A $100(1-\alpha)%$ confidence interval on the mean response at the value of $x=x_0$ ($\mu_{Y|x_0}$) is given by
+  $$\hat{\mu}_{Y|x_0} - t_{\alpha/2,n-2} \sqrt{\hat{\sigma}^2 \left[ \dfrac{1}{n} + \dfrac{(x_0-\overline{x})^{2}}{S_{xx}} \right]}  \leq \mu_{Y|x_0} $$
+  $$ \leq \hat{\mu}_{Y|x_0} + t_{\alpha/2,n-2} \sqrt{\hat{\sigma}^2 \left[ \dfrac{1}{n} + \dfrac{(x_0-\overline{x})^{2}}{S_{xx}} \right]}$$
+  #+reveal_html: </div>
+** Example
+   Find the 95% confidence interval about the mean response for the oxygen purity data.
+   #+reveal: split
+   #+attr_html: :width 60%
+   [[file:images/fig22_9.png]]
+* Problem 22.1
+  Observed data for blow counts $N$ and corresponding measured unconfined compressive strength $q$ of clay are given in the table below. Develop a regression between $N$ and $q$.
+| $N$ |  $q$ | $N$ |  $q$ |
+|-----+------+-----+------|
+|   4 | 0.33 |  19 | 2.25 |
+|   8 | 0.90 |  21 | 2.60 |
+|  11 | 1.41 |  25 | 2.71 |
+|  16 | 1.99 |  32 | 3.33 |
+|  17 | 1.70 |  34 | 4.01 |
+
+  #+reveal: split
+  Estimate the variance of the residuals.
+  #+reveal: split
+  Determine the 95% confidence interval for $N=4$.
+* Readings
+  - Sections 11.1-11.3
+  - Section 11.4.1
+  - Section 11.5
+  #+reveal_html: <span class="fragment">
+   {{{color(orangered, Homework #9 due 9 Dec!)}}}
+  #+reveal_html: </span>
+    

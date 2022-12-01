@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Probability &amp; Statistics in Engineering</title>
+<meta name="author" content="Kostas Andreadis"/>
+<meta name="description" content="Setup file for reveal.js presentations"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="./reveal.js/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 1 Dec</h2>
+</section>
+<section>
+<section id="slide-org1a890d5">
+<h2 id="org1a890d5"></h2>
+<div class="twocolumn"><div>
+
+<figure id="org797579e">
+<img src="images/fig22_1.png" alt="fig22_1.png" width="100%">
+
+</figure>
+</div><div>
+<span class="fragment">
+
+<figure id="org039730c">
+<img src="images/fig22_2.jpg" alt="fig22_2.jpg" width="100%">
+
+</figure>
+</span>
+</div>
+</section>
+<section>
+<p width="70%">
+<img src="https://hannahloughridge.files.wordpress.com/2014/04/screen-shot-2014-04-11-at-19-17-11.png" alt="screen-shot-2014-04-11-at-19-17-11.png" width="70%">
+<a href="https://aerossurance.com/safety-management/challenger-launch-decision-30/">https://aerossurance.com/safety-management/challenger-launch-decision-30/</a>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org4a61636">
+<h2 id="org4a61636">Empirical models</h2>
+<ul>
+<li class="fragment appear">Relationship between two or more variables
+<ul>
+<li>Pressure of a gas in a container related to temperature</li>
+<li>Water velocity in open channel related to width</li>
+
+</ul></li>
+<li class="fragment appear">\(d_t = d_0 + v t\) is a deterministic linear relationship</li>
+<li class="fragment appear">Regression analysis</li>
+<li class="fragment appear">One <b>independent</b> variable \(x\) and one <b>dependent</b> \(y\) with a <b>linear</b> relationship</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org77cf40d">
+<h2 id="org77cf40d">Example</h2>
+<div class="twocolumn"><div>
+
+<figure id="orgedca362">
+<img src="images/fig22_3.png" alt="fig22_3.png" width="100%">
+
+</figure>
+</div><div>
+
+<figure id="org3ac704c">
+<img src="images/fig22_4.png" alt="fig22_4.png" width="100%">
+
+</figure>
+</div>
+</section>
+<section id="slide-org7d9f606">
+<h3 id="org7d9f606">Simple linear regression model</h3>
+<p>
+\[E(Y|x)=\mu_{Y|x}=b_0 + b_1 x\]
+</p>
+<span class="fragment">
+<p>
+\(b_0\): intercept and \(b_1\): slope are the <b>regression coefficients</b>
+</p>
+</span>
+<p>
+\[Y=b_0 + b_1 x + \epsilon\]
+is the <b>simple linear regression model</b>
+</p>
+</section>
+<section>
+<p>
+\[E(Y|x)=E(b_0+b_1x+\epsilon)=b_0+b_1x+E(\epsilon)=b_0+b_1x\]
+</p>
+<span class="fragment">
+<p>
+\[V(Y|x)=V(b_0+b_1x+\epsilon)=V(b_0+b_1x)+V(\epsilon)=0+\sigma^2=\sigma^2\]
+</p>
+</span>
+</section>
+<section>
+
+<figure id="orgb2e163b">
+<img src="images/fig22_5.png" alt="fig22_5.png" width="100%">
+
+</figure>
+</section>
+</section>
+<section>
+<section id="slide-org90562d9">
+<h2 id="org90562d9">Estimating the regression coefficients</h2>
+<p>
+\[Y=b_0+b_1x+\epsilon\]
+</p>
+<span class="fragment">
+<p>
+\(\epsilon\) are assumed to be uncorrelated random errors with mean zero and unknown variance \(\sigma^2\)
+</p>
+</span>
+<span class="fragment">
+<p>
+\(n\) pairs of observations \((x_1,y_1)\), \((x_2,y_2)\),&#x2026;, \((x_n,y_n)\)
+</p>
+</span>
+<span class="fragment">
+<p>
+\[y_i=b_0+b_1x_i+\epsilon_{i}\]
+</p>
+</span>
+</section>
+<section id="slide-orged98b30">
+<h3 id="orged98b30">Least squares</h3>
+
+<figure id="org9519e39">
+<img src="images/fig22_6.png" alt="fig22_6.png" width="50%">
+
+</figure>
+<span class="fragment">
+<p>
+Minimize the sum of squares of the vertical deviations (<b>method of least squares</b>)
+</p>
+</span>
+</section>
+<section>
+<p>
+\[L=\sum_{i=1}^{n}\epsilon_{i}^{2}=\sum_{i=1}^n (y_i-b_0-b_1x_i)^2\]
+</p>
+<span class="fragment">
+<p>
+\[ \frac{\partial L}{\partial b_0} = -2 \sum_{i=1}^n \left( y_i-\hat{b}_0-\hat{b}_1x_i \right) = 0\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[\dfrac{\partial L}{\partial b_1} = -2 \sum_{i=1}^n \left( y_i-\hat{b}_0-\hat{b}_1x_i \right)x_i = 0\]
+</p>
+</span>
+</section>
+<section>
+<div class="block">
+<p>
+The least squares estimates of the slope and intercept are
+\[\hat{b}_0 = \overline{y} - \hat{b}_1 \overline{x}\]
+\[\hat{b}_1 = \dfrac{\sum_{i=1}^n y_i x_i - \dfrac{1}{n} \left(\sum_{i=1}^n y_i\right)\left(\sum_{i=1}^nx_{i}\right)}{\sum_{i=1}^n x_i^2 - \dfrac{1}{n} \left( \sum_{i=1}^n x_i\right)^2}\]
+where \(\overline{x}=(1/n)\sum_{i=1}^n x_i\) and \(\overline{y}=(1/n)\sum_{i=1}^n\)
+</p>
+</div>
+</section>
+<section>
+<p>
+The <b>estimated regression line</b> is therefore
+\[\hat{y}=\hat{b}_0+\hat{b}_1\]
+and each observation pair satisfies \[y_i=\hat{b}_{0}+\hat{b}_1+e_i\] where \(e_i=y_i-\hat{y}_i\) is the <b>residual</b>
+</p>
+</section>
+<section id="slide-org0daa911">
+<h3 id="org0daa911">Example</h3>
+<p>
+Fit a simple linear regression model to the oxygen purity data. From calculations of the \(n=20\) observations we have \(\sum x_i=23.92\), \(\sum y_i=1843.21\), \(\overline{x}=1.1960\), \(\overline{y}=92.1605\), \(\sum y_i^2=170044.5321\), \(\sum x_i^2=29.2892\), and \(\sum x_iy_i=2214.6566\).
+</p>
+</section>
+<section>
+
+<figure id="org42286af">
+<img src="images/fig22_7.png" alt="fig22_7.png" width="60%">
+
+</figure>
+</section>
+</section>
+<section>
+<section id="slide-orgbb03254">
+<h2 id="orgbb03254">Estimating \(\sigma^2\)</h2>
+<p>
+\[{SS}_E = \sum_{i=1}^n e_i^2 = \sum_{i=1}^n (y_i-\hat{y}_i)^2\]
+</p>
+<span class="fragment">
+<p>
+\[{SS}_E = {SS}_T - \hat{b}_1 S_{xy}\]
+\[{SS}_T=\sum_{i=1}^n (y_i-\overline{y})^2 = \sum_{i=1}^n y_i^2 - n\overline{y}^2\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[\hat{\sigma}^2 = \dfrac{{SS}_E}{n-2}\]
+</p>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-org0b56e68">
+<h2 id="org0b56e68">Properties of least squares estimators</h2>
+<span class="fragment">
+<p>
+\[E(\hat{b}_1)=b_1, V(\hat{b}_1)=\dfrac{\sigma^2}{S_{xx}}\]
+\[E(\hat{b}_0)=b_0, V(\hat{b}_0)=\sigma^2 \left( \dfrac{1}{n} + \dfrac{\overline{x}^2}{S_{xx}} \right)\]
+</p>
+</span>
+</section>
+<section>
+<div class="block">
+<p>
+In simple linear regression, the estimated standard errors of the slope and intercept are
+\[{se}(\hat{b}_1) = \sqrt{\dfrac{\hat{\sigma^2}}{S_{xx}}}\]
+\[{se}(\hat{b}_0)=\sqrt{\hat{\sigma}^2 \left( \dfrac{1}{n} + \dfrac{\overline{x}^2}{S_{xx}} \right)}\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org632e7be">
+<h2 id="org632e7be">Testing hypotheses for regression coefficients</h2>
+<p>
+We can test \(H_0: b_1=b_{1,0}\) and \(H_1: b_1 \neq b_{1,0}\)
+</p>
+<span class="fragment">
+<p>
+\[T_0 = \dfrac{\hat{b}_1 - b_{1,0}}{\sqrt{\hat{\sigma}^{2} / S_{xx}}} = \dfrac{\hat{b}_1 - b_{1,0}}{{se}(\hat{b}_1)}\]
+</p>
+</span>
+<span class="fragment">
+<p>
+\[T_0 = \dfrac{\hat{b}_0 - b_{0,0}}{\sqrt{\hat{\sigma}^2 \left( \dfrac{1}{n} + \dfrac{\overline{x}^2}{S_{xx}} \right)}} = \dfrac{\hat{b}_0  - b_{0,0}}{{se}(\hat{b}_0)}\]
+</p>
+</span>
+</section>
+<section>
+
+<figure id="org54e673f">
+<img src="images/fig22_8.png" alt="fig22_8.png" width="50%">
+
+</figure>
+</section>
+<section id="slide-org67f8a14">
+<h3 id="org67f8a14">Example</h3>
+<p>
+Examine the regression for the oxygen purity data and evaluate its significance.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org25be72e">
+<h2 id="org25be72e">Confidence intervals on parameters</h2>
+<div class="block">
+<p>
+Under the assumption that the observations are normally and independently distributed, a \(100(1-\alpha)%\) confidence interval on the parameters is given by
+\[\hat{b}_1 - t_{\alpha/2,n-2} \sqrt{\dfrac{\hat{\sigma}^2}{S_{xx}}} \leq b_1 \leq \hat{b}_1 + t_{\alpha/2,n-2} \sqrt{\dfrac{\hat{\sigma}^2}{S_{xx}}}\]
+\[\hat{b}_0 - t_{\alpha/2,n-2} \sqrt{\hat{\sigma}^2 \left( \dfrac{1}{n} + \dfrac{\overline{x}^2}{S_{xx}} \right)} \leq b_0 \leq \hat{b}_0 + t_{\alpha/2,n-2} \sqrt{\hat{\sigma}^2 \left( \dfrac{1}{n} + \dfrac{\overline{x}^2}{S_{xx}} \right)}\]
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org540483f">
+<h2 id="org540483f">Confidence interval on the mean response</h2>
+<div class="block">
+<p>
+A \(100(1-\alpha)%\) confidence interval on the mean response at the value of \(x=x_0\) (\(\mu_{Y|x_0}\)) is given by
+\[\hat{\mu}_{Y|x_0} - t_{\alpha/2,n-2} \sqrt{\hat{\sigma}^2 \left[ \dfrac{1}{n} + \dfrac{(x_0-\overline{x})^{2}}{S_{xx}} \right]}  \leq \mu_{Y|x_0} \]
+\[ \leq \hat{\mu}_{Y|x_0} + t_{\alpha/2,n-2} \sqrt{\hat{\sigma}^2 \left[ \dfrac{1}{n} + \dfrac{(x_0-\overline{x})^{2}}{S_{xx}} \right]}\]
+</p>
+</div>
+</section>
+<section id="slide-org15a3554">
+<h3 id="org15a3554">Example</h3>
+<p>
+Find the 95% confidence interval about the mean response for the oxygen purity data.
+</p>
+</section>
+<section>
+
+<figure id="orgb28fead">
+<img src="images/fig22_9.png" alt="fig22_9.png" width="60%">
+
+</figure>
+</section>
+</section>
+<section>
+<section id="slide-org92ecd36">
+<h2 id="org92ecd36">Problem 22.1</h2>
+<p>
+Observed data for blow counts \(N\) and corresponding measured unconfined compressive strength \(q\) of clay are given in the table below. Develop a regression between \(N\) and \(q\).
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">\(N\)</th>
+<th scope="col" class="org-right">\(q\)</th>
+<th scope="col" class="org-right">\(N\)</th>
+<th scope="col" class="org-right">\(q\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">0.33</td>
+<td class="org-right">19</td>
+<td class="org-right">2.25</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">0.90</td>
+<td class="org-right">21</td>
+<td class="org-right">2.60</td>
+</tr>
+
+<tr>
+<td class="org-right">11</td>
+<td class="org-right">1.41</td>
+<td class="org-right">25</td>
+<td class="org-right">2.71</td>
+</tr>
+
+<tr>
+<td class="org-right">16</td>
+<td class="org-right">1.99</td>
+<td class="org-right">32</td>
+<td class="org-right">3.33</td>
+</tr>
+
+<tr>
+<td class="org-right">17</td>
+<td class="org-right">1.70</td>
+<td class="org-right">34</td>
+<td class="org-right">4.01</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section>
+<p>
+Estimate the variance of the residuals.
+</p>
+</section>
+<section>
+<p>
+Determine the 95% confidence interval for \(N=4\).
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orga4a7f0e">
+<h2 id="orga4a7f0e">Readings</h2>
+<ul>
+<li>Sections 11.1-11.3</li>
+<li>Section 11.4.1</li>
+<li>Section 11.5</li>
+
+</ul>
+<span class="fragment">
+<p>
+<font color="orangered"> Homework #9 due 9 Dec!</font>
+</p>
+</span>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/math/math.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/customcontrols/plugin.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1280,
+height: 720,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+</script>
+</body>
+</html>

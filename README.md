@@ -44,3 +44,5 @@ Probability and Statistics in Civil Engineering
 [Lecture #20 - 17 Nov 2022](https://kandread.github.io/cee260/20_hypothesis_testing.html)
 
 [Lecture #21 - 29 Nov 2022](https://kandread.github.io/cee260/21_goodness_of_fit.html)
+
+[Lecture #22 - 1 Dec 2022](https://kandread.github.io/cee260/22_linear_regression.html)
