@@ -1,0 +1,152 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 6 Dec
+#+setupfile: ./reveal.org
+* Recap
+  #+attr_reveal: :frag (appear)
+  - $\hat{y} = \hat{b}_0 + \hat{b}_1 x$
+  - Estimating the regression coefficients
+  - Least squares: minimizes SSE
+  - $\hat{b}_1=S_{xy}/S_{xx}$ and $\hat{b}_0=\overline{y}-\hat{b}_1\overline{x}$
+  - Variance of predictions
+  - Testing hypotheses and calculating confidence intervals
+* Adequacy of the regression model
+  #+attr_reveal: :frag (appear)
+  - Fitting a regression model requires several *assumptions*
+  - Uncorrelated errors with zero mean and constant variance
+  - When testing hypotheses, errors are normally distributed
+  - Relationship between variables is *linear*
+  - {{{color(steelblue, Need methods to evaluate these assumptions)}}}
+* Residual analysis
+  $$e_i=y_i - \hat{y}_i$$
+  #+attr_reveal: :frag (appear)
+  - Histogram of residuals
+  - Normal probability plot
+  #+reveal_html: <span class="fragment">
+  Could also *standardize* residuals with $$d_i=\dfrac{e_i}{\sqrt{\hat{\sigma}^2}}$$
+  95% of residuals should fall within (-2, +2)
+  #+reveal_html: </span>
+  #+reveal: split
+  #+attr_html: :width 60%
+  [[file:images/fig23_1.png]]
+** Variance-stabilizing transformations
+   #+attr_reveal: :frag (appear)
+   - $\sqrt{y}$
+   - $\ln{y}$
+   - $1/y$
+** Example
+   Using the oxygen purity data, we derived a regression of $\hat{y}=74.283+14.947x$.
+   #+reveal: split
+   #+attr_html: :width 100%
+   [[file:images/fig23_2.png]]
+   #+reveal: split
+   #+attr_html: :width 100%
+   [[file:images/fig23_3.png]]
+* Coefficient of determination
+  #+reveal_html: <div class="block">
+  The coefficient of determination is $$R^2 = \dfrac{SS_R}{SS_T} = 1 - \dfrac{SS_E}{SS_T}$$
+  #+reveal_html: </div>
+  #+attr_reveal: :frag (appear)
+  - $0 \leq R^2 \leq 1$
+  - Amount of variance explained by the regression model
+** Reminder
+   $$SS_T = \sum (y_i - \overline{y})^2 = \sum y_i^2 - n \overline{y}^2$$
+   $$SS_E = \sum e_i^2 = \sum (y_i - \hat{y}_i)^2 = SS_T - \hat{b}_1 S_{xy}$$
+   $$SS_R = \hat{b}_1 S_{xy}$$
+   $$S_{xy} = \sum x_iy_i - \dfrac{1}{n} \left( \sum x_i \right) \left( \sum y_i \right)$$
+** Some caveats
+   #+attr_reveal: :frag (appear)
+   - $R^2$ can be artificially increased by adding terms in the regression
+   - The larger the dispersion of $x$, the larger the value of $R^2$
+   - A large value of $R^2$ does not imply a steep slope
+   - A large value of $R^2$ does not mean that the model extrapolates accurately
+* Correlation
+  Remember that $\rho=\dfrac{\sigma_{xy}}{\sigma_x \sigma_y}$
+  #+reveal_html: <span class="fragment">
+  MLE regression coefficients are
+  $$\hat{b}_0 = \overline{y} - \hat{b}_1 \overline{x}$$
+  $$\hat{b}_1 = \dfrac{\sum y_i (x_i - \overline{x})}{\sum (x_i - \overline{x})^2} = \dfrac{S_{xy}}{S_{xx}}$$
+  #+reveal_html: </span>
+** Estimating the sample correlation coefficient
+   #+reveal_html: <div class="block">
+   $$\hat{\rho} = \dfrac{\sum y_i (x_i - \overline{x})}{\sqrt{\sum (x_i-\overline{x})^2 \sum(y_i - \overline{y})^2}} = \dfrac{S_{xy}}{\sqrt{S_{xx}SS_T}}$$
+   #+reveal_html: </div>
+   #+reveal: split
+   #+reveal_html: <div class="block">
+   $$\hat{b}_1 = \sqrt{\dfrac{SS_T}{S_{xx}}} \hat{\rho}$$
+   #+reveal_html: </div>
+   #+reveal_html: <span class="fragment">
+   $$\hat{\rho}^2 = \hat{b}_1^2 \dfrac{S_{xx}}{SS_T} = \dfrac{\hat{b}_1 S_{xy}}{SST} = \dfrac{SS_R}{SS_T} = R^2$$
+   #+reveal_html: </span>
+* Regression on transformed variables
+  $$Y=b_0 e^{b_1 x} \epsilon$$
+  #+reveal_html: <span class="fragment">
+  $$\ln{Y}=\ln{b_0} + b_1 x + \ln{\epsilon}$$
+  #+reveal_html: </span>
+  #+reveal_html: <span class="fragment">
+  *Variable transformations can be very useful for developing such simple linear regression models*
+  #+reveal_html: </span>
+** Example
+   Examining the performance of a windmill to generate electricity, the relationship between DC output and wind velocity is shown
+   #+attr_html: :width 60%
+   [[file:images/fig23_4.png]]
+   #+reveal: split
+   If we fit a linear model we have $$\hat{y}=0.1309+0.2411x$$
+   #+reveal_html: <div class="twocolumn"><div>
+   #+reveal_html: <span class="fragment">
+   $$R^2=0.8745$$
+   $$\hat{\sigma}^2=0.0557$$
+   #+reveal_html: </span>
+   #+reveal_html: </div><div>
+   #+reveal_html: <span class="fragment">
+   #+attr_html: :width 90%
+   [[file:images/fig23_5.png]]
+   #+reveal_html: </span>
+   #+reveal_html: </div>
+   #+reveal: split
+   Transform the variable
+   $$y=b_0 + b_1 \dfrac{1}{x} + \epsilon$$
+   #+reveal_html: <span class="fragment">
+   #+attr_html: :width 50%
+   [[file:images/fig23_6.png]]
+   #+reveal_html: </span>
+   #+reveal: split
+   $$\hat{y}=2.9789-6.9345 x'$$
+   #+reveal_html: <span class="fragment">
+   #+attr_html: :width 90%
+   [[file:images/fig23_7.png]]
+   #+reveal_html: </span>
+   #+reveal_html: <span class="fragment">
+   $R^2=0.9800$ and $\hat{\sigma}^2=0.0089$
+   #+reveal_html: </span>
+* Problem 23.1
+  A survey of car weights (in kip) and MPG gave the following
+  | Car | MPG | Weight |
+  |-----+-----+--------|
+  |   1 |  25 |    2.5 |
+  |   2 |  17 |    4.2 |
+  |   3 |  20 |    3.6 |
+  |   4 |  21 |    3.0 |
+  #+reveal: split
+  If car weight is normally distributed and its mean and standard deviation were estimated to be 3.33 and 1.04. What is the probability that another car picked up will weigh more than 4.5 kips?
+  #+reveal: split
+  Using linear regression, answer the following: if you buy a car that weighs 2.3 kips what is the probability that it will have gas mileage of more than 28 mpg?
+  #+reveal: split
+  What are the 95% confidence intervals of the regression equation?
+* Problem 23.2
+  Six makes of cars were assessed for testing the actual vs rated MPG.
+  | Make | Rated MPG | Actual MPG |
+  |------+-----------+------------|
+  | A    |        20 |         16 |
+  | B    |        25 |         19 |
+  | C    |        30 |         25 |
+  | D    |        30 |         22 |
+  | E    |        25 |         18 |
+  | F    |        15 |         12 |
+  #+reveal: split
+  What is the regression equation for determining the mean actual mileage?
+  #+reveal: split
+  What is the variance of the actual mileage predictions?
+  #+reveal: split
+  What is the correlation coefficient between rated and actual mileage?
+  

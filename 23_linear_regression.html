@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Probability &amp; Statistics in Engineering</title>
+<meta name="author" content="Kostas Andreadis"/>
+<meta name="description" content="Setup file for reveal.js presentations"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="./reveal.js/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 6 Dec</h2>
+</section>
+<section>
+<section id="slide-org06cf3d4">
+<h2 id="org06cf3d4">Recap</h2>
+<ul>
+<li class="fragment appear">\(\hat{y} = \hat{b}_0 + \hat{b}_1 x\)</li>
+<li class="fragment appear">Estimating the regression coefficients</li>
+<li class="fragment appear">Least squares: minimizes SSE</li>
+<li class="fragment appear">\(\hat{b}_1=S_{xy}/S_{xx}\) and \(\hat{b}_0=\overline{y}-\hat{b}_1\overline{x}\)</li>
+<li class="fragment appear">Variance of predictions</li>
+<li class="fragment appear">Testing hypotheses and calculating confidence intervals</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgdbdaa01">
+<h2 id="orgdbdaa01">Adequacy of the regression model</h2>
+<ul>
+<li class="fragment appear">Fitting a regression model requires several <b>assumptions</b></li>
+<li class="fragment appear">Uncorrelated errors with zero mean and constant variance</li>
+<li class="fragment appear">When testing hypotheses, errors are normally distributed</li>
+<li class="fragment appear">Relationship between variables is <b>linear</b></li>
+<li class="fragment appear"><font color="steelblue"> Need methods to evaluate these assumptions</font></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgfb23bbf">
+<h2 id="orgfb23bbf">Residual analysis</h2>
+<p>
+\[e_i=y_i - \hat{y}_i\]
+</p>
+<ul>
+<li class="fragment appear">Histogram of residuals</li>
+<li class="fragment appear">Normal probability plot</li>
+
+</ul>
+<span class="fragment">
+<p>
+Could also <b>standardize</b> residuals with \[d_i=\dfrac{e_i}{\sqrt{\hat{\sigma}^2}}\]
+95% of residuals should fall within (-2, +2)
+</p>
+</span>
+</section>
+<section>
+
+<figure id="org4e1394c">
+<img src="images/fig23_1.png" alt="fig23_1.png" width="60%">
+
+</figure>
+</section>
+<section id="slide-orgdb54edc">
+<h3 id="orgdb54edc">Variance-stabilizing transformations</h3>
+<ul>
+<li class="fragment appear">\(\sqrt{y}\)</li>
+<li class="fragment appear">\(\ln{y}\)</li>
+<li class="fragment appear">\(1/y\)</li>
+
+</ul>
+</section>
+<section id="slide-orga4df796">
+<h3 id="orga4df796">Example</h3>
+<p>
+Using the oxygen purity data, we derived a regression of \(\hat{y}=74.283+14.947x\).
+</p>
+</section>
+<section>
+
+<figure id="org81bc1ec">
+<img src="images/fig23_2.png" alt="fig23_2.png" width="100%">
+
+</figure>
+</section>
+<section>
+
+<figure id="org2848bc5">
+<img src="images/fig23_3.png" alt="fig23_3.png" width="100%">
+
+</figure>
+</section>
+</section>
+<section>
+<section id="slide-org6b27da5">
+<h2 id="org6b27da5">Coefficient of determination</h2>
+<div class="block">
+<p>
+The coefficient of determination is \[R^2 = \dfrac{SS_R}{SS_T} = 1 - \dfrac{SS_E}{SS_T}\]
+</p>
+</div>
+<ul>
+<li class="fragment appear">\(0 \leq R^2 \leq 1\)</li>
+<li class="fragment appear">Amount of variance explained by the regression model</li>
+
+</ul>
+</section>
+<section id="slide-org163f535">
+<h3 id="org163f535">Reminder</h3>
+<p>
+\[SS_T = \sum (y_i - \overline{y})^2 = \sum y_i^2 - n \overline{y}^2\]
+\[SS_E = \sum e_i^2 = \sum (y_i - \hat{y}_i)^2 = SS_T - \hat{b}_1 S_{xy}\]
+\[SS_R = \hat{b}_1 S_{xy}\]
+\[S_{xy} = \sum x_iy_i - \dfrac{1}{n} \left( \sum x_i \right) \left( \sum y_i \right)\]
+</p>
+</section>
+<section id="slide-orgf3368d1">
+<h3 id="orgf3368d1">Some caveats</h3>
+<ul>
+<li class="fragment appear">\(R^2\) can be artificially increased by adding terms in the regression</li>
+<li class="fragment appear">The larger the dispersion of \(x\), the larger the value of \(R^2\)</li>
+<li class="fragment appear">A large value of \(R^2\) does not imply a steep slope</li>
+<li class="fragment appear">A large value of \(R^2\) does not mean that the model extrapolates accurately</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orga9e503f">
+<h2 id="orga9e503f">Correlation</h2>
+<p>
+Remember that \(\rho=\dfrac{\sigma_{xy}}{\sigma_x \sigma_y}\)
+</p>
+<span class="fragment">
+<p>
+MLE regression coefficients are
+\[\hat{b}_0 = \overline{y} - \hat{b}_1 \overline{x}\]
+\[\hat{b}_1 = \dfrac{\sum y_i (x_i - \overline{x})}{\sum (x_i - \overline{x})^2} = \dfrac{S_{xy}}{S_{xx}}\]
+</p>
+</span>
+</section>
+<section id="slide-org70364cd">
+<h3 id="org70364cd">Estimating the sample correlation coefficient</h3>
+<div class="block">
+<p>
+\[\hat{\rho} = \dfrac{\sum y_i (x_i - \overline{x})}{\sqrt{\sum (x_i-\overline{x})^2 \sum(y_i - \overline{y})^2}} = \dfrac{S_{xy}}{\sqrt{S_{xx}SS_T}}\]
+</p>
+</div>
+</section>
+<section>
+<div class="block">
+<p>
+\[\hat{b}_1 = \sqrt{\dfrac{SS_T}{S_{xx}}} \hat{\rho}\]
+</p>
+</div>
+<span class="fragment">
+<p>
+\[\hat{\rho}^2 = \hat{b}_1^2 \dfrac{S_{xx}}{SS_T} = \dfrac{\hat{b}_1 S_{xy}}{SST} = \dfrac{SS_R}{SS_T} = R^2\]
+</p>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-org6716084">
+<h2 id="org6716084">Regression on transformed variables</h2>
+<p>
+\[Y=b_0 e^{b_1 x} \epsilon\]
+</p>
+<span class="fragment">
+<p>
+\[\ln{Y}=\ln{b_0} + b_1 x + \ln{\epsilon}\]
+</p>
+</span>
+<span class="fragment">
+<p>
+<b>Variable transformations can be very useful for developing such simple linear regression models</b>
+</p>
+</span>
+</section>
+<section id="slide-org3015e26">
+<h3 id="org3015e26">Example</h3>
+<p>
+Examining the performance of a windmill to generate electricity, the relationship between DC output and wind velocity is shown
+</p>
+
+<figure id="org7e3d6b4">
+<img src="images/fig23_4.png" alt="fig23_4.png" width="60%">
+
+</figure>
+</section>
+<section>
+<p>
+If we fit a linear model we have \[\hat{y}=0.1309+0.2411x\]
+</p>
+<div class="twocolumn"><div>
+<span class="fragment">
+<p>
+\[R^2=0.8745\]
+\[\hat{\sigma}^2=0.0557\]
+</p>
+</span>
+</div><div>
+<span class="fragment">
+
+<figure id="org6fa64a6">
+<img src="images/fig23_5.png" alt="fig23_5.png" width="90%">
+
+</figure>
+</span>
+</div>
+</section>
+<section>
+<p>
+Transform the variable
+\[y=b_0 + b_1 \dfrac{1}{x} + \epsilon\]
+</p>
+<span class="fragment">
+
+<figure id="orgec52d19">
+<img src="images/fig23_6.png" alt="fig23_6.png" width="50%">
+
+</figure>
+</span>
+</section>
+<section>
+<p>
+\[\hat{y}=2.9789-6.9345 x'\]
+</p>
+<span class="fragment">
+
+<figure id="org18b1564">
+<img src="images/fig23_7.png" alt="fig23_7.png" width="90%">
+
+</figure>
+</span>
+<span class="fragment">
+<p>
+\(R^2=0.9800\) and \(\hat{\sigma}^2=0.0089\)
+</p>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-orga2e909c">
+<h2 id="orga2e909c">Problem 23.1</h2>
+<p>
+A survey of car weights (in kip) and MPG gave the following
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Car</th>
+<th scope="col" class="org-right">MPG</th>
+<th scope="col" class="org-right">Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">25</td>
+<td class="org-right">2.5</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">17</td>
+<td class="org-right">4.2</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">20</td>
+<td class="org-right">3.6</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">21</td>
+<td class="org-right">3.0</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section>
+<p>
+If car weight is normally distributed and its mean and standard deviation were estimated to be 3.33 and 1.04. What is the probability that another car picked up will weigh more than 4.5 kips?
+</p>
+</section>
+<section>
+<p>
+Using linear regression, answer the following: if you buy a car that weighs 2.3 kips what is the probability that it will have gas mileage of more than 28 mpg?
+</p>
+</section>
+<section>
+<p>
+What are the 95% confidence intervals of the regression equation?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org3bc6795">
+<h2 id="org3bc6795">Problem 23.2</h2>
+<p>
+Six makes of cars were assessed for testing the actual vs rated MPG.
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Make</th>
+<th scope="col" class="org-right">Rated MPG</th>
+<th scope="col" class="org-right">Actual MPG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">A</td>
+<td class="org-right">20</td>
+<td class="org-right">16</td>
+</tr>
+
+<tr>
+<td class="org-left">B</td>
+<td class="org-right">25</td>
+<td class="org-right">19</td>
+</tr>
+
+<tr>
+<td class="org-left">C</td>
+<td class="org-right">30</td>
+<td class="org-right">25</td>
+</tr>
+
+<tr>
+<td class="org-left">D</td>
+<td class="org-right">30</td>
+<td class="org-right">22</td>
+</tr>
+
+<tr>
+<td class="org-left">E</td>
+<td class="org-right">25</td>
+<td class="org-right">18</td>
+</tr>
+
+<tr>
+<td class="org-left">F</td>
+<td class="org-right">15</td>
+<td class="org-right">12</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section>
+<p>
+What is the regression equation for determining the mean actual mileage?
+</p>
+</section>
+<section>
+<p>
+What is the variance of the actual mileage predictions?
+</p>
+</section>
+<section>
+<p>
+What is the correlation coefficient between rated and actual mileage?
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/math/math.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/customcontrols/plugin.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1280,
+height: 720,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+</script>
+</body>
+</html>
