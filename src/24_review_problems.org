@@ -1,0 +1,50 @@
+#+title: Probability & Statistics in Engineering
+#+author: Kostas Andreadis
+#+date: Fall 2022 - 8 Dec
+#+setupfile: ./reveal.org
+* Problem 1 (Set theory)
+Records on winter weather for a town showed that there is a 20% chance of snow. In addition, low temperature (<0 F) occurs on 5% of the days, whereas windy days occur 10% of the time. If temperature is low, the probability of snow on that day is increased to 30%. Let $S$, $C$, and $W$ be the events of snow, low temperature and wind respectively. The even $W$ can be assumed to be independent of $S$ and $C$.
+#+reveal: split
+What is the probability of having a day with all three events occurring?
+#+reveal: split
+Suppose a construction project cannot progress if it is windy or cold, but it is not affected by snow. What is the probability that construction work will be stopped on a given day?
+#+reveal: split
+On a day without snow, what is the probability that construction work cannot proceed?
+#+reveal: split
+What is the probability of a /nice weather day/ (no snow, no wind, high temperature)?
+#+reveal: split
+Suppose $U$ is the event of uncomfortable wind chill condition on a given day. If either $C$ or $W$ (but not both) occurs, the probability of $U$ is 50%, whereas if both $C$ and $W$ occur, the probability of $U$ is 100%, and $U$ will not occur if both $C$ and $W$ do not occur. What is the probability of the event $U$ on a given day?
+* Problem 2 (Distributions)
+  The capacity of a pile supporting a transmission tower is modeled with a lognormal random variable with a mean of 100 tons and a c.o.v. of 20%.
+  #+reveal: split
+  What is the probability that the pile will survive a load of 100 tons?
+  #+reveal: split
+  During the installation of the pile, a pile load test indicated that the pile can support at least a load of 75 tons. What is now the probability that the pile will survive a 100-ton load?
+  #+reveal: split
+  If the pile has survived a recent hurricane during which the load transmitted to the pile is estimated to be 90 tons, what is the probability that the pile can carry a 100-ton load?
+* Problem 3 (Random functions)
+  A contractor submits bids to three highway jobs and two building jobs. The probability of winning each job is 0.6. The profit from a highway job is normally distributed as $N(100,1600)$ in thousand dollars, whereas that for a building job is $N(80,400)$ in thousand dollars. Assume that winning each job is an independent event and the profits between jobs are also statistically independent event.
+  #+reveal: split
+  What is the probability that the contractor will win at least two jobs?
+  #+reveal: split
+  What is the probability that they will win exactly one highway job but none of the building jobs?
+  #+reveal: split
+  Suppose that they won two highway jobs and one building job. What is the probability that the total profit will exceed $300,000?
+  #+reveal: split
+  How would the previous answer change if the profit from the two highway jobs are correlated with a correlation coefficient of 0.8?
+* Problem 4 (Expectation/Bias)
+  Variance is given by $$\sigma^2=E[(x-\mu)^2]$$
+  Prove that the sample variance estimate of $$s^2=\dfrac{1}{n} \sum (x - \overline{x})^2$$ is a biased estimator of $\sigma^2$. /Hint/: $(x-\overline{x})=(x-\mu-\overline{x}+\mu)$
+* Problem 5 (Regression)
+  The error incurred in a given type of measurement by a surveyor appears to b affected by the surveyor's years of experience. The following is the data observed for five surveyors:
+  | Surveyor | Experience (years) | Measurement Error (in.) |
+  |----------+--------------------+-------------------------|
+  |        1 |                  3 |                     1.5 |
+  |        2 |                  5 |                     0.8 |
+  |        3 |                 10 |                     1.0 |
+  |        4 |                 20 |                     0.8 |
+  |        5 |                 25 |                     0.5 |
+  #+reveal: split
+  For a surveyor with 15 years of experience, what is the probability that their measurement error will be less than 1 inch?
+  #+reveal: split
+  For a 65-year-old surveyor who has 30 years of experience, can you estimate the probability that their measurement error will be less than 1 inch?

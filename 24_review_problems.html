@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Probability &amp; Statistics in Engineering</title>
+<meta name="author" content="Kostas Andreadis"/>
+<meta name="description" content="Setup file for reveal.js presentations"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="./reveal.js/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Probability &amp; Statistics in Engineering</h1><h2 class="date">Fall 2022 - 8 Dec</h2>
+</section>
+<section>
+<section id="slide-org401d887">
+<h2 id="org401d887">Problem 1 (Set theory)</h2>
+<p>
+Records on winter weather for a town showed that there is a 20% chance of snow. In addition, low temperature (&lt;0 F) occurs on 5% of the days, whereas windy days occur 10% of the time. If temperature is low, the probability of snow on that day is increased to 30%. Let \(S\), \(C\), and \(W\) be the events of snow, low temperature and wind respectively. The even \(W\) can be assumed to be independent of \(S\) and \(C\).
+</p>
+</section>
+<section>
+<p>
+What is the probability of having a day with all three events occurring?
+</p>
+</section>
+<section>
+<p>
+Suppose a construction project cannot progress if it is windy or cold, but it is not affected by snow. What is the probability that construction work will be stopped on a given day?
+</p>
+</section>
+<section>
+<p>
+On a day without snow, what is the probability that construction work cannot proceed?
+</p>
+</section>
+<section>
+<p>
+What is the probability of a <i>nice weather day</i> (no snow, no wind, high temperature)?
+</p>
+</section>
+<section>
+<p>
+Suppose \(U\) is the event of uncomfortable wind chill condition on a given day. If either \(C\) or \(W\) (but not both) occurs, the probability of \(U\) is 50%, whereas if both \(C\) and \(W\) occur, the probability of \(U\) is 100%, and \(U\) will not occur if both \(C\) and \(W\) do not occur. What is the probability of the event \(U\) on a given day?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org8dd4c78">
+<h2 id="org8dd4c78">Problem 2 (Distributions)</h2>
+<p>
+The capacity of a pile supporting a transmission tower is modeled with a lognormal random variable with a mean of 100 tons and a c.o.v. of 20%.
+</p>
+</section>
+<section>
+<p>
+What is the probability that the pile will survive a load of 100 tons?
+</p>
+</section>
+<section>
+<p>
+During the installation of the pile, a pile load test indicated that the pile can support at least a load of 75 tons. What is now the probability that the pile will survive a 100-ton load?
+</p>
+</section>
+<section>
+<p>
+If the pile has survived a recent hurricane during which the load transmitted to the pile is estimated to be 90 tons, what is the probability that the pile can carry a 100-ton load?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgd9bb8be">
+<h2 id="orgd9bb8be">Problem 3 (Random functions)</h2>
+<p>
+A contractor submits bids to three highway jobs and two building jobs. The probability of winning each job is 0.6. The profit from a highway job is normally distributed as \(N(100,1600)\) in thousand dollars, whereas that for a building job is \(N(80,400)\) in thousand dollars. Assume that winning each job is an independent event and the profits between jobs are also statistically independent event.
+</p>
+</section>
+<section>
+<p>
+What is the probability that the contractor will win at least two jobs?
+</p>
+</section>
+<section>
+<p>
+What is the probability that they will win exactly one highway job but none of the building jobs?
+</p>
+</section>
+<section>
+<p>
+Suppose that they won two highway jobs and one building job. What is the probability that the total profit will exceed $300,000?
+</p>
+</section>
+<section>
+<p>
+How would the previous answer change if the profit from the two highway jobs are correlated with a correlation coefficient of 0.8?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org1a34bac">
+<h2 id="org1a34bac">Problem 4 (Expectation/Bias)</h2>
+<p>
+Variance is given by \[\sigma^2=E[(x-\mu)^2]\]
+Prove that the sample variance estimate of \[s^2=\dfrac{1}{n} \sum (x - \overline{x})^2\] is a biased estimator of \(\sigma^2\). <i>Hint</i>: \((x-\overline{x})=(x-\mu-\overline{x}+\mu)\)
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org1831414">
+<h2 id="org1831414">Problem 5 (Regression)</h2>
+<p>
+The error incurred in a given type of measurement by a surveyor appears to b affected by the surveyor's years of experience. The following is the data observed for five surveyors:
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Surveyor</th>
+<th scope="col" class="org-right">Experience (years)</th>
+<th scope="col" class="org-right">Measurement Error (in.)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">3</td>
+<td class="org-right">1.5</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">5</td>
+<td class="org-right">0.8</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">10</td>
+<td class="org-right">1.0</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">20</td>
+<td class="org-right">0.8</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">25</td>
+<td class="org-right">0.5</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section>
+<p>
+For a surveyor with 15 years of experience, what is the probability that their measurement error will be less than 1 inch?
+</p>
+</section>
+<section>
+<p>
+For a 65-year-old surveyor who has 30 years of experience, can you estimate the probability that their measurement error will be less than 1 inch?
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/math/math.js"></script>
+<script src="./reveal.js/plugin/chalkboard/plugin.js"></script>
+<script src="./reveal.js/plugin/menu/menu.js"></script>
+<script src="./reveal.js/plugin/customcontrols/plugin.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1280,
+height: 720,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealHighlight, RevealZoom, RevealNotes, RevealMath, RevealChalkboard, RevealMenu, RevealCustomControls ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+,customcontrols: {controls: [ {id: 'toggle-overview', title: 'Toggle overview (O)', icon: '<i class="fa fa-th"></i>', action: 'Reveal.toggleOverview();'}, { icon: '<i class="fa fa-pen-square"></i>', title: 'Toggle chalkboard (B)', action: 'RevealChalkboard.toggleChalkboard();'}, { icon: '<i class="fa fa-pen"></i>', title: 'Toggle notes canvas (C)', action: 'RevealChalkboard.toggleNotesCanvas();'} ]},});
+</script>
+</body>
+</html>

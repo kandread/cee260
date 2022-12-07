@@ -48,3 +48,5 @@ Probability and Statistics in Civil Engineering
 [Lecture #22 - 1 Dec 2022](https://kandread.github.io/cee260/22_linear_regression.html)
 
 [Lecture #23 - 6 Dec 2022](https://kandread.github.io/cee260/23_linear_regression.html)
+
+[Lecture #24 - 8 Dec 2022](https://kandread.github.io/cee260/24_review_problems.html)
